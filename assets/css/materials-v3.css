@@ -1,0 +1,87 @@
+/* Fortress Materials V4 — naming/texture fidelity and final audit pass. */
+body[data-page="themes"] .materials-consistency-note{
+  margin:-22px 0 30px;
+  padding:16px 18px;
+  border:1px solid rgba(161,188,205,.12);
+  border-radius:16px;
+  background:linear-gradient(180deg,rgba(17,24,30,.72),rgba(8,12,16,.76));
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+body[data-page="themes"] .materials-consistency-note p{
+  margin:0;
+  color:#8f9aa2;
+  font-size:12px;
+  line-height:1.55;
+}
+
+/* Website background samples: make the visual identity match the displayed name. */
+body[data-page="themes"] .material-card[data-bg-choice="concrete"] .material-swatch::after{
+  background:
+    radial-gradient(circle,rgba(42,44,46,.34) 0 1.3px,transparent 1.7px) 0 0/13px 13px,
+    radial-gradient(circle,rgba(255,255,255,.22) 0 1px,transparent 1.25px) 6px 5px/17px 17px,
+    linear-gradient(145deg,#d3d2ce,#8d9293 55%,#62686a);
+}
+body[data-page="themes"] .material-card[data-bg-choice="carbon"] .material-swatch::after{
+  background:
+    repeating-linear-gradient(45deg,rgba(190,198,202,.16) 0 3px,rgba(16,20,23,.28) 3px 6px),
+    repeating-linear-gradient(-45deg,rgba(255,255,255,.08) 0 3px,transparent 3px 6px),
+    linear-gradient(145deg,#4b5359,#111518 68%);
+}
+body[data-page="themes"] .material-card[data-bg-choice="obsidian"] .material-swatch::after{
+  background:
+    radial-gradient(circle at 72% 17%,rgba(105,177,226,.27),transparent 22%),
+    linear-gradient(122deg,rgba(255,255,255,.19),transparent 24%),
+    radial-gradient(circle at 27% 77%,rgba(95,67,139,.16),transparent 27%),
+    linear-gradient(155deg,#030508,#121a21 54%,#020304);
+}
+body[data-page="themes"] .material-card[data-bg-choice="river-rock"] .material-swatch::after{
+  background:
+    radial-gradient(ellipse at 16% 24%,#c7cbc4 0 10%,#8b938d 11% 16%,transparent 17%),
+    radial-gradient(ellipse at 62% 70%,#7c8580 0 13%,#525b56 14% 20%,transparent 21%),
+    radial-gradient(ellipse at 80% 25%,#d6d8d1 0 8%,#a7aca6 9% 13%,transparent 14%),
+    radial-gradient(ellipse at 39% 44%,#666f6b 0 9%,#444c48 10% 14%,transparent 15%),
+    linear-gradient(145deg,#4b5350,#242927);
+}
+body[data-page="themes"] .material-card[data-bg-choice="forest"] .material-swatch::after{
+  background:
+    radial-gradient(circle at 72% 18%,rgba(130,190,111,.42),transparent 28%),
+    repeating-linear-gradient(12deg,rgba(186,208,176,.06) 0 2px,transparent 2px 10px),
+    linear-gradient(145deg,#64745f,#304c37 54%,#14241a);
+}
+
+/* Board theme names are intentionally calibrated separately from website backgrounds. */
+body[data-page="themes"] .board-material-card[data-board-choice="concrete"] .material-board-swatch i::before{
+  background:
+    radial-gradient(circle,rgba(40,40,40,.12) 0 1px,transparent 1.3px) 0 0/8px 8px,
+    linear-gradient(145deg,color-mix(in srgb,var(--swatch-tile) 84%,white 16%),color-mix(in srgb,var(--swatch-tile) 70%,black 30%))!important;
+}
+body[data-page="themes"] .board-material-card[data-board-choice="granite"] .material-board-swatch i::before{
+  background:
+    radial-gradient(circle,rgba(255,255,255,.22) 0 .9px,transparent 1.2px) 0 0/7px 7px,
+    radial-gradient(circle,rgba(0,0,0,.22) 0 .9px,transparent 1.1px) 3px 4px/9px 9px,
+    linear-gradient(145deg,color-mix(in srgb,var(--swatch-tile) 84%,white 16%),color-mix(in srgb,var(--swatch-tile) 66%,black 34%))!important;
+}
+body[data-page="themes"] .board-material-card[data-board-choice="marble"] .material-board-swatch i::before{
+  background:
+    linear-gradient(120deg,transparent 0 38%,rgba(89,93,97,.16) 40% 42%,transparent 44% 66%,rgba(122,127,132,.10) 68% 69%,transparent 71%),
+    linear-gradient(145deg,color-mix(in srgb,var(--swatch-tile) 90%,white 10%),color-mix(in srgb,var(--swatch-tile) 76%,black 24%))!important;
+}
+body[data-page="themes"] .board-material-card[data-board-choice="basalt"] .material-board-swatch i::before{
+  background:
+    radial-gradient(circle at 30% 25%,rgba(255,255,255,.08),transparent 18%),
+    linear-gradient(145deg,color-mix(in srgb,var(--swatch-tile) 86%,white 14%),color-mix(in srgb,var(--swatch-tile) 62%,black 38%))!important;
+}
+
+html[data-theme="light"] body[data-page="themes"] .materials-consistency-note{
+  background:rgba(255,255,255,.58);
+  border-color:rgba(44,49,52,.12);
+}
+html[data-theme="light"] body[data-page="themes"] .materials-consistency-note p{color:#586168}
+
+@media(max-width:760px){
+  body[data-page="themes"] .materials-consistency-note{align-items:flex-start;flex-direction:column;gap:7px;margin-top:-8px}
+  body[data-page="themes"] .material-card-copy strong{font-size:13px}
+  body[data-page="themes"] .material-card-copy small{font-size:10px}
+}

@@ -1,0 +1,208 @@
+/* Fortress Materials V1 — homepage visual system carried into the full 40-direction catalog. */
+:root{--m-bg:#070b0e;--m-panel:#0d1318;--m-panel2:#111820;--m-border:rgba(161,188,205,.15);--m-text:#f3f0e8;--m-muted:#9da8b0;--m-gold:#f0ad3e;--m-cyan:#55dce8}
+body.public-materials{margin:0;background:
+  radial-gradient(circle at 50% -10%,rgba(53,93,105,.10),transparent 28%),
+  repeating-linear-gradient(90deg,rgba(255,255,255,.012) 0 1px,transparent 1px 5px),
+  #070b0e;color:var(--m-text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body.public-materials::before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent 0 20%,rgba(70,145,165,.018) 50%,transparent 80%);z-index:-1}
+body.public-materials .app-shell,body.public-materials .mobile-topbar,body.public-materials .right-rail,body.public-materials .mobile-bottom-nav{display:none!important}
+.materials-header{position:sticky;top:0;z-index:100;background:rgba(6,10,13,.9);border-bottom:1px solid rgba(148,175,190,.12);backdrop-filter:blur(18px)}
+.materials-nav-wrap{height:64px;max-width:1440px;margin:auto;padding:0 24px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:18px}
+.materials-brand{display:inline-flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-size:16px;width:max-content}.materials-brand .brand-mark{width:24px;height:24px}.materials-nav{display:flex;justify-content:center;gap:28px}.materials-nav a{color:#aeb7bd;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.01em;position:relative}.materials-nav a:hover,.materials-nav a.active{color:#fff}.materials-nav a.active::after{content:"";position:absolute;left:25%;right:25%;bottom:-21px;height:2px;background:var(--m-gold);border-radius:4px}
+.materials-actions{display:flex;justify-content:flex-end;align-items:center;gap:8px}.materials-icon{width:36px;height:36px;border-radius:12px;border:1px solid var(--m-border);background:#10171d;color:#e4e8ea;display:grid;place-items:center;cursor:pointer}.materials-icon svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round}.materials-mobile-menu{display:none}.materials-main{max-width:1440px;margin:0 auto;padding:28px 24px 84px}
+.materials-kicker{display:block;color:var(--m-gold);font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.materials-hero{min-height:600px;border:1px solid var(--m-border);border-radius:28px;padding:46px;display:grid;grid-template-columns:.82fr 1.18fr;gap:40px;align-items:center;position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(5,8,11,.98),rgba(7,11,14,.90)),url('../img/scenes/themes-collection.webp') center/cover}.materials-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 72% 20%,rgba(224,153,60,.08),transparent 26%);pointer-events:none}.materials-hero>*{position:relative;z-index:1}.materials-hero-copy h1{font-size:clamp(50px,6vw,86px);line-height:.92;letter-spacing:-.055em;margin:16px 0 22px;max-width:680px}.materials-hero-copy h1 em{color:var(--m-gold);font-style:normal}.materials-hero-copy>p{color:#c1c8cd;max-width:620px;font-size:17px;line-height:1.7}.materials-hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}.materials-counts{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}.materials-counts span{padding:10px 12px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.025);border-radius:12px;color:#8f9ba3;font-size:12px}.materials-counts strong{color:#fff;margin-right:5px}
+.materials-live-panel{padding:16px;background:linear-gradient(145deg,#1a222a,#090d11);border:1px solid rgba(255,217,149,.15);border-radius:24px;box-shadow:0 28px 70px rgba(0,0,0,.45),inset 0 1px rgba(255,255,255,.04)}.materials-live-head,.materials-live-foot{display:flex;align-items:center;justify-content:space-between;gap:12px}.materials-live-head{padding:3px 8px 12px;color:#8f9aa2;font-size:10px;letter-spacing:.08em;font-weight:800}.materials-live-head b{color:var(--m-gold);font-weight:800}.materials-live-foot{padding:12px 8px 2px;color:#8f9aa2;font-size:10px;flex-wrap:wrap}.materials-live-foot span{display:flex;align-items:center;gap:7px}.dot{width:8px;height:8px;border-radius:50%;display:inline-block}.dot.legal{background:var(--m-cyan);box-shadow:0 0 12px rgba(85,220,232,.5)}.dot.selected{background:var(--m-gold)}
+.materials-stage{min-height:455px;border-radius:18px;position:relative;overflow:hidden;display:grid;place-items:center;background:radial-gradient(circle at 50% 45%,#0e1419,#04070a 68%);border:1px solid rgba(255,255,255,.06)}.materials-stage-frame{position:absolute;inset:14px;border:12px solid #28343e;clip-path:polygon(3% 0,97% 0,100% 7%,100% 93%,97% 100%,3% 100%,0 93%,0 7%);box-shadow:inset 0 0 0 3px #090c0f}.materials-stage .theme-live-board-full{transform:scale(.82)!important;transform-origin:center!important}
+.materials-jumpbar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0 70px;position:sticky;top:78px;z-index:20}.materials-jumpbar a{display:flex;align-items:center;gap:10px;padding:14px 16px;background:rgba(12,18,23,.94);border:1px solid var(--m-border);border-radius:14px;color:#d7dde1;text-decoration:none;font-size:13px;font-weight:800;backdrop-filter:blur(12px)}.materials-jumpbar span{color:#687883;font-size:10px}.materials-jumpbar b{margin-left:auto;color:var(--m-gold);font-size:12px}.materials-jumpbar a:hover{border-color:rgba(240,173,62,.45);transform:translateY(-1px)}
+.materials-philosophy{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;padding:0 0 72px}.materials-philosophy h2,.category-head h2,.pairing-board h2{font-size:clamp(34px,4vw,56px);letter-spacing:-.045em;line-height:1;margin:10px 0 16px}.materials-philosophy>div>p,.category-head p,.pairing-board p{color:var(--m-muted);font-size:15px;line-height:1.7;max-width:760px}.principle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.principle-grid article{padding:18px;border:1px solid var(--m-border);background:linear-gradient(180deg,#10161c,#0a0f13);border-radius:16px}.principle-grid b{color:var(--m-gold);font-size:11px}.principle-grid strong{display:block;font-size:16px;margin:18px 0 8px}.principle-grid span{color:#8f9aa2;font-size:12px;line-height:1.55}
+.material-category{scroll-margin-top:150px;margin:0 0 78px}.category-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:22px}.category-head h2{font-size:40px;margin-bottom:10px}.category-head p{margin:0}.category-badge{padding:8px 11px;border-radius:999px;background:rgba(240,173,62,.07);border:1px solid rgba(240,173,62,.22);color:#e4b66a;font-size:11px;font-weight:800;white-space:nowrap}.material-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}.material-card{appearance:none;text-align:left;padding:0;border:1px solid var(--m-border);background:linear-gradient(180deg,#11181e,#0a0f13);border-radius:16px;overflow:hidden;color:#fff;cursor:pointer;transition:.2s ease;min-width:0}.material-card:hover{transform:translateY(-4px);border-color:rgba(240,173,62,.42);box-shadow:0 18px 34px rgba(0,0,0,.25)}.material-card.selected-theme{border-color:rgba(85,220,232,.62);box-shadow:0 0 0 1px rgba(85,220,232,.14),0 16px 34px rgba(0,0,0,.25)}.material-swatch{height:126px}.material-card-copy{min-height:82px;padding:13px 14px;display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.material-card-copy>div{min-width:0}.material-card-copy strong{display:block;font-size:14px;line-height:1.25}.material-card-copy small{display:block;color:#7f8c94;font-size:10px;line-height:1.45;margin-top:5px}.material-action{color:#9da8b0;font-size:10px;white-space:nowrap;padding-top:2px}.selected-theme .material-action{color:var(--m-cyan)}
+.material-board-swatch{height:126px;position:relative}.material-board-swatch .swatch-legal,.material-board-swatch .swatch-selected{position:absolute;width:11px;height:11px;border-radius:50%;pointer-events:none;z-index:3}.material-board-swatch .swatch-legal{left:51%;top:48%;background:var(--m-cyan);box-shadow:0 0 0 5px rgba(85,220,232,.12),0 0 14px rgba(85,220,232,.35)}.material-board-swatch .swatch-selected{left:40%;top:62%;background:var(--m-gold);box-shadow:0 0 0 4px rgba(240,173,62,.12)}
+.pairing-section{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;padding:26px;border:1px solid rgba(240,173,62,.2);border-radius:24px;background:linear-gradient(145deg,#12191f,#080c10);margin-top:22px}.pairing-board h2{font-size:44px}.pairing-board h2 i{color:var(--m-gold);font-style:normal}.pairing-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.pairing-proof{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center}.pairing-surface{height:190px;border-radius:18px;border:1px solid var(--m-border);padding:20px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;position:relative}.pairing-surface::before{content:"";position:absolute;inset:0}.pairing-surface.dark::before{background:repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 1px,transparent 1px 4px),linear-gradient(145deg,#0c1014,#333b43,#090c10)}.pairing-surface.board::before{background:linear-gradient(30deg,#20272d 12%,transparent 12.5%,transparent 87%,#20272d 87.5%) 0 0/42px 72px,linear-gradient(150deg,#20272d 12%,transparent 12.5%,transparent 87%,#20272d 87.5%) 0 0/42px 72px,linear-gradient(30deg,#303942 12%,transparent 12.5%,transparent 87%,#303942 87.5%) 21px 36px/42px 72px,#0e1317}.pairing-surface>*{position:relative;z-index:1}.pairing-surface span{font-size:10px;color:#9da8b0;text-transform:uppercase;letter-spacing:.1em}.pairing-surface strong{font-size:20px;margin-top:4px}.pairing-plus{font-size:28px;color:var(--m-gold);font-weight:900}
+.materials-footer{max-width:1440px;margin:0 auto 28px;padding:22px 24px;border-top:1px solid rgba(255,255,255,.07);display:grid;grid-template-columns:1fr auto 1fr;align-items:center}.materials-footer nav{display:flex;gap:22px}.materials-footer nav a{font-size:11px;color:#8e9aa2;text-decoration:none}.materials-footer small{text-align:right;color:#59656c;font-size:10px}
+html[data-theme="light"] body.public-materials{--m-bg:#f2eee6;--m-panel:#f8f5ef;--m-panel2:#eee8de;--m-border:rgba(44,49,52,.14);--m-text:#171a1c;--m-muted:#5e676d;background:#f2eee6;color:#171a1c}html[data-theme="light"] .materials-header{background:rgba(244,240,232,.92)}html[data-theme="light"] .materials-nav a{color:#5f676c}html[data-theme="light"] .materials-nav a.active{color:#111}html[data-theme="light"] .materials-hero{background:linear-gradient(90deg,rgba(248,244,236,.98),rgba(242,237,228,.92)),url('../img/scenes/themes-collection.webp') center/cover}html[data-theme="light"] .materials-hero-copy>p,html[data-theme="light"] .materials-philosophy>div>p,html[data-theme="light"] .category-head p,html[data-theme="light"] .pairing-board p{color:#566169}html[data-theme="light"] .materials-counts span,html[data-theme="light"] .material-card,html[data-theme="light"] .principle-grid article,html[data-theme="light"] .materials-jumpbar a{background:rgba(255,255,255,.72);color:#1a1d20}html[data-theme="light"] .materials-live-panel{background:linear-gradient(145deg,#e9e3d9,#cfc7bb)}html[data-theme="light"] .materials-stage{background:radial-gradient(circle at 50% 45%,#ddd7cc,#c5bcae)}html[data-theme="light"] .materials-stage-frame{border-color:#8e887e;box-shadow:inset 0 0 0 3px #d9d3c8}html[data-theme="light"] .material-card-copy strong{color:#1b1e20}html[data-theme="light"] .pairing-section{background:linear-gradient(145deg,#fbf8f2,#eae4da)}
+@media (max-width:1180px){.materials-main{padding-inline:18px}.materials-hero{grid-template-columns:1fr;padding:34px}.materials-live-panel{max-width:880px;width:100%;justify-self:center}.materials-jumpbar{grid-template-columns:repeat(2,1fr)}.material-grid{grid-template-columns:repeat(3,1fr)}.materials-philosophy{grid-template-columns:1fr}.pairing-section{grid-template-columns:1fr}.materials-stage{min-height:420px}.materials-stage .theme-live-board-full{transform:scale(.76)!important}}
+@media (max-width:800px){.materials-nav-wrap{display:flex;justify-content:space-between;height:58px;padding:0 16px}.materials-nav,.materials-actions{display:none}.materials-mobile-menu{display:block;position:relative}.materials-mobile-menu summary{list-style:none;width:38px;height:38px;border:1px solid var(--m-border);border-radius:11px;display:grid;place-items:center;cursor:pointer}.materials-mobile-menu>div{position:absolute;right:0;top:46px;width:220px;background:#0c1217;border:1px solid var(--m-border);border-radius:14px;padding:8px;box-shadow:0 20px 40px rgba(0,0,0,.3)}.materials-mobile-menu a{display:block;padding:11px 12px;color:#d7dde1;text-decoration:none}.materials-main{padding:18px 12px 60px}.materials-hero{padding:24px;border-radius:20px;min-height:0}.materials-hero-copy h1{font-size:48px}.materials-hero-copy>p{font-size:15px}.materials-stage{min-height:360px}.materials-stage .theme-live-board-full{transform:scale(.64)!important}.materials-live-head b{display:none}.materials-jumpbar{position:static;grid-template-columns:1fr 1fr;margin-bottom:48px}.materials-philosophy{padding-bottom:50px}.principle-grid{grid-template-columns:1fr}.category-head{align-items:flex-start;flex-direction:column}.material-grid{grid-template-columns:repeat(2,1fr)}.pairing-proof{grid-template-columns:1fr}.pairing-plus{text-align:center}.materials-footer{grid-template-columns:1fr;gap:18px}.materials-footer nav{justify-content:flex-start}.materials-footer small{text-align:left}}
+@media (max-width:520px){.materials-hero-copy h1{font-size:42px}.materials-live-panel{padding:9px;border-radius:17px}.materials-stage{min-height:300px}.materials-stage-frame{inset:8px;border-width:7px}.materials-stage .theme-live-board-full{transform:scale(.52)!important}.materials-live-foot{font-size:9px}.materials-jumpbar{grid-template-columns:1fr}.material-grid{grid-template-columns:1fr}.material-swatch,.material-board-swatch{height:150px}.materials-philosophy h2,.category-head h2,.pairing-board h2{font-size:34px}.materials-counts{display:grid;grid-template-columns:1fr 1fr}.pairing-surface{height:160px}.pairing-actions .btn{width:100%;justify-content:center}}
+
+/* ================================================================
+   Materials V2 — physical hex material samples
+   Website background previews now read as real, distinct materials
+   instead of near-black rectangular placeholders.
+   ================================================================ */
+body[data-page="themes"] .material-card[data-bg-choice]{
+  min-height:248px;
+  overflow:visible;
+  padding:16px 14px 14px;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  background:linear-gradient(180deg,#11181e 0%,#0a0f13 100%);
+}
+body[data-page="themes"] .material-card[data-bg-choice] .material-swatch{
+  width:min(156px,80%);
+  aspect-ratio:1/1;
+  height:auto;
+  margin:4px auto 14px;
+  position:relative;
+  isolation:isolate;
+  clip-path:polygon(25% 4%,75% 4%,98% 50%,75% 96%,25% 96%,2% 50%);
+  background:#111820;
+  filter:drop-shadow(0 10px 13px rgba(0,0,0,.38));
+}
+body[data-page="themes"] .material-card[data-bg-choice] .material-swatch::before,
+body[data-page="themes"] .material-card[data-bg-choice] .material-swatch::after{
+  content:"";
+  position:absolute;
+  pointer-events:none;
+}
+body[data-page="themes"] .material-card[data-bg-choice] .material-swatch::before{
+  inset:0;
+  z-index:0;
+  background:linear-gradient(145deg,#2d363e,#0b1015);
+}
+body[data-page="themes"] .material-card[data-bg-choice] .material-swatch::after{
+  inset:7px;
+  z-index:1;
+  clip-path:inherit;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 -1px 0 rgba(0,0,0,.42);
+}
+body[data-page="themes"] .material-card[data-bg-choice] .material-card-copy{
+  width:100%;
+  min-height:74px;
+  padding:0;
+  border-top:1px solid rgba(255,255,255,.055);
+  padding-top:11px;
+}
+body[data-page="themes"] .material-card[data-bg-choice] .material-card-copy strong{font-size:14px}
+body[data-page="themes"] .material-card[data-bg-choice] .material-card-copy small{font-size:10.5px;color:#86939b}
+
+/* engineered / texture website backgrounds */
+body[data-page="themes"] .material-card[data-bg-choice="gunmetal"] .material-swatch::after{
+  background:linear-gradient(118deg,transparent 0 16%,rgba(255,255,255,.17) 22%,transparent 32%),repeating-linear-gradient(90deg,rgba(255,255,255,.08) 0 1px,transparent 1px 4px),linear-gradient(145deg,#c4ccd1 0%,#6f7a83 36%,#26313a 68%,#0d1217 100%);
+}
+body[data-page="themes"] .material-card[data-bg-choice="slate"] .material-swatch::after{
+  background:linear-gradient(126deg,rgba(255,255,255,.11),transparent 30%),repeating-linear-gradient(16deg,rgba(255,255,255,.055) 0 2px,transparent 2px 10px),linear-gradient(145deg,#59636b,#242b31 48%,#0c1014);
+}
+body[data-page="themes"] .material-card[data-bg-choice="concrete"] .material-swatch::after{
+  background:radial-gradient(circle,rgba(40,43,45,.34) 0 1.5px,transparent 1.8px) 0 0/14px 14px,radial-gradient(circle,rgba(255,255,255,.18) 0 1px,transparent 1.3px) 6px 5px/17px 17px,linear-gradient(145deg,#d8d7d2,#8f9495 55%,#5d6467);
+}
+body[data-page="themes"] .material-card[data-bg-choice="iron"] .material-swatch::after{
+  background:linear-gradient(115deg,rgba(255,255,255,.2),transparent 22%),repeating-linear-gradient(0deg,rgba(255,255,255,.055) 0 1px,transparent 1px 4px),linear-gradient(90deg,#161a1e,#8a949c 48%,#22292f 72%,#0d1115);
+}
+body[data-page="themes"] .material-card[data-bg-choice="carbon"] .material-swatch::after{
+  background:linear-gradient(45deg,rgba(255,255,255,.13) 25%,transparent 25% 75%,rgba(255,255,255,.13) 75%) 0 0/13px 13px,linear-gradient(-45deg,rgba(0,0,0,.36) 25%,transparent 25% 75%,rgba(0,0,0,.36) 75%) 6px 6px/13px 13px,linear-gradient(145deg,#535b61,#101418);
+}
+body[data-page="themes"] .material-card[data-bg-choice="obsidian"] .material-swatch::after{
+  background:radial-gradient(circle at 75% 18%,rgba(128,199,255,.28),transparent 24%),radial-gradient(circle at 24% 72%,rgba(255,255,255,.07),transparent 22%),linear-gradient(126deg,rgba(255,255,255,.23),transparent 24%),linear-gradient(155deg,#05070a,#151e27 54%,#020305);
+}
+body[data-page="themes"] .material-card[data-bg-choice="bronze"] .material-swatch::after{
+  background:radial-gradient(circle at 23% 34%,rgba(72,150,122,.42),transparent 27%),radial-gradient(circle at 75% 66%,rgba(39,95,78,.24),transparent 25%),linear-gradient(125deg,rgba(255,222,175,.24),transparent 28%),linear-gradient(145deg,#b77b50,#65442f 55%,#2c1d17);
+}
+body[data-page="themes"] .material-card[data-bg-choice="alloy"] .material-swatch::after{
+  background:linear-gradient(118deg,rgba(255,255,255,.28),transparent 20%),repeating-linear-gradient(90deg,rgba(255,255,255,.055) 0 1px,transparent 1px 3px),linear-gradient(145deg,#c6d1d8,#727f89 40%,#35414a 68%,#12181e);
+}
+body[data-page="themes"] .material-card[data-bg-choice="etched"] .material-swatch::after{
+  background:repeating-radial-gradient(circle at 20% 20%,rgba(255,255,255,.10) 0 1px,transparent 1px 7px),linear-gradient(132deg,rgba(106,222,231,.10),transparent 32%),linear-gradient(145deg,#616b73,#222a31 60%,#0d1217);
+}
+body[data-page="themes"] .material-card[data-bg-choice="dark-steel"] .material-swatch::after{
+  background:linear-gradient(120deg,rgba(255,255,255,.24),transparent 23%),linear-gradient(90deg,#0a0d10,#6e7880 48%,#1e252b 72%,#080a0d);
+}
+
+/* natural / organic website backgrounds */
+body[data-page="themes"] .material-card[data-bg-choice="walnut"] .material-swatch::after{
+  background:linear-gradient(120deg,rgba(255,224,184,.16),transparent 24%),repeating-linear-gradient(7deg,#6c452b 0 8px,#2b1b12 8px 14px,#8a5a36 14px 20px,#422919 20px 25px);
+}
+body[data-page="themes"] .material-card[data-bg-choice="oak"] .material-swatch::after{
+  background:linear-gradient(120deg,rgba(255,236,207,.15),transparent 24%),repeating-linear-gradient(10deg,#9b704b 0 7px,#4a3324 7px 13px,#b98255 13px 18px,#6e4a31 18px 24px);
+}
+body[data-page="themes"] .material-card[data-bg-choice="basalt"] .material-swatch::after{
+  background:radial-gradient(circle at 28% 24%,rgba(255,255,255,.15),transparent 17%),radial-gradient(circle at 67% 70%,rgba(0,0,0,.26),transparent 22%),linear-gradient(145deg,#697173,#313638 48%,#171b1d);
+}
+body[data-page="themes"] .material-card[data-bg-choice="sandstone"] .material-swatch::after{
+  background:radial-gradient(circle,rgba(82,58,34,.26) 0 1px,transparent 1.5px) 0 0/8px 8px,linear-gradient(145deg,#e1c79f,#b28a5e 56%,#79573a);
+}
+body[data-page="themes"] .material-card[data-bg-choice="earth"] .material-swatch::after{
+  background:radial-gradient(circle at 30% 20%,#a37950,transparent 31%),radial-gradient(circle at 73% 75%,#4f321f,transparent 30%),linear-gradient(145deg,#775034,#2c1d16);
+}
+body[data-page="themes"] .material-card[data-bg-choice="river-rock"] .material-swatch::after{
+  background:radial-gradient(ellipse at 20% 25%,#a7afaa 0 13%,transparent 14%),radial-gradient(ellipse at 65% 70%,#656e68 0 16%,transparent 17%),radial-gradient(ellipse at 75% 22%,#d0d2cc 0 10%,transparent 11%),linear-gradient(145deg,#4b5350,#252a28);
+}
+body[data-page="themes"] .material-card[data-bg-choice="granite"] .material-swatch::after{
+  background:radial-gradient(circle,#eeeeea 0 1px,transparent 1.3px) 0 0/11px 11px,radial-gradient(circle,#55575b 0 1px,transparent 1.2px) 4px 5px/13px 13px,linear-gradient(145deg,#b4b5b7,#68696c 54%,#3e4043);
+}
+body[data-page="themes"] .material-card[data-bg-choice="forest"] .material-swatch::after{
+  background:radial-gradient(circle at 70% 18%,rgba(117,194,113,.68),transparent 31%),radial-gradient(circle at 22% 76%,rgba(13,66,31,.48),transparent 26%),linear-gradient(145deg,#507b49,#1f3f29 52%,#0d1d12);
+}
+body[data-page="themes"] .material-card[data-bg-choice="clay"] .material-swatch::after{
+  background:linear-gradient(120deg,rgba(255,226,196,.17),transparent 22%),repeating-linear-gradient(14deg,rgba(90,39,27,.18) 0 2px,transparent 2px 11px),linear-gradient(145deg,#d98b6e,#9a5544 54%,#5b3028);
+}
+body[data-page="themes"] .material-card[data-bg-choice="limestone"] .material-swatch::after{
+  background:radial-gradient(circle,rgba(108,97,73,.20) 0 1px,transparent 1.5px) 0 0/10px 10px,linear-gradient(145deg,#fff7de,#d8cfb5 56%,#9f9680);
+}
+
+/* lighter outer rim for all hex samples */
+body[data-page="themes"] .material-card[data-bg-choice] .material-swatch::before{
+  background:linear-gradient(145deg,#9aa6ad 0%,#39434b 28%,#13191e 78%);
+}
+body[data-page="themes"] .material-card[data-bg-choice="walnut"] .material-swatch::before,
+body[data-page="themes"] .material-card[data-bg-choice="oak"] .material-swatch::before,
+body[data-page="themes"] .material-card[data-bg-choice="sandstone"] .material-swatch::before,
+body[data-page="themes"] .material-card[data-bg-choice="earth"] .material-swatch::before,
+body[data-page="themes"] .material-card[data-bg-choice="clay"] .material-swatch::before,
+body[data-page="themes"] .material-card[data-bg-choice="limestone"] .material-swatch::before{
+  background:linear-gradient(145deg,#e2c394,#75563b 42%,#261b14 82%);
+}
+
+/* reference-style numbering without making the page look like a catalogue screenshot */
+#website-textures .material-card[data-bg-choice],#website-natural .material-card[data-bg-choice]{counter-increment:material-item}
+#website-textures .material-grid,#website-natural .material-grid{counter-reset:material-item}
+#website-textures .material-card[data-bg-choice] .material-swatch,#website-natural .material-card[data-bg-choice] .material-swatch{overflow:visible}
+#website-textures .material-card[data-bg-choice] .material-swatch span,#website-natural .material-card[data-bg-choice] .material-swatch span{display:none}
+
+html[data-theme="light"] body[data-page="themes"] .material-card[data-bg-choice]{background:linear-gradient(180deg,#fffdf8,#ece6dc)}
+html[data-theme="light"] body[data-page="themes"] .material-card[data-bg-choice] .material-card-copy{border-top-color:rgba(25,30,33,.10)}
+
+@media(max-width:1180px){body[data-page="themes"] .material-card[data-bg-choice] .material-swatch{width:min(166px,82%)}}
+@media(max-width:800px){body[data-page="themes"] .material-card[data-bg-choice]{min-height:236px}body[data-page="themes"] .material-card[data-bg-choice] .material-swatch{width:min(150px,74%)}}
+@media(max-width:520px){body[data-page="themes"] .material-card[data-bg-choice]{min-height:0}body[data-page="themes"] .material-card[data-bg-choice] .material-swatch{width:154px;max-width:72vw;margin-block:8px 16px}}
+
+/* V3 color/material correction — keep the hex sample style but render the material
+   directly on the hex so the catalog never collapses to near-black placeholders. */
+body[data-page="themes"] .material-card[data-bg-choice] .material-swatch{
+  border:0!important;
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.16),inset 0 0 0 8px rgba(5,8,10,.28),0 12px 24px rgba(0,0,0,.34)!important;
+  filter:none!important;
+}
+body[data-page="themes"] .material-card[data-bg-choice] .material-swatch::before{
+  inset:0!important;
+  background:linear-gradient(140deg,rgba(255,255,255,.24),transparent 20%,transparent 76%,rgba(0,0,0,.3))!important;
+  z-index:2!important;
+}
+body[data-page="themes"] .material-card[data-bg-choice] .material-swatch::after{display:none!important}
+
+/* Engineered / texture website backgrounds */
+body[data-page="themes"] .material-card[data-bg-choice="gunmetal"] .material-swatch{background:repeating-linear-gradient(90deg,rgba(255,255,255,.13) 0 1px,transparent 1px 4px),linear-gradient(145deg,#aab4bb 0%,#606b74 36%,#2b353e 70%,#11171c 100%)!important}
+body[data-page="themes"] .material-card[data-bg-choice="slate"] .material-swatch{background:repeating-linear-gradient(17deg,rgba(255,255,255,.08) 0 2px,transparent 2px 10px),linear-gradient(145deg,#626b70,#3b4247 48%,#171c20)!important}
+body[data-page="themes"] .material-card[data-bg-choice="concrete"] .material-swatch{background:radial-gradient(circle,rgba(50,52,53,.42) 0 1.3px,transparent 1.6px) 0 0/13px 13px,radial-gradient(circle,rgba(255,255,255,.26) 0 1px,transparent 1.25px) 5px 4px/16px 16px,linear-gradient(145deg,#d8d8d4,#a0a5a7 55%,#70777a)!important}
+body[data-page="themes"] .material-card[data-bg-choice="iron"] .material-swatch{background:repeating-linear-gradient(0deg,rgba(255,255,255,.07) 0 1px,transparent 1px 4px),linear-gradient(90deg,#24292d,#9aa3aa 45%,#444c52 68%,#171c20)!important}
+body[data-page="themes"] .material-card[data-bg-choice="carbon"] .material-swatch{background:linear-gradient(45deg,rgba(255,255,255,.18) 25%,transparent 25% 75%,rgba(255,255,255,.18) 75%) 0 0/13px 13px,linear-gradient(-45deg,rgba(0,0,0,.42) 25%,transparent 25% 75%,rgba(0,0,0,.42) 75%) 6px 6px/13px 13px,linear-gradient(145deg,#666e73,#20262b)!important}
+body[data-page="themes"] .material-card[data-bg-choice="obsidian"] .material-swatch{background:radial-gradient(circle at 72% 20%,rgba(97,180,255,.32),transparent 25%),radial-gradient(circle at 28% 76%,rgba(107,58,160,.16),transparent 30%),linear-gradient(145deg,#24303d,#0c1117 56%,#030506)!important}
+body[data-page="themes"] .material-card[data-bg-choice="bronze"] .material-swatch{background:radial-gradient(circle at 24% 36%,rgba(65,143,112,.46),transparent 27%),linear-gradient(145deg,#c48a5a,#8c5f3f 48%,#4f3426)!important}
+body[data-page="themes"] .material-card[data-bg-choice="alloy"] .material-swatch{background:repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 1px,transparent 1px 3px),linear-gradient(145deg,#d0dae0,#8b98a2 42%,#4f5c65 70%,#1b232a)!important}
+body[data-page="themes"] .material-card[data-bg-choice="etched"] .material-swatch{background:radial-gradient(circle,rgba(255,255,255,.16) 0 1px,transparent 1.25px) 0 0/9px 9px,linear-gradient(145deg,#7a858d,#454f57 55%,#20272d)!important}
+body[data-page="themes"] .material-card[data-bg-choice="dark-steel"] .material-swatch{background:linear-gradient(90deg,#11161a,#7a858c 48%,#313a40 72%,#101417)!important}
+
+/* Natural / organic website backgrounds */
+body[data-page="themes"] .material-card[data-bg-choice="walnut"] .material-swatch{background:repeating-linear-gradient(7deg,#8a5b38 0 8px,#3f291b 8px 14px,#a66f43 14px 20px,#593820 20px 26px)!important}
+body[data-page="themes"] .material-card[data-bg-choice="oak"] .material-swatch{background:repeating-linear-gradient(10deg,#ba8d61 0 7px,#6c4b35 7px 13px,#d09b69 13px 18px,#8b603f 18px 24px)!important}
+body[data-page="themes"] .material-card[data-bg-choice="basalt"] .material-swatch{background:radial-gradient(circle at 25% 22%,rgba(255,255,255,.18),transparent 17%),radial-gradient(circle at 68% 70%,rgba(0,0,0,.32),transparent 24%),linear-gradient(145deg,#7c8587,#4c5355 50%,#272c2f)!important}
+body[data-page="themes"] .material-card[data-bg-choice="sandstone"] .material-swatch{background:radial-gradient(circle,rgba(95,67,37,.22) 0 1px,transparent 1.4px) 0 0/8px 8px,linear-gradient(145deg,#e7c99b,#c29a68 55%,#8e6847)!important}
+body[data-page="themes"] .material-card[data-bg-choice="earth"] .material-swatch{background:radial-gradient(circle at 30% 22%,#b98759,transparent 31%),radial-gradient(circle at 72% 76%,#60402a,transparent 30%),linear-gradient(145deg,#906243,#3d281d)!important}
+body[data-page="themes"] .material-card[data-bg-choice="river-rock"] .material-swatch{background:radial-gradient(ellipse at 20% 25%,#c3c8c2 0 13%,transparent 14%),radial-gradient(ellipse at 66% 70%,#7c8580 0 16%,transparent 17%),radial-gradient(ellipse at 76% 22%,#e2e3dc 0 10%,transparent 11%),linear-gradient(145deg,#626b67,#363c39)!important}
+body[data-page="themes"] .material-card[data-bg-choice="granite"] .material-swatch{background:radial-gradient(circle,#f4f4ef 0 1px,transparent 1.3px) 0 0/11px 11px,radial-gradient(circle,#616368 0 1px,transparent 1.2px) 4px 5px/13px 13px,linear-gradient(145deg,#d0d1d2,#8a8b8e 54%,#55575a)!important}
+body[data-page="themes"] .material-card[data-bg-choice="forest"] .material-swatch{background:radial-gradient(circle at 70% 18%,rgba(140,214,125,.72),transparent 31%),radial-gradient(circle at 22% 76%,rgba(20,88,41,.55),transparent 26%),linear-gradient(145deg,#6c965e,#315237 52%,#17271b)!important}
+body[data-page="themes"] .material-card[data-bg-choice="clay"] .material-swatch{background:repeating-linear-gradient(14deg,rgba(90,39,27,.18) 0 2px,transparent 2px 11px),linear-gradient(145deg,#e39879,#b96652 54%,#754336)!important}
+body[data-page="themes"] .material-card[data-bg-choice="limestone"] .material-swatch{background:radial-gradient(circle,rgba(108,97,73,.20) 0 1px,transparent 1.5px) 0 0/10px 10px,linear-gradient(145deg,#fff6da,#e4d9bc 56%,#b4a88c)!important}
+
+/* Light-mode cards keep the same material sample; only the surrounding card changes. */
+html[data-theme="light"] body[data-page="themes"] .material-card[data-bg-choice] .material-swatch{box-shadow:inset 0 0 0 2px rgba(25,30,33,.18),inset 0 0 0 8px rgba(255,255,255,.25),0 10px 22px rgba(49,54,57,.14)!important}

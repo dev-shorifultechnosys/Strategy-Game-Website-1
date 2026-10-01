@@ -1,0 +1,35 @@
+
+/* Fortress V3.4 — Home + Materials visual lock
+   Play can change its surface without dimming the two already-approved pages. */
+
+body[data-page="home"]::after,
+body[data-page="themes"]::after{
+  opacity:.07!important;
+  filter:saturate(.78) contrast(1.03) brightness(.96)!important;
+}
+
+/* Keep the atmospheric material beneath the content rather than over it. */
+body[data-page="home"]::before,
+body[data-page="home"]::after,
+body[data-page="themes"]::before,
+body[data-page="themes"]::after{
+  pointer-events:none!important;
+}
+
+/* The locked pages must never inherit a visual-dimming treatment from Play. */
+body[data-page="home"] .site-header,
+body[data-page="home"] main,
+body[data-page="home"] footer,
+body[data-page="themes"] .site-header,
+body[data-page="themes"] main,
+body[data-page="themes"] footer{
+  opacity:1!important;
+  filter:none!important;
+}
+
+/* Preserve the approved visual contrast in both modes. */
+html[data-theme="light"] body[data-page="home"]::after,
+html[data-theme="light"] body[data-page="themes"]::after{
+  opacity:.045!important;
+  filter:saturate(.72) contrast(.98) brightness(1.08)!important;
+}

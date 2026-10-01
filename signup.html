@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Create Account — Fortress</title>
+  <link rel="stylesheet" href="assets/css/styles.css?v=submission4">
+  <link rel="stylesheet" href="assets/css/auth-v1.css?v=auth100">
+  <link rel="stylesheet" href="assets/css/light-mode-contrast-v1.css?v=lightfix100">
+</head>
+<body data-page="signup" data-bg="gunmetal">
+<div class="app-shell">
+  <div data-shell></div>
+  <header class="mobile-topbar" data-mobile-top></header>
+
+  <main class="main full">
+    <div class="auth-shell-v3">
+      <section class="auth-scene auth-scene-signup" aria-label="Fortress account benefits">
+        <div class="auth-scene-pattern" aria-hidden="true"></div>
+        <div class="auth-scene-copy">
+          <div class="eyebrow">Join the ladder</div>
+          <h2>Build position.<br>Climb the<br>ladder.</h2>
+          <p>Create a profile to save ratings, match history and visual preferences across devices.</p>
+          <div class="auth-benefits" aria-label="Account benefits">
+            <span>Save progress</span>
+            <span>Keep themes</span>
+            <span>Track match history</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="auth-form-wrap">
+        <form class="auth-card-v3 form-grid" data-auth-form="signup" novalidate>
+          <div class="auth-title">
+            <div class="eyebrow">Create profile</div>
+            <h1>Create account</h1>
+            <p class="muted">Create your Fortress account and keep your competitive progress in one place.</p>
+          </div>
+
+          <div class="auth-value-note">
+            <span class="auth-value-dot"></span>
+            Save progress, themes and match history across devices.
+          </div>
+
+          <div class="auth-field">
+            <label for="name">Display name</label>
+            <input class="input" id="name" name="name" autocomplete="nickname"
+              placeholder="Fortress player" minlength="2" maxlength="28" required>
+            <small class="field-error" data-error-for="name"></small>
+          </div>
+
+          <div class="auth-field">
+            <label for="signupEmail">Email</label>
+            <input class="input" id="signupEmail" name="email" type="email" autocomplete="email"
+              placeholder="you@example.com" required>
+            <small class="field-error" data-error-for="signupEmail"></small>
+          </div>
+
+          <div class="auth-field">
+            <label for="signupPassword">Password</label>
+            <div class="password-wrap">
+              <input class="input" id="signupPassword" name="password" type="password"
+                autocomplete="new-password" placeholder="8+ characters" minlength="8" required>
+              <button class="password-toggle" type="button" aria-label="Show password" data-password-toggle="signupPassword">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.4-5 9.5-5 9.5 5 9.5 5-3.4 5-9.5 5-9.5-5-9.5-5Z"/><circle cx="12" cy="12" r="2.5"/></svg>
+              </button>
+            </div>
+            <div class="password-strength" data-password-strength>
+              <span class="strength-bar"><i></i></span>
+              <span class="strength-text">Use 8+ characters with a number.</span>
+            </div>
+            <small class="field-error" data-error-for="signupPassword"></small>
+          </div>
+
+          <div class="auth-field">
+            <label for="confirmPassword">Confirm password</label>
+            <div class="password-wrap">
+              <input class="input" id="confirmPassword" name="confirmPassword" type="password"
+                autocomplete="new-password" placeholder="Repeat your password" minlength="8" required>
+              <button class="password-toggle" type="button" aria-label="Show password" data-password-toggle="confirmPassword">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.4-5 9.5-5 9.5 5 9.5 5-3.4 5-9.5 5-9.5-5-9.5-5Z"/><circle cx="12" cy="12" r="2.5"/></svg>
+              </button>
+            </div>
+            <small class="field-error" data-error-for="confirmPassword"></small>
+          </div>
+
+          <label class="auth-consent">
+            <input type="checkbox" name="terms" required>
+            <span class="consent-box">✓</span>
+            <span>I agree to the <a href="rules.html">game rules</a> and account terms.</span>
+          </label>
+          <small class="field-error consent-error" data-error-for="terms"></small>
+
+          <button class="btn btn-primary auth-submit" type="submit">
+            <span>Create account</span><b aria-hidden="true">→</b>
+          </button>
+
+          <div class="auth-alt">
+            <span>Already registered?</span>
+            <a href="login.html">Login</a>
+          </div>
+
+          <div class="auth-form-status" data-auth-status aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <nav class="mobile-bottom-nav" data-mobile-bottom></nav>
+</div>
+
+<script src="assets/js/app.js?v=submission4"></script>
+<script src="assets/js/pages.js?v=submission4"></script>
+<script src="assets/js/auth-v1.js?v=auth100"></script>
+</body>
+</html>

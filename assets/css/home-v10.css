@@ -1,0 +1,137 @@
+/* Fortress Home V10 — final contest polish: centered navigation, hero rhythm,
+   centered tactical markers, clearer content and responsive refinements. */
+
+/* NAVIGATION -------------------------------------------------------
+   Keep the primary navigation visually centered in the viewport while the
+   brand and account actions remain anchored to the edges. */
+.public-nav-wrap{
+  position:relative!important;
+  grid-template-columns:auto 1fr auto!important;
+}
+.public-nav{
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  transform:translate(-50%,-50%)!important;
+  justify-content:center!important;
+  gap:30px!important;
+  white-space:nowrap!important;
+}
+.public-nav a{
+  font-size:13.5px!important;
+  line-height:1!important;
+  padding:10px 0!important;
+}
+.public-actions{justify-self:end!important}
+
+/* HERO ------------------------------------------------------------- */
+.home30-hero-copy h1{
+  line-height:1!important;
+  margin:16px 0 25px!important;
+  letter-spacing:-.06em!important;
+}
+.home30-hero-copy h1 .hero-line{
+  display:block!important;
+}
+.home30-hero-copy h1 .hero-line-gold{
+  color:#efb050!important;
+  margin-top:.10em!important;
+}
+.home30-board-wrap .home-board-preview{
+  padding:30px 20px 29px!important;
+}
+.home30-board-wrap .home-board-preview .hex.legal::after{
+  position:absolute!important;
+  content:""!important;
+  left:50%!important;
+  top:50%!important;
+  right:auto!important;
+  bottom:auto!important;
+  transform:translate(-50%,-50%)!important;
+  margin:0!important;
+}
+.home30-board-wrap .home-board-preview .hex.selected::after{display:none!important}
+
+/* Small labels and explanatory copy: still restrained, but readable in a
+   full-page contest screenshot. */
+.home30-section-head>p{
+  color:#b6bdc2!important;
+  font-size:14px!important;
+  line-height:1.62!important;
+}
+.home30-piece-grid p{font-size:13.5px!important;line-height:1.58!important}
+.home30-bots button small{opacity:.82!important}
+.home30-rankline span{opacity:.78!important}
+.home30-live-card>div:last-child{padding:18px 19px!important}
+.home30-live-card b{font-size:16.5px!important}
+.home30-live-card span{font-size:12.5px!important}
+.home30-live-card small{font-size:12px!important;font-weight:800!important}
+
+/* Match cards: consistent image contrast across all three cards. */
+.home30-mode-card img{
+  filter:saturate(.92) contrast(1.04) brightness(.90)!important;
+}
+.home30-mode-card:nth-child(2) img{
+  filter:saturate(.90) contrast(1.10) brightness(.91)!important;
+}
+.home30-mode-card .mode-card-overlay{
+  background:linear-gradient(180deg,rgba(5,8,11,.02) 26%,rgba(5,8,11,.34) 53%,rgba(5,8,11,.97) 100%)!important;
+}
+
+/* STATS ------------------------------------------------------------ */
+.home30-statbar span:not(.stat-icon){font-size:9.4px!important}
+.home30-statbar strong{white-space:nowrap!important}
+
+/* MATERIAL PROOF --------------------------------------------------- */
+.catalog-summary-head p,
+.catalog-proof-foot{font-size:13.5px!important;line-height:1.55!important}
+.catalog-card-head strong{font-size:15.5px!important}
+.catalog-card-head span{font-size:12.5px!important}
+.catalog-chip-row i{min-height:36px!important}
+.material-swatches span{font-size:10.5px!important;line-height:1.2!important}
+
+/* MOBILE PROOF -----------------------------------------------------
+   Increase the actual play surface inside the device rather than growing the
+   whole phone, preserving realistic device proportions. */
+.phone-board{padding:5px 3px!important}
+.phone-play-board{
+  padding:7px 0 4px!important;
+  --mini:22.1px!important;
+}
+.phone-play-board .mini-game-cell img{
+  width:76%!important;
+  height:94%!important;
+  object-fit:contain!important;
+  transform:translate(-50%,-51%)!important;
+}
+.phone-action{font-size:10.5px!important}
+
+/* Light mode readability for the newly strengthened copy. */
+html[data-theme="light"] .home30-section-head>p,
+html[data-theme="light"] .catalog-summary-head p,
+html[data-theme="light"] .catalog-proof-foot{color:#596167!important}
+
+@media(max-width:1100px){
+  .public-nav{gap:20px!important}
+  .public-nav a{font-size:12.5px!important}
+}
+
+@media(max-width:900px){
+  .public-nav{display:none!important}
+  .home30-hero-copy h1{line-height:1.01!important}
+  .home30-hero-copy h1 .hero-line-gold{margin-top:.08em!important}
+  .home30-section-head>p{font-size:13.5px!important}
+  .phone-play-board{--mini:19.5px!important}
+}
+
+@media(max-width:620px){
+  .home30-hero-copy h1{line-height:1.02!important;letter-spacing:-.055em!important}
+  .home30-hero-copy h1 .hero-line-gold{margin-top:.09em!important}
+  .home30-board-wrap .home-board-preview{padding:15px 4px!important}
+  .home30-section-head>p{font-size:13px!important}
+  .home30-piece-grid p{font-size:12.8px!important}
+  .catalog-card-head{align-items:flex-start!important}
+  .catalog-card-head span{font-size:11.5px!important}
+  .catalog-summary-head .btn{width:100%!important;text-align:center!important}
+  .phone-play-board{--mini:15.8px!important;padding:6px 0 3px!important}
+}

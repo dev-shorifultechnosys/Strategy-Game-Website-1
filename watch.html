@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Watch — Fortress</title>
+  <link rel="stylesheet" href="assets/css/styles.css?v=submission4">
+  <link rel="stylesheet" href="assets/css/watch-v1.css?v=watch100">
+  <link rel="stylesheet" href="assets/css/watch-v11-fix.css?v=watch110">
+  <link rel="stylesheet" href="assets/css/light-mode-contrast-v1.css?v=lightfix100">
+</head>
+<body data-page="watch" data-bg="gunmetal" style="--fortress-photo:url('assets/img/scenes/watch-live-arena.webp')">
+<div class="app-shell">
+  <div data-shell></div>
+  <header class="mobile-topbar" data-mobile-top></header>
+
+  <main class="main">
+    <div class="page watch-page-v1">
+
+      <section class="watch-head card">
+        <div>
+          <div class="eyebrow">Spectator mode</div>
+          <h1>Watch live games</h1>
+          <p>Scan the position, rating, clock and current turn before you enter a match.</p>
+        </div>
+        <div class="watch-filter-bar" aria-label="Match filters">
+          <button class="filter-btn active" type="button" data-watch-filter="all">All live</button>
+          <button class="filter-btn" type="button" data-watch-filter="ranked">Ranked</button>
+          <button class="filter-btn" type="button" data-watch-filter="casual">Casual</button>
+        </div>
+      </section>
+
+      <section class="watch-featured card" data-watch-card data-mode="ranked">
+        <div class="watch-feature-copy">
+          <div class="watch-live-row">
+            <span class="watch-live-badge"><i></i> Live now</span>
+            <span>Turn 18</span>
+            <span>Ranked</span>
+            <span>Honed Slate</span>
+          </div>
+          <div class="eyebrow">Featured match</div>
+          <h2>Read the position before you enter.</h2>
+          <p>White has the move. Legal, selected, attack and support states stay visible while spectator controls remain read-only.</p>
+
+          <div class="watch-players">
+            <div class="watch-player white">
+              <img src="assets/img/pieces/white-tower.svg" alt="">
+              <span><strong>Wiggins</strong><small>1540 · White</small></span>
+            </div>
+            <div class="watch-versus">VS</div>
+            <div class="watch-player black">
+              <img src="assets/img/pieces/black-tower.svg" alt="">
+              <span><strong>Prplbuttrfly30</strong><small>1588 · Black</small></span>
+            </div>
+          </div>
+
+          <div class="watch-feature-actions">
+            <a class="btn btn-primary" href="play.html?spectate=wiggins">Watch match</a>
+            <button class="btn" type="button" data-follow-match="Wiggins vs Prplbuttrfly30">Follow match</button>
+          </div>
+        </div>
+
+        <div class="watch-board-shell">
+          <div class="watch-board-top">
+            <span>Current position</span>
+            <strong>White to move · 12:44</strong>
+          </div>
+          <div class="watch-board large" data-watch-board="featured"></div>
+          <div class="watch-board-legend">
+            <span><i class="legal"></i> Legal</span>
+            <span><i class="selected"></i> Selected</span>
+            <span><i class="attack"></i> Attack</span>
+            <span><i class="support"></i> Support</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="watch-live-section">
+        <div class="watch-section-head">
+          <div>
+            <div class="eyebrow">Games in progress</div>
+            <h2>Read a live position fast.</h2>
+          </div>
+          <p>Board state, rating, match type and whose turn it is stay visible before you open the full spectator board.</p>
+        </div>
+
+        <div class="watch-grid" data-watch-grid>
+          <article class="watch-game-card card" data-watch-card data-mode="casual">
+            <div class="watch-game-board-wrap">
+              <div class="watch-card-top"><span class="watch-live-badge"><i></i> Live</span><span>Turn 9</span></div>
+              <div class="watch-board small" data-watch-board="mason"></div>
+            </div>
+            <div class="watch-game-copy">
+              <div class="watch-game-title"><strong>StoneMason</strong><span>vs</span><strong>RiverKnight</strong></div>
+              <div class="watch-game-meta"><span>1272 vs 1296</span><span>Casual</span><span>Black to move</span></div>
+              <div class="watch-game-actions"><a class="btn btn-sm" href="play.html?spectate=mason">Watch</a><button class="watch-follow" type="button" data-follow-match="StoneMason vs RiverKnight" aria-label="Follow match">☆</button></div>
+            </div>
+          </article>
+
+          <article class="watch-game-card card" data-watch-card data-mode="ranked">
+            <div class="watch-game-board-wrap">
+              <div class="watch-card-top"><span class="watch-live-badge"><i></i> Live</span><span>Turn 26</span></div>
+              <div class="watch-board small" data-watch-board="hex"></div>
+            </div>
+            <div class="watch-game-copy">
+              <div class="watch-game-title"><strong>HexMaster</strong><span>vs</span><strong>CitadelOne</strong></div>
+              <div class="watch-game-meta"><span>1844 vs 1802</span><span>Ranked</span><span>White to move</span></div>
+              <div class="watch-game-actions"><a class="btn btn-sm" href="play.html?spectate=hex">Watch</a><button class="watch-follow" type="button" data-follow-match="HexMaster vs CitadelOne" aria-label="Follow match">☆</button></div>
+            </div>
+          </article>
+
+          <article class="watch-game-card card" data-watch-card data-mode="casual">
+            <div class="watch-game-board-wrap">
+              <div class="watch-card-top"><span class="watch-live-badge"><i></i> Live</span><span>Turn 5</span></div>
+              <div class="watch-board small" data-watch-board="quiet"></div>
+            </div>
+            <div class="watch-game-copy">
+              <div class="watch-game-title"><strong>QuietRook</strong><span>vs</span><strong>NorthWall</strong></div>
+              <div class="watch-game-meta"><span>1109 vs 1121</span><span>Casual</span><span>White to move</span></div>
+              <div class="watch-game-actions"><a class="btn btn-sm" href="play.html?spectate=quiet">Watch</a><button class="watch-follow" type="button" data-follow-match="QuietRook vs NorthWall" aria-label="Follow match">☆</button></div>
+            </div>
+          </article>
+        </div>
+
+        <section class="card watch-empty-state" data-watch-empty hidden>
+          <div class="watch-empty-icon">◉</div>
+          <h2>No matches in this filter</h2>
+          <p>Switch to another live queue, or open Play if you want to start a match instead.</p>
+          <div class="watch-feature-actions">
+            <button class="btn btn-primary" type="button" data-watch-reset>Show all live</button>
+            <a class="btn" href="play.html">Open Play</a>
+          </div>
+        </section>
+      </section>
+
+      <section class="watch-benefits">
+        <div class="watch-section-head">
+          <div><div class="eyebrow">Spectator clarity</div><h2>Learn without touching the board.</h2></div>
+          <p>Watch mode uses the same tactical language as Play, but all board interaction stays read-only.</p>
+        </div>
+        <div class="grid grid-3 watch-benefit-grid">
+          <article class="card watch-benefit-card">
+            <div class="watch-benefit-visual turn-state-demo">
+              <img src="assets/img/pieces/white-tower.svg" alt="">
+              <div><strong>Turn 18</strong><small>White to move</small></div>
+              <img src="assets/img/pieces/black-tower.svg" alt="">
+            </div>
+            <div><div class="eyebrow">Fast recognition</div><h3>Turn state stays visible</h3><p>Player, rating, side, match type and clock remain visible before and during spectating.</p></div>
+          </article>
+
+          <article class="card watch-benefit-card">
+            <div class="watch-benefit-visual tactical-demo">
+              <span class="hex-demo legal"></span><span class="hex-demo selected"></span><span class="hex-demo attack"></span><span class="hex-demo support"></span>
+            </div>
+            <div><div class="eyebrow">Tactical learning</div><h3>Read the same visual language</h3><p>Cyan legal moves, gold selection, red threats and green support match the Play interface.</p></div>
+          </article>
+
+          <article class="card watch-benefit-card">
+            <div class="watch-benefit-visual follow-demo"><span>☆</span><strong>Follow match</strong><small>Keep it in your watch list</small></div>
+            <div><div class="eyebrow">Continue later</div><h3>Follow the matches that matter</h3><p>Bookmark a live position and return without turning spectator mode into another game control panel.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="card watch-mobile-note">
+        <div>
+          <div class="eyebrow">Mobile spectator UX</div>
+          <h2>Board first on small screens.</h2>
+          <p>On phones, filters scroll horizontally, each live board becomes full width, and match actions remain thumb-friendly below the position.</p>
+        </div>
+        <a class="btn" href="play.html?spectate=1">Open spectator board</a>
+      </section>
+    </div>
+  </main>
+
+  <aside class="right-rail" data-right-rail></aside>
+  <nav class="mobile-bottom-nav" data-mobile-bottom></nav>
+</div>
+<script src="assets/js/app.js?v=submission4"></script>
+<script src="assets/js/pages.js?v=submission4"></script>
+<script src="assets/js/watch-v1.js?v=watch100"></script>
+</body>
+</html>

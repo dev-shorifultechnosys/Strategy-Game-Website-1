@@ -1,0 +1,147 @@
+/* ================================================================
+   Fortress Play V2.5 — court spacing / piece fit refinement
+   Base: V2.4. Flat tactical direction retained; no 3D treatment.
+   ================================================================ */
+
+/* Give the court a little more physical room without changing hierarchy. */
+body[data-page="play"] .board-arena{
+  min-height:714px!important;
+  padding:10px 2px 38px!important;
+}
+body[data-page="play"] .board-chassis{
+  left:2.0%!important;
+  right:2.0%!important;
+  top:4.8%!important;
+  bottom:5.2%!important;
+}
+body[data-page="play"] .hex-board{
+  --hex:clamp(47px,5.65vw,76px)!important;
+}
+body[data-page="play"] .hex-row{
+  gap:4px!important;
+  height:calc(var(--hex)*.845)!important;
+}
+
+/*
+   Pieces sit inside a consistent safe area.  The box grows, while the
+   supplied high-resolution SVG artwork keeps its original proportions.
+*/
+body[data-page="play"] .piece-v2{
+  width:calc(var(--hex)*.68)!important;
+  height:calc(var(--hex)*.80)!important;
+  display:grid!important;
+  place-items:center!important;
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  transform:translate(-50%,-50%)!important;
+  overflow:visible!important;
+}
+body[data-page="play"] .piece-v2 img{
+  width:100%!important;
+  height:100%!important;
+  max-width:100%!important;
+  max-height:100%!important;
+  object-fit:contain!important;
+  object-position:50% 50%!important;
+  transform:none!important;
+  image-rendering:auto!important;
+}
+body[data-page="play"] .piece-v2::after{
+  left:25%!important;
+  right:25%!important;
+  bottom:5%!important;
+  height:4px!important;
+  opacity:.62!important;
+  filter:blur(1.2px)!important;
+}
+
+/* Keep the white army exactly bright; lift only the black army. */
+body[data-page="play"] .piece-v2.you img,
+body[data-page="play"] .hex.selected .piece-v2.you img,
+body[data-page="play"] .hex.legal .piece-v2.you img,
+body[data-page="play"] .hex.attack .piece-v2.you img{
+  filter:brightness(1.00) saturate(.84) contrast(1.12) drop-shadow(0 5px 4px rgba(0,0,0,.46))!important;
+}
+body[data-page="play"] .piece-v2.enemy img,
+body[data-page="play"] .hex.selected .piece-v2.enemy img,
+body[data-page="play"] .hex.legal .piece-v2.enemy img,
+body[data-page="play"] .hex.attack .piece-v2.enemy img{
+  filter:brightness(1.06) saturate(.80) contrast(1.18) drop-shadow(0 5px 4px rgba(0,0,0,.58))!important;
+}
+
+/* Strength stays inside the tile's safe zone instead of hanging outside. */
+body[data-page="play"] .hex-strength{
+  min-width:18px!important;
+  height:18px!important;
+  padding:0 3px!important;
+  right:5px!important;
+  bottom:5px!important;
+  font-size:9px!important;
+  border-radius:5px!important;
+  z-index:7!important;
+}
+
+/* The green support marker was visually colliding with two pieces.
+   Support remains explicit in the Selection panel, so the board stays clean. */
+body[data-page="play"] .hex.support::after{
+  display:none!important;
+  content:none!important;
+}
+
+/* Keep legal destinations calm after enlarging the cells. */
+body[data-page="play"] .hex.legal::after{
+  width:8px!important;
+  height:8px!important;
+  box-shadow:0 0 0 4px rgba(94,221,234,.09),0 0 8px rgba(94,221,234,.24)!important;
+}
+body[data-page="play"] .hex.legal::before{
+  box-shadow:inset 0 0 0 2px rgba(100,225,239,.72),inset 0 0 12px rgba(94,221,234,.08)!important;
+}
+
+/* Selected unit stays clean: no extra colored element behind the piece. */
+body[data-page="play"] .hex.selected .piece-v2::before{
+  display:none!important;
+  content:none!important;
+}
+
+/* Retina-safe rendering remains automatic for the supplied SVG/embedded art. */
+body[data-page="play"] img{image-rendering:auto}
+
+/* Tablet: preserve extra breathing room but fit within the available court. */
+@media (max-width:1180px){
+  body[data-page="play"] .board-arena{min-height:650px!important}
+  body[data-page="play"] .hex-board{--hex:clamp(39px,5.95vw,61px)!important}
+  body[data-page="play"] .piece-v2{width:calc(var(--hex)*.67)!important;height:calc(var(--hex)*.79)!important}
+  body[data-page="play"] .hex-strength{right:4px!important;bottom:4px!important}
+}
+
+/* Mobile: deliberate fit with consistent tile-to-piece padding and touch-safe controls. */
+@media (max-width:900px){
+  body[data-page="play"] .board-arena{min-height:auto!important;padding:14px 0 40px!important}
+  body[data-page="play"] .board-chassis{left:1.0%!important;right:1.0%!important;top:4%!important;bottom:6%!important}
+  body[data-page="play"] .hex-board{--hex:clamp(28px,8.15vw,37px)!important}
+  body[data-page="play"] .piece-v2{width:calc(var(--hex)*.66)!important;height:calc(var(--hex)*.78)!important}
+  body[data-page="play"] .hex-strength{min-width:16px!important;height:16px!important;right:3px!important;bottom:3px!important;font-size:8px!important}
+  body[data-page="play"] .action-buttons .btn{min-height:46px!important}
+}
+
+@media (max-width:520px){
+  body[data-page="play"] .hex-board{--hex:clamp(26px,7.95vw,33px)!important}
+  body[data-page="play"] .piece-v2{width:calc(var(--hex)*.65)!important;height:calc(var(--hex)*.77)!important}
+  body[data-page="play"] .hex-strength{right:2px!important;bottom:2px!important}
+}
+
+/* Light mode: black pieces get the same readability lift; whites are not dimmed. */
+html[data-theme="light"] body[data-page="play"] .piece-v2.you img,
+html[data-theme="light"] body[data-page="play"] .hex.selected .piece-v2.you img,
+html[data-theme="light"] body[data-page="play"] .hex.legal .piece-v2.you img,
+html[data-theme="light"] body[data-page="play"] .hex.attack .piece-v2.you img{
+  filter:brightness(1.00) saturate(.82) contrast(1.13) drop-shadow(0 4px 3px rgba(50,44,36,.24))!important;
+}
+html[data-theme="light"] body[data-page="play"] .piece-v2.enemy img,
+html[data-theme="light"] body[data-page="play"] .hex.selected .piece-v2.enemy img,
+html[data-theme="light"] body[data-page="play"] .hex.legal .piece-v2.enemy img,
+html[data-theme="light"] body[data-page="play"] .hex.attack .piece-v2.enemy img{
+  filter:brightness(.90) saturate(.76) contrast(1.26) drop-shadow(0 4px 3px rgba(50,44,36,.30))!important;
+}

@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Learn — Fortress</title>
+  <link rel="stylesheet" href="assets/css/styles.css?v=submission4">
+  <link rel="stylesheet" href="assets/css/learn-v1.css?v=learn100">
+  <link rel="stylesheet" href="assets/css/light-mode-contrast-v1.css?v=lightfix100">
+</head>
+<body data-page="rules" data-bg="basalt">
+<div class="app-shell">
+  <div data-shell></div>
+  <header class="mobile-topbar" data-mobile-top></header>
+
+  <main class="main">
+    <div class="page learn-v1">
+
+      <section class="card learn-hero">
+        <div>
+          <div class="eyebrow">How to play</div>
+          <h1>Learn Fortress in seven clear steps.</h1>
+          <p>Understand the objective, turn flow, movement, support and combat using the same visual language as the playable board.</p>
+          <div class="learn-meta">
+            <span><b>7</b> steps</span>
+            <span><b>~3 min</b> read</span>
+            <span><i class="state-dot legal"></i> same tactical states as Play</span>
+          </div>
+        </div>
+        <a class="btn btn-primary learn-hero-cta" href="play.html">Try the board →</a>
+      </section>
+
+      <div class="learn-progress card">
+        <div class="learn-progress-copy"><span>Lesson progress</span><strong data-learn-progress-label>Step 1 of 7</strong></div>
+        <div class="learn-progress-track"><span data-learn-progress-bar style="width:14.285%"></span></div>
+      </div>
+
+      <div class="learn-layout">
+        <nav class="card rules-nav learn-nav" aria-label="Rule topics">
+          <a class="active" href="#goal"><span>01</span>Goal</a>
+          <a href="#turn"><span>02</span>Turn</a>
+          <a href="#movement"><span>03</span>Movement</a>
+          <a href="#combat"><span>04</span>Combat</a>
+          <a href="#reinforce"><span>05</span>Reinforce</a>
+          <a href="#promotion"><span>06</span>Promotion</a>
+          <a href="#endstates"><span>07</span>End states</a>
+        </nav>
+
+        <div class="learn-lessons">
+
+          <section class="card rule-section learn-card" id="goal" data-rule-section data-step="1">
+            <div class="learn-card-head">
+              <div>
+                <div class="eyebrow">01 · Goal</div>
+                <h2>Break the opponent’s Keep.</h2>
+                <p>Capture the opponent’s Keep before your own Keep falls. The Keep is the highest-value objective on the board.</p>
+              </div>
+              <span class="lesson-chip">Objective</span>
+            </div>
+            <div class="lesson-stage goal-stage">
+              <div class="lesson-unit">
+                <div class="piece-wrap"><img src="assets/img/pieces/white-keep.svg" alt="White Keep"><span class="strength-badge">9</span></div>
+                <small>Your Keep</small>
+              </div>
+              <div class="objective-arrow">protect</div>
+              <div class="goal-mark">VS</div>
+              <div class="objective-arrow attack-copy">capture</div>
+              <div class="lesson-unit">
+                <div class="piece-wrap enemy"><img src="assets/img/pieces/black-keep.svg" alt="Black Keep"><span class="strength-badge">9</span></div>
+                <small>Opponent Keep</small>
+              </div>
+            </div>
+            <div class="notice-line"><b>What to notice</b><span>The objective is always visible: protect yours, break theirs.</span></div>
+          </section>
+
+          <section class="card rule-section learn-card" id="turn" data-rule-section data-step="2">
+            <div class="learn-card-head">
+              <div>
+                <div class="eyebrow">02 · Turn</div>
+                <h2>Take up to two moves, then confirm.</h2>
+                <p>Fortress separates planning from commitment. You can make one or two moves, review the state, undo if needed, then confirm the turn.</p>
+              </div>
+              <span class="lesson-chip">Turn flow</span>
+            </div>
+            <div class="lesson-stage turn-stage">
+              <div class="turn-step active"><small>Move</small><strong>1</strong></div>
+              <span class="flow-arrow">→</span>
+              <div class="turn-step"><small>Move</small><strong>2</strong></div>
+              <span class="flow-arrow">→</span>
+              <div class="turn-step confirm"><small>Commit</small><strong>✓</strong></div>
+              <button class="mini-undo" type="button" data-learn-undo>Undo</button>
+            </div>
+            <div class="notice-line"><b>What to notice</b><span>Nothing is final until the turn is confirmed.</span></div>
+          </section>
+
+          <section class="card rule-section learn-card" id="movement" data-rule-section data-step="3">
+            <div class="learn-card-head">
+              <div>
+                <div class="eyebrow">03 · Movement</div>
+                <h2>Legal destinations are explicit.</h2>
+                <p>Select a piece and adjacent legal destinations light up immediately. Neutral cells stay quiet, so movement never depends on guessing.</p>
+              </div>
+              <span class="lesson-chip">Position</span>
+            </div>
+            <div class="lesson-stage board-lesson-stage">
+              <div class="mini-hex-grid movement-grid">
+                <div class="mini-hex"></div><div class="mini-hex legal"><i></i></div><div class="mini-hex"></div>
+                <div class="mini-hex legal"><i></i></div>
+                <div class="mini-hex selected"><img src="assets/img/pieces/white-bastion.svg" alt="Selected Bastion"><span class="strength-badge">6</span></div>
+                <div class="mini-hex legal"><i></i></div>
+                <div class="mini-hex"></div><div class="mini-hex legal"><i></i></div><div class="mini-hex"></div>
+              </div>
+              <div class="state-key">
+                <span><i class="state-dot selected"></i>Selected</span>
+                <span><i class="state-dot legal"></i>Legal</span>
+                <span><i class="state-dot neutral"></i>Neutral</span>
+              </div>
+            </div>
+            <div class="notice-line"><b>What to notice</b><span>Gold identifies your selection. Cyan shows where it can move.</span></div>
+          </section>
+
+          <section class="card rule-section learn-card" id="combat" data-rule-section data-step="4">
+            <div class="learn-card-head">
+              <div>
+                <div class="eyebrow">04 · Combat</div>
+                <h2>Preview risk before commitment.</h2>
+                <p>Base strength and support combine into effective strength. Enemy contact is shown in red before you commit a move.</p>
+              </div>
+              <span class="lesson-chip">Combat preview</span>
+            </div>
+            <div class="lesson-stage combat-stage">
+              <div class="combat-unit friendly">
+                <img src="assets/img/pieces/white-tower.svg" alt="White Tower">
+                <span class="combat-score">7</span>
+                <small>effective STR</small>
+              </div>
+              <div class="combat-link"><span>ATTACK</span><strong>→</strong></div>
+              <div class="combat-hex danger"><i></i></div>
+              <div class="combat-unit enemy">
+                <img src="assets/img/pieces/black-bastion.svg" alt="Black Bastion">
+                <span class="combat-score danger-score">6</span>
+                <small>enemy STR</small>
+              </div>
+            </div>
+            <div class="notice-line"><b>What to notice</b><span>Red is reserved for enemy contact and attack risk.</span></div>
+          </section>
+
+          <section class="card rule-section learn-card" id="reinforce" data-rule-section data-step="5">
+            <div class="learn-card-head">
+              <div>
+                <div class="eyebrow">05 · Reinforce</div>
+                <h2>Adjacent allies add support.</h2>
+                <p>Support is positional. Friendly neighbours reinforce a unit, and the interface shows both the source and the resulting effective strength.</p>
+              </div>
+              <span class="lesson-chip">Support</span>
+            </div>
+            <div class="lesson-stage board-lesson-stage">
+              <div class="support-demo">
+                <div class="support-unit"><img src="assets/img/pieces/white-wall.svg" alt="Supporting Wall"><span class="support-pill">+1</span></div>
+                <span class="support-line"></span>
+                <div class="support-core"><img src="assets/img/pieces/white-tower.svg" alt="Supported Tower"><span class="strength-badge">7</span></div>
+                <span class="support-line"></span>
+                <div class="support-unit"><img src="assets/img/pieces/white-wall.svg" alt="Supporting Wall"><span class="support-pill">+1</span></div>
+              </div>
+              <div class="support-status"><span><i class="state-dot support"></i>Ally support +2</span><strong>Effective STR&nbsp; 7 → 9</strong></div>
+              <div class="state-key">
+                <span><i class="state-dot support"></i>Ally support</span>
+                <span><i class="state-dot selected"></i>Supported unit</span>
+              </div>
+            </div>
+            <div class="notice-line"><b>What to notice</b><span>Green tells you where extra strength is being generated.</span></div>
+          </section>
+
+          <section class="card rule-section learn-card" id="promotion" data-rule-section data-step="6">
+            <div class="learn-card-head">
+              <div>
+                <div class="eyebrow">06 · Promotion</div>
+                <h2>Advance with purpose.</h2>
+                <p>When a unit becomes eligible for promotion, the option appears directly in the action flow instead of forcing you to remember a hidden rule.</p>
+              </div>
+              <span class="lesson-chip">Action state</span>
+            </div>
+            <div class="lesson-stage promotion-stage">
+              <div class="promotion-flow">
+                <div class="promotion-label">Eligible unit</div>
+                <div class="mini-hex selected promotion-piece">
+                  <img src="assets/img/pieces/white-wall.svg" alt="Eligible unit">
+                  <span class="strength-badge">3</span>
+                </div>
+              </div>
+              <span class="flow-arrow">→</span>
+              <button class="promotion-action" type="button" data-promotion-demo>
+                <span>Promotion available</span>
+                <strong>Review options</strong>
+              </button>
+              <div class="promotion-popover" data-promotion-popover hidden>
+                <b>Promotion choice</b>
+                <span>Eligible options would be shown here during play.</span>
+              </div>
+            </div>
+            <div class="notice-line"><b>What to notice</b><span>Promotion appears only when the selected unit is eligible.</span></div>
+          </section>
+
+          <section class="card rule-section learn-card" id="endstates" data-rule-section data-step="7">
+            <div class="learn-card-head">
+              <div>
+                <div class="eyebrow">07 · Match resolution</div>
+                <h2>Know how a game can end.</h2>
+                <p>Fortress starts with 16 pieces per side on an 85-hex board. Match resolution stays explicit so players always know why play has ended.</p>
+              </div>
+              <span class="lesson-chip">End states</span>
+            </div>
+            <div class="end-state-grid learn-end-grid">
+              <div><span class="end-icon gold">♛</span><strong>Keep captured</strong><small>Destroy the opponent’s Keep to win.</small></div>
+              <div><span class="end-icon red">×</span><strong>Mutual destruction</strong><small>If both Keeps fall in the same combat, the game is a draw.</small></div>
+              <div><span class="end-icon amber">↘</span><strong>Resignation</strong><small>A player may concede the match.</small></div>
+              <div><span class="end-icon cyan">◇</span><strong>Stalemate</strong><small>The side to move has no legal move.</small></div>
+              <div><span class="end-icon green">✓</span><strong>Agreement</strong><small>Both players accept a draw offer.</small></div>
+              <div><span class="end-icon slate">◷</span><strong>Timeout</strong><small>A player’s clock runs out.</small></div>
+            </div>
+            <div class="notice-line"><b>What to notice</b><span>The interface should always explain the result, not just stop the game.</span></div>
+          </section>
+
+          <section class="card learn-final-cta">
+            <div>
+              <div class="eyebrow">Tutorial complete</div>
+              <h2>Ready to read the board for yourself?</h2>
+              <p>Open a practice match and use the same selected, legal, support and attack states you just learned.</p>
+            </div>
+            <a class="btn btn-primary" href="play.html">Open practice match →</a>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <aside class="right-rail" data-right-rail></aside>
+  <nav class="mobile-bottom-nav" data-mobile-bottom></nav>
+</div>
+
+<script src="assets/js/app.js?v=submission4"></script>
+<script src="assets/js/pages.js?v=submission4"></script>
+<script src="assets/js/learn-v1.js?v=learn100"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Notifications — Fortress</title>
+  <link rel="stylesheet" href="assets/css/styles.css?v=submission4">
+  <link rel="stylesheet" href="assets/css/notifications-v1.css?v=notifications100">
+  <link rel="stylesheet" href="assets/css/light-mode-contrast-v1.css?v=lightfix100">
+</head>
+<body data-page="notifications" data-bg="slate">
+<div class="app-shell">
+  <div data-shell></div>
+  <header class="mobile-topbar" data-mobile-top></header>
+
+  <main class="main">
+    <div class="page notifications-v1">
+
+      <section class="page-head notifications-head">
+        <div>
+          <div class="eyebrow">Activity</div>
+          <h1 class="h2">Notifications</h1>
+          <p class="muted">Game invitations, turn reminders and ladder updates in one quiet feed.</p>
+          <div class="notification-summary">
+            <span><b data-unread-count>2</b> unread</span>
+            <span><b data-total-count>3</b> total</span>
+            <span>Focused, no-noise activity</span>
+          </div>
+        </div>
+        <button class="btn notifications-mark" type="button" data-mark-read-v1>Mark all read</button>
+      </section>
+
+      <section class="notification-toolbar" aria-label="Notification filters">
+        <div class="notification-filter-group" role="tablist" aria-label="Filter notifications">
+          <button class="notification-filter active" type="button" data-filter="all" role="tab" aria-selected="true">All <span>3</span></button>
+          <button class="notification-filter" type="button" data-filter="game" role="tab" aria-selected="false">Game <span>2</span></button>
+          <button class="notification-filter" type="button" data-filter="ladder" role="tab" aria-selected="false">Ladder <span>1</span></button>
+          <button class="notification-filter" type="button" data-filter="system" role="tab" aria-selected="false">System <span>0</span></button>
+        </div>
+        <label class="unread-toggle">
+          <input type="checkbox" data-unread-only>
+          <span class="toggle-ui"></span>
+          <span>Unread only</span>
+        </label>
+      </section>
+
+      <section class="notification-feed" aria-live="polite">
+
+        <article class="card notification-card unread" data-notification data-category="game">
+          <div class="notification-state" aria-hidden="true"></div>
+          <div class="notification-icon game">
+            <svg viewBox="0 0 24 24"><path d="M7 8 4 11l3 3m10-6 3 3-3 3"/><path d="m9 15 6-6M9 9l6 6"/></svg>
+          </div>
+          <div class="notification-content">
+            <div class="notification-topline">
+              <span class="notification-label">Practice</span>
+              <span class="notification-time">Now</span>
+            </div>
+            <h2>Nova is ready</h2>
+            <p>Your selected bot is available for a practice match.</p>
+            <div class="notification-meta">
+              <span>Practice</span>
+              <span>15 min</span>
+              <span>Honed Slate</span>
+            </div>
+          </div>
+          <a class="btn btn-primary notification-action" href="play.html">Play <span>→</span></a>
+        </article>
+
+        <article class="card notification-card unread" data-notification data-category="ladder">
+          <div class="notification-state" aria-hidden="true"></div>
+          <div class="notification-icon ladder">
+            <svg viewBox="0 0 24 24"><path d="M5 17h4v2H5zm5-5h4v7h-4zm5-5h4v12h-4z"/><path d="m6 12 4-4 3 2 5-5"/></svg>
+          </div>
+          <div class="notification-content">
+            <div class="notification-topline">
+              <span class="notification-label">Ladder update</span>
+              <span class="notification-time">2 hours ago</span>
+            </div>
+            <h2>You moved up 18 places</h2>
+            <p>Your current global rank is <strong>#247</strong>.</p>
+            <div class="notification-meta">
+              <span>Gold</span>
+              <span>1200 rating</span>
+              <span>↑ 18 places</span>
+            </div>
+          </div>
+          <a class="btn notification-action" href="ranks.html">View ladder <span>→</span></a>
+        </article>
+
+        <article class="card notification-card attention" data-notification data-category="game">
+          <div class="notification-state" aria-hidden="true"></div>
+          <div class="notification-icon turn">
+            <svg viewBox="0 0 24 24"><path d="M7 7h8a4 4 0 0 1 4 4v1"/><path d="m16 9 3 3 3-3"/><path d="M17 17H9a4 4 0 0 1-4-4v-1"/><path d="m8 15-3-3-3 3"/></svg>
+          </div>
+          <div class="notification-content">
+            <div class="notification-topline">
+              <span class="notification-label action-required">Action required</span>
+              <span class="notification-time">Yesterday</span>
+            </div>
+            <h2>Your turn vs Wiggins</h2>
+            <p>A ranked match is waiting for your next move.</p>
+            <div class="notification-meta">
+              <span>Ranked</span>
+              <span>Move 0 / 2</span>
+              <span>15:00 clock</span>
+            </div>
+          </div>
+          <a class="btn notification-action" href="play.html">Open game <span>→</span></a>
+        </article>
+
+        <div class="notification-empty" data-notification-empty hidden>
+          <div class="empty-icon">✓</div>
+          <h2>Nothing here right now.</h2>
+          <p>Try another filter or turn off “Unread only”.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <aside class="right-rail" data-right-rail></aside>
+  <nav class="mobile-bottom-nav" data-mobile-bottom></nav>
+</div>
+
+<script src="assets/js/app.js?v=submission4"></script>
+<script src="assets/js/pages.js?v=submission4"></script>
+<script src="assets/js/notifications-v1.js?v=notifications100"></script>
+</body>
+</html>

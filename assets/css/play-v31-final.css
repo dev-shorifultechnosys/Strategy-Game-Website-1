@@ -1,0 +1,264 @@
+
+/* Fortress Play V3.1 — geometry, support cue, appearance + viewport final pass */
+
+/* ---------- Board geometry: close-packed premium hex surface ---------- */
+body[data-page="play"] .board-arena{
+  min-height:760px!important;
+  padding:18px 8px 46px!important;
+}
+body[data-page="play"] .board-chassis{
+  left:2.1%!important;
+  right:2.1%!important;
+  top:3.8%!important;
+  bottom:4.2%!important;
+}
+body[data-page="play"] .hex-board{
+  --hex:clamp(50px,5.72vw,76px)!important;
+  gap:2px!important;
+  width:max-content!important;
+  max-width:100%!important;
+  margin-inline:auto!important;
+  transform:none!important;
+}
+body[data-page="play"] .hex-row{
+  gap:2px!important;
+  height:calc(var(--hex)*.86)!important;
+  min-height:calc(var(--hex)*.86)!important;
+  flex:0 0 calc(var(--hex)*.86)!important;
+  align-items:center!important;
+  overflow:visible!important;
+}
+body[data-page="play"] .hex-row.short-row{
+  transform:translateX(calc((var(--hex) + 2px)*.50))!important;
+}
+body[data-page="play"] .hex-row.long-row{transform:none!important}
+body[data-page="play"] .hex{
+  width:var(--hex)!important;
+  min-width:var(--hex)!important;
+  max-width:var(--hex)!important;
+  height:calc(var(--hex)*.86)!important;
+  min-height:calc(var(--hex)*.86)!important;
+  max-height:calc(var(--hex)*.86)!important;
+  flex:0 0 var(--hex)!important;
+  margin:0!important;
+  overflow:visible!important;
+  transform:none!important;
+  background:var(--tile-edge,#20282f)!important;
+  filter:drop-shadow(0 2px 1px rgba(0,0,0,.42))!important;
+}
+body[data-page="play"] .hex:hover{transform:none!important}
+
+/* Every selected material now keeps the same beveled/stone-like tile construction.
+   Theme classes only change surface material, never the geometry. */
+body[data-page="play"] .board-arena .hex::before{
+  inset:2px!important;
+  background-color:var(--tile-b,#58636b)!important;
+  background-image:
+    linear-gradient(145deg,rgba(255,255,255,.13),transparent 28%),
+    var(--tile-pattern,linear-gradient(155deg,rgba(255,255,255,.04),rgba(0,0,0,.13)))!important;
+  background-size:var(--tile-size,auto)!important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.18),
+    inset 0 -4px 7px rgba(0,0,0,.25),
+    0 0 0 1px rgba(0,0,0,.10)!important;
+}
+body[data-page="play"] .board-arena .hex.tone-a::before{
+  filter:brightness(.82) saturate(.94)!important;
+}
+body[data-page="play"] .board-arena .hex.tone-b::before{
+  filter:brightness(1.02) saturate(.96)!important;
+}
+
+/* Tactical states override the material surface cleanly. */
+body[data-page="play"] .board-arena .hex.legal::before{
+  filter:none!important;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.10),transparent 28%),
+    linear-gradient(155deg,#23545d,#16373e 58%,#0d2429)!important;
+  box-shadow:inset 0 0 0 2px rgba(89,226,240,.92),inset 0 0 12px rgba(89,226,240,.08)!important;
+}
+body[data-page="play"] .board-arena .hex.selected::before{
+  filter:none!important;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.11),transparent 28%),
+    linear-gradient(155deg,#73572c,#443019 58%,#24180d)!important;
+  box-shadow:inset 0 0 0 2px rgba(239,181,76,.96),inset 0 0 12px rgba(239,181,76,.09)!important;
+}
+body[data-page="play"] .board-arena .hex.attack::before{
+  filter:none!important;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.08),transparent 28%),
+    linear-gradient(155deg,#64252b,#3b1519 58%,#210b0e)!important;
+}
+
+/* ---------- Pieces: centered safely inside the tighter court ---------- */
+body[data-page="play"] .piece-v2,
+body[data-page="play"] .piece-v2.wall{
+  width:calc(var(--hex)*.58)!important;
+  height:calc(var(--hex)*.64)!important;
+  left:50%!important;
+  top:50%!important;
+  transform:translate(-50%,-50%)!important;
+  margin:0!important;
+  display:grid!important;
+  place-items:center!important;
+}
+body[data-page="play"] .piece-v2 img,
+body[data-page="play"] .piece-v2.wall img{
+  width:100%!important;
+  height:100%!important;
+  max-width:100%!important;
+  max-height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  transform:none!important;
+}
+body[data-page="play"] .hex-strength{
+  right:6px!important;
+  bottom:5px!important;
+}
+
+/* Remove the two stray green dots that looked like artwork errors.
+   Support remains readable as a quiet green tile rim + panel STR value. */
+body[data-page="play"] .hex.support::after{
+  display:none!important;
+  content:none!important;
+}
+body[data-page="play"] .hex.support:not(.selected)::before{
+  box-shadow:
+    inset 0 0 0 1px rgba(102,217,166,.45),
+    inset 0 1px 0 rgba(255,255,255,.16),
+    inset 0 -4px 7px rgba(0,0,0,.25)!important;
+}
+body[data-page="play"] .legend-dot.support{
+  background:#66d9a6!important;
+}
+
+/* ---------- Appearance panel: compact, clear and fully usable ---------- */
+body[data-page="play"] .appearance-quick-card{
+  gap:11px!important;
+}
+body[data-page="play"] .appearance-field>span{
+  font-size:10.5px!important;
+}
+body[data-page="play"] .appearance-select{
+  min-height:44px!important;
+  border-radius:10px!important;
+  background:linear-gradient(180deg,#171d22,#12171b)!important;
+  border-color:rgba(172,190,201,.15)!important;
+}
+body[data-page="play"] .appearance-select:hover{
+  border-color:rgba(91,226,240,.32)!important;
+}
+body[data-page="play"] .appearance-mode-btn{
+  min-height:44px!important;
+}
+html[data-theme="light"] body[data-page="play"] .appearance-select{
+  background:linear-gradient(180deg,#fbf8f1,#ece7dd)!important;
+}
+
+/* ---------- Sidebar: bottom actions can never disappear below viewport ---------- */
+body[data-page="play"] .sidebar{
+  height:100dvh!important;
+  min-height:0!important;
+  overflow-y:auto!important;
+  overscroll-behavior:contain;
+  scrollbar-width:none;
+  padding-bottom:max(12px,env(safe-area-inset-bottom))!important;
+}
+body[data-page="play"] .sidebar::-webkit-scrollbar{display:none}
+body[data-page="play"] .sidebar-bottom{
+  margin-top:auto!important;
+  padding-bottom:2px!important;
+}
+@media (max-height:900px) and (min-width:901px){
+  body[data-page="play"] .sidebar{
+    padding-top:14px!important;
+    gap:7px!important;
+  }
+  body[data-page="play"] .sidebar .brand{margin-bottom:8px!important}
+  body[data-page="play"] .sidebar .nav{gap:3px!important}
+  body[data-page="play"] .sidebar .nav-link{min-height:43px!important}
+  body[data-page="play"] .sidebar-bottom{gap:6px!important}
+  body[data-page="play"] .sidebar-appearance-link,
+  body[data-page="play"] .sidebar-theme-toggle.compact{height:40px!important}
+  body[data-page="play"] .account-mini{min-height:52px!important}
+  body[data-page="play"] .sidebar-bottom .btn{min-height:40px!important}
+}
+
+/* ---------- Right rail + action bar remain usable on shorter screens ---------- */
+@media (min-width:901px) and (max-height:820px){
+  body[data-page="play"] .tactical-panel{
+    max-height:calc(100dvh - 220px)!important;
+    overflow-y:auto!important;
+    scrollbar-width:thin;
+    padding-right:2px;
+  }
+}
+
+/* ---------- Tablet / mobile: intentional, touch-friendly layout ---------- */
+@media (max-width:1180px){
+  body[data-page="play"] .board-arena{min-height:665px!important}
+  body[data-page="play"] .hex-board{--hex:clamp(41px,5.82vw,62px)!important;gap:2px!important}
+  body[data-page="play"] .hex-row{gap:2px!important;height:calc(var(--hex)*.86)!important;min-height:calc(var(--hex)*.86)!important;flex-basis:calc(var(--hex)*.86)!important}
+  body[data-page="play"] .hex-row.short-row{transform:translateX(calc((var(--hex) + 2px)*.50))!important}
+}
+@media (max-width:900px){
+  body[data-page="play"] .board-arena{
+    min-height:auto!important;
+    padding:14px 0 42px!important;
+    overflow:hidden!important;
+  }
+  body[data-page="play"] .hex-board{
+    --hex:clamp(28px,7.75vw,39px)!important;
+    gap:1.5px!important;
+    width:max-content!important;
+  }
+  body[data-page="play"] .hex-row{
+    gap:1.5px!important;
+    height:calc(var(--hex)*.86)!important;
+    min-height:calc(var(--hex)*.86)!important;
+    flex-basis:calc(var(--hex)*.86)!important;
+  }
+  body[data-page="play"] .hex-row.short-row{transform:translateX(calc((var(--hex) + 1.5px)*.50))!important}
+  body[data-page="play"] .piece-v2,
+  body[data-page="play"] .piece-v2.wall{
+    width:calc(var(--hex)*.57)!important;
+    height:calc(var(--hex)*.63)!important;
+  }
+  body[data-page="play"] .appearance-quick-card{
+    grid-template-columns:1fr 1fr!important;
+  }
+  body[data-page="play"] .appearance-mode-btn{
+    grid-column:1/-1!important;
+    min-height:48px!important;
+  }
+}
+@media (max-width:560px){
+  body[data-page="play"] .hex-board{
+    --hex:clamp(25px,7.55vw,33px)!important;
+    gap:1px!important;
+  }
+  body[data-page="play"] .hex-row{
+    gap:1px!important;
+  }
+  body[data-page="play"] .hex-row.short-row{transform:translateX(calc((var(--hex) + 1px)*.50))!important}
+  body[data-page="play"] .piece-v2,
+  body[data-page="play"] .piece-v2.wall{
+    width:calc(var(--hex)*.56)!important;
+    height:calc(var(--hex)*.62)!important;
+  }
+  body[data-page="play"] .appearance-quick-card{
+    grid-template-columns:1fr!important;
+  }
+  body[data-page="play"] .appearance-select,
+  body[data-page="play"] .appearance-mode-btn{
+    min-height:48px!important;
+    font-size:13px!important;
+  }
+}
+
+/* Light mode keeps the same close-packed construction. */
+html[data-theme="light"] body[data-page="play"] .board-arena .hex{
+  filter:drop-shadow(0 2px 1px rgba(73,68,60,.18))!important;
+}

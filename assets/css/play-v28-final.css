@@ -1,0 +1,157 @@
+/* ================================================================
+   Fortress Play V2.8 — Final submission lock
+   Keeps V2.7 court geometry. Adds only final state/accessibility polish.
+   ================================================================ */
+
+/* Final board geometry is intentionally locked from V2.7. */
+body[data-page="play"] .hex-board{
+  isolation:isolate;
+}
+
+/* Selected cell: clear but quiet. Never scales, so neighbouring cells remain separated. */
+body[data-page="play"] .hex.selected::before{
+  box-shadow:inset 0 0 0 2px rgba(235,181,74,.92),inset 0 0 13px rgba(235,181,74,.08)!important;
+}
+
+/* Legal state relies on border + centre dot, not a loud full-tile fill. */
+body[data-page="play"] .hex.legal::before{
+  background:linear-gradient(160deg,#1b4148,#153138 58%,#0b1b1f)!important;
+  box-shadow:inset 0 0 0 2px rgba(102,225,238,.90),inset 0 0 8px rgba(102,225,238,.04)!important;
+}
+body[data-page="play"] .hex.legal::after{
+  width:9px!important;
+  height:9px!important;
+  left:50%!important;
+  top:50%!important;
+  right:auto!important;
+  bottom:auto!important;
+  transform:translate(-50%,-50%)!important;
+  border-radius:50%!important;
+  background:#c8fbff!important;
+  box-shadow:0 0 0 5px rgba(102,225,238,.10)!important;
+  content:""!important;
+  display:block!important;
+  z-index:8!important;
+}
+
+/* Ally support: one tiny corner cue on the supporting tile only.
+   It never sits behind the artwork and never paints a second colour plate. */
+body[data-page="play"] .hex.support::after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  width:8px!important;
+  height:8px!important;
+  right:8px!important;
+  top:8px!important;
+  left:auto!important;
+  bottom:auto!important;
+  transform:none!important;
+  border-radius:50%!important;
+  background:#66d9a6!important;
+  border:1px solid rgba(225,255,241,.74)!important;
+  box-shadow:0 0 0 3px rgba(102,217,166,.08)!important;
+  z-index:11!important;
+}
+body[data-page="play"] .hex.support::before{
+  box-shadow:inset 0 0 0 1px rgba(102,217,166,.18),inset 0 1px 0 rgba(255,255,255,.10),inset 0 -7px 11px rgba(0,0,0,.25)!important;
+}
+body[data-page="play"] .hex.selected.support::after{
+  display:none!important;
+}
+
+/* Attack remains unmistakable without overpowering the piece art. */
+body[data-page="play"] .hex.attack::before{
+  box-shadow:inset 0 0 0 2px rgba(238,103,112,.92),inset 0 0 12px rgba(238,103,112,.07)!important;
+}
+
+/* Piece artwork: preserve requested bright white army; black gets extra lift. */
+body[data-page="play"] .piece-v2.you img{
+  filter:brightness(1) saturate(.88) contrast(1.12) drop-shadow(0 4px 3px rgba(0,0,0,.46))!important;
+}
+body[data-page="play"] .piece-v2.enemy img{
+  filter:brightness(1.18) saturate(.88) contrast(1.18) drop-shadow(0 4px 3px rgba(0,0,0,.55))!important;
+}
+
+/* Focus cue supports keyboard play and is not colour-only. */
+body[data-page="play"] .hex:focus-visible{
+  outline:2px solid #f4f6f7!important;
+  outline-offset:3px!important;
+  z-index:20!important;
+}
+
+/* Compact support legend, matching the board cue. */
+body[data-page="play"] .board-legend{
+  gap:11px!important;
+}
+body[data-page="play"] .legend-dot.support{
+  background:#66d9a6!important;
+  box-shadow:0 0 0 2px rgba(102,217,166,.10)!important;
+}
+
+/* Keep action availability obvious. */
+body[data-page="play"] [data-confirm-turn][disabled],
+body[data-page="play"] [data-undo-move][disabled]{
+  opacity:.46!important;
+  filter:saturate(.45)!important;
+}
+
+/* Light mode gets deliberate tactical contrast rather than an inversion. */
+html[data-theme="light"] body[data-page="play"] .hex.support::after{
+  background:#20875d!important;
+  border-color:#eefaf5!important;
+  box-shadow:0 0 0 3px rgba(32,135,93,.10)!important;
+}
+html[data-theme="light"] body[data-page="play"] .hex.legal::after{
+  background:#0d6973!important;
+  box-shadow:0 0 0 4px rgba(13,105,115,.10)!important;
+}
+
+@media (max-width:900px){
+  body[data-page="play"] .hex.support::after{width:7px!important;height:7px!important;right:5px!important;top:5px!important}
+  body[data-page="play"] .hex.legal::after{width:8px!important;height:8px!important}
+  body[data-page="play"] .action-bar .btn{min-height:44px!important}
+}
+
+@media (max-width:520px){
+  body[data-page="play"] .hex.support::after{width:6px!important;height:6px!important;right:3px!important;top:3px!important;border-width:0!important}
+  body[data-page="play"] .hex.legal::after{width:7px!important;height:7px!important}
+  body[data-page="play"] .board-legend{font-size:8px!important;gap:7px!important}
+}
+
+@media (prefers-reduced-motion:reduce){
+  body[data-page="play"] .hex,
+  body[data-page="play"] .piece-v2,
+  body[data-page="play"] .btn{transition:none!important;animation:none!important}
+}
+
+/* V2.9 precision fix — legal destination dot must sit at exact geometric centre. */
+body[data-page="play"] .board-arena .hex.legal::after,
+body[data-page="play"] .hex.legal::after{
+  content:""!important;
+  position:absolute!important;
+  inset:auto!important;
+  left:50%!important;
+  top:50%!important;
+  right:auto!important;
+  bottom:auto!important;
+  width:9px!important;
+  height:9px!important;
+  margin:0!important;
+  padding:0!important;
+  transform:translate(-50%,-50%)!important;
+  transform-origin:50% 50%!important;
+  border-radius:50%!important;
+  display:block!important;
+  pointer-events:none!important;
+  z-index:12!important;
+}
+
+@media (max-width:900px){
+  body[data-page="play"] .board-arena .hex.legal::after,
+  body[data-page="play"] .hex.legal::after{width:8px!important;height:8px!important}
+}
+@media (max-width:520px){
+  body[data-page="play"] .board-arena .hex.legal::after,
+  body[data-page="play"] .hex.legal::after{width:7px!important;height:7px!important}
+}

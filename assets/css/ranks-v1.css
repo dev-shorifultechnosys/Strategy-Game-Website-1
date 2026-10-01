@@ -1,0 +1,135 @@
+
+/* Fortress Ranks V1 — competitive ladder redesign only */
+body[data-page="ranks"] .ranks-page-v1{max-width:1220px;margin:0 auto;padding-bottom:70px}
+body[data-page="ranks"] .ranks-hero{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:24px;
+  padding:28px 30px;margin-bottom:16px;
+  background:
+    linear-gradient(105deg,rgba(8,12,16,.97),rgba(10,14,18,.90)),
+    radial-gradient(circle at 84% 30%,rgba(230,169,65,.08),transparent 30%);
+  border-color:rgba(226,190,128,.14)
+}
+body[data-page="ranks"] .ranks-hero h1{font-size:clamp(42px,4.5vw,62px);line-height:.95;margin:8px 0 10px}
+body[data-page="ranks"] .ranks-hero p{margin:0;color:var(--muted);max-width:690px}
+body[data-page="ranks"] .ranks-hero-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+body[data-page="ranks"] .your-rank-chip{min-width:150px;padding:10px 12px;border:1px solid rgba(233,174,74,.22);border-radius:12px;background:rgba(232,170,67,.08)}
+body[data-page="ranks"] .your-rank-chip span,body[data-page="ranks"] .your-rank-chip small{display:block;color:var(--muted);font-size:9px}
+body[data-page="ranks"] .your-rank-chip strong{display:block;margin:2px 0;color:#f1bd61}
+
+body[data-page="ranks"] .ranks-toolbar{display:grid;grid-template-columns:auto minmax(260px,1fr) 170px;gap:12px;align-items:end;padding:12px 14px;margin-bottom:16px}
+body[data-page="ranks"] .rank-tabs{display:flex;gap:6px;flex-wrap:wrap}
+body[data-page="ranks"] .rank-tab{min-height:42px;padding:0 15px;border-radius:10px;background:#151c21;color:var(--text);border:1px solid var(--border);box-shadow:none}
+body[data-page="ranks"] .rank-tab.active{background:linear-gradient(180deg,#f0b750,#d49131);color:#17120a;border-color:#efc06b;box-shadow:0 8px 18px rgba(218,149,45,.14)}
+body[data-page="ranks"] .rank-search,body[data-page="ranks"] .rank-tier-filter{display:grid;gap:5px}
+body[data-page="ranks"] .rank-search>span,body[data-page="ranks"] .rank-tier-filter>span{font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--muted-2)}
+body[data-page="ranks"] .rank-search input,body[data-page="ranks"] .rank-tier-filter select{min-height:42px;border-radius:10px;border:1px solid var(--border);background:#151c21;color:var(--text);padding:0 12px}
+html[data-theme="light"] body[data-page="ranks"] .rank-search input,
+html[data-theme="light"] body[data-page="ranks"] .rank-tier-filter select{background:#f5f0e7}
+
+body[data-page="ranks"] .leaderboard-card{padding:0;overflow:hidden;margin-bottom:18px}
+body[data-page="ranks"] .leaderboard-head{display:flex;align-items:end;justify-content:space-between;gap:16px;padding:18px 20px;border-bottom:1px solid var(--border)}
+body[data-page="ranks"] .leaderboard-head h2{font-size:28px;margin:5px 0 0}
+body[data-page="ranks"] .record-help{font-size:10px;color:var(--muted);font-weight:850}
+body[data-page="ranks"] .record-help span{display:inline-grid;place-items:center;width:18px;height:18px;border:1px solid var(--border);border-radius:50%;margin-left:4px}
+
+body[data-page="ranks"] .rank-list{display:flex;flex-direction:column}
+body[data-page="ranks"] .rank-row{display:grid;grid-template-columns:70px minmax(220px,1.6fr) repeat(3,minmax(90px,.8fr)) minmax(80px,.65fr);gap:14px;align-items:center;min-height:76px;padding:11px 20px;border-bottom:1px solid var(--border);background:rgba(255,255,255,.012)}
+body[data-page="ranks"] .rank-row:last-child{border-bottom:0}
+body[data-page="ranks"] .rank-row:hover{background:rgba(255,255,255,.025)}
+body[data-page="ranks"] .rank-row.first{background:linear-gradient(90deg,rgba(225,169,67,.12),rgba(225,169,67,.025))}
+body[data-page="ranks"] .rank-row.second{background:linear-gradient(90deg,rgba(179,190,201,.08),transparent)}
+body[data-page="ranks"] .rank-row.third{background:linear-gradient(90deg,rgba(185,117,64,.09),transparent)}
+body[data-page="ranks"] .rank-row.rank-me{background:linear-gradient(90deg,rgba(89,227,239,.10),rgba(89,227,239,.025));box-shadow:inset 3px 0 0 #59e3ef}
+body[data-page="ranks"] .rank-place{display:flex;align-items:center;gap:6px}
+body[data-page="ranks"] .rank-place strong{font-size:18px;color:#e8aa43}
+body[data-page="ranks"] .rank-medal{font-size:16px;color:#e8aa43}
+body[data-page="ranks"] .second .rank-medal{color:#b9c3cc}
+body[data-page="ranks"] .third .rank-medal{color:#bd7b4c}
+body[data-page="ranks"] .rank-player{display:flex;align-items:center;gap:10px;min-width:0}
+body[data-page="ranks"] .rank-player img{width:42px;height:49px;object-fit:contain;filter:drop-shadow(0 5px 3px rgba(0,0,0,.55))}
+body[data-page="ranks"] .rank-player div{min-width:0}
+body[data-page="ranks"] .rank-player strong{display:block;font-size:14px;overflow-wrap:anywhere}
+body[data-page="ranks"] .rank-player small{display:block;color:var(--muted);font-size:10px;margin-top:2px}
+body[data-page="ranks"] .rank-you-avatar{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(180deg,#f1cc80,#d8a84f);color:#17120a;font-weight:950;flex:0 0 36px}
+body[data-page="ranks"] .rank-stat span,body[data-page="ranks"] .rank-trend span{display:block;color:var(--muted-2);font-size:8px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px}
+body[data-page="ranks"] .rank-stat strong,body[data-page="ranks"] .rank-trend strong{font-size:13px}
+body[data-page="ranks"] .rank-trend.up strong{color:#69dba7}
+body[data-page="ranks"] .rank-trend.down strong{color:#ff6672}
+body[data-page="ranks"] .rank-trend.neutral strong{color:var(--muted)}
+body[data-page="ranks"] .rank-gap{display:flex;align-items:center;gap:12px;padding:9px 20px;color:var(--muted);font-size:10px;background:rgba(255,255,255,.008);border-bottom:1px solid var(--border)}
+body[data-page="ranks"] .rank-gap::before,body[data-page="ranks"] .rank-gap::after{content:"";height:1px;background:var(--border);flex:1}
+body[data-page="ranks"] .rank-no-results{text-align:center;padding:36px}
+body[data-page="ranks"] .rank-no-results strong,body[data-page="ranks"] .rank-no-results span{display:block}
+body[data-page="ranks"] .rank-no-results span{color:var(--muted);margin-top:5px}
+
+body[data-page="ranks"] .rank-progress-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:18px}
+body[data-page="ranks"] .rank-progress-card{padding:18px}
+body[data-page="ranks"] .rank-progress-card h3{margin:7px 0 8px;font-size:20px}
+body[data-page="ranks"] .rank-progress-card p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}
+body[data-page="ranks"] .mini-bars{height:48px;display:flex;align-items:end;gap:5px;margin-top:16px}
+body[data-page="ranks"] .mini-bars i{flex:1;height:var(--h);border-radius:5px 5px 2px 2px;background:linear-gradient(180deg,#5fe3ef,#257987)}
+body[data-page="ranks"] .streak-dots{display:flex;gap:7px;margin-top:18px}
+body[data-page="ranks"] .streak-dots i,body[data-page="ranks"] .streak-dots span{width:20px;height:20px;border-radius:50%;border:1px solid var(--border)}
+body[data-page="ranks"] .streak-dots i{background:linear-gradient(180deg,#f1bb57,#d89431);border-color:#f2c56d}
+body[data-page="ranks"] .rank-meter{height:9px;background:#0d1215;border:1px solid var(--border);border-radius:999px;overflow:hidden;margin-top:18px}
+body[data-page="ranks"] .rank-meter span{display:block;height:100%;background:linear-gradient(90deg,#59e3ef,#e8aa43);border-radius:inherit}
+body[data-page="ranks"] .rank-progress-card>small{display:block;color:var(--muted);font-size:9px;margin-top:6px}
+
+body[data-page="ranks"] .tier-ladder{display:grid;grid-template-columns:minmax(250px,.65fr) minmax(0,1.35fr);gap:24px;padding:22px 24px}
+body[data-page="ranks"] .tier-copy h2{font-size:30px;margin:6px 0 9px}
+body[data-page="ranks"] .tier-copy p{margin:0;color:var(--muted);font-size:12px;line-height:1.55}
+body[data-page="ranks"] .tier-track{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;align-items:end}
+body[data-page="ranks"] .tier-step{min-width:0;padding:10px 6px;border:1px solid var(--border);border-radius:11px;text-align:center;background:rgba(255,255,255,.012)}
+body[data-page="ranks"] .tier-step.active{border-color:rgba(89,227,239,.6);box-shadow:inset 0 0 0 1px rgba(89,227,239,.16)}
+body[data-page="ranks"] .tier-step.next{border-color:rgba(232,170,67,.38)}
+body[data-page="ranks"] .tier-icon{width:32px;height:32px;margin:0 auto 7px;display:grid;place-items:center;border-radius:9px;font-size:9px;font-weight:950;border:1px solid rgba(255,255,255,.14)}
+body[data-page="ranks"] .tier-step strong,body[data-page="ranks"] .tier-step small{display:block;overflow-wrap:anywhere}
+body[data-page="ranks"] .tier-step strong{font-size:10px}
+body[data-page="ranks"] .tier-step small{font-size:8px;color:var(--muted);margin-top:3px}
+body[data-page="ranks"] .tier-icon.bronze{background:#7d4d32}.tier-icon.silver{background:#78838c}.tier-icon.gold{background:#d89b32;color:#17120a}.tier-icon.diamond{background:#3f808a}.tier-icon.master{background:#715f91}.tier-icon.gm{background:#b77939}
+
+/* Rank-focused right rail */
+body[data-page="ranks"] .right-rail .ranks-rail-v1{display:flex;flex-direction:column;gap:10px}
+body[data-page="ranks"] .ranks-rail-tabs{display:grid;grid-template-columns:repeat(3,1fr);padding:6px;border:1px solid var(--border);border-radius:14px;background:#0d1216}
+body[data-page="ranks"] .ranks-rail-tabs a{min-height:54px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border-radius:10px;color:var(--muted);font-size:9px;text-decoration:none}
+body[data-page="ranks"] .ranks-rail-tabs a.active{background:rgba(232,170,67,.15);color:#e8aa43}
+body[data-page="ranks"] .ranks-rail-card{padding:16px}
+body[data-page="ranks"] .ranks-rail-card h3{margin:5px 0 3px;font-size:21px}
+body[data-page="ranks"] .ranks-rail-card p{margin:0;color:var(--muted);font-size:11px;line-height:1.5}
+body[data-page="ranks"] .rail-rank-hero{display:flex;gap:10px;align-items:center;margin:12px 0}
+body[data-page="ranks"] .rail-rank-badge{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(180deg,#e7af49,#b97825);color:#17120a;font-weight:950;font-size:18px}
+body[data-page="ranks"] .rail-progress{height:8px;border-radius:999px;background:#0b1014;overflow:hidden;margin:12px 0 6px;border:1px solid var(--border)}
+body[data-page="ranks"] .rail-progress span{display:block;height:100%;width:80%;background:linear-gradient(90deg,#59e3ef,#e8aa43)}
+body[data-page="ranks"] .rival-row{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:12px;padding:11px;border:1px solid var(--border);border-radius:11px}
+body[data-page="ranks"] .rival-row small{display:block;color:var(--muted);font-size:9px;margin-top:3px}
+
+@media(max-width:1180px){
+  body[data-page="ranks"] .rank-row{grid-template-columns:62px minmax(190px,1.4fr) repeat(3,minmax(80px,.7fr)) 70px}
+  body[data-page="ranks"] .tier-ladder{grid-template-columns:1fr}
+}
+@media(max-width:900px){
+  body[data-page="ranks"] .ranks-page-v1{padding:14px 14px 96px}
+  body[data-page="ranks"] .ranks-hero{align-items:flex-start;flex-direction:column;padding:23px 20px}
+  body[data-page="ranks"] .ranks-hero-meta{justify-content:flex-start}
+  body[data-page="ranks"] .ranks-toolbar{grid-template-columns:1fr 1fr}
+  body[data-page="ranks"] .rank-tabs{grid-column:1/-1;overflow-x:auto;flex-wrap:nowrap}
+  body[data-page="ranks"] .rank-tab{flex:0 0 auto;min-height:46px}
+  body[data-page="ranks"] .rank-search input,body[data-page="ranks"] .rank-tier-filter select{min-height:48px}
+  body[data-page="ranks"] .rank-row{grid-template-columns:54px minmax(0,1fr) 82px 68px;gap:10px;padding:11px 13px}
+  body[data-page="ranks"] .rank-stat.secondary{display:none}
+  body[data-page="ranks"] .rank-trend span,body[data-page="ranks"] .rank-stat span{font-size:7px}
+  body[data-page="ranks"] .rank-progress-grid{grid-template-columns:1fr}
+  body[data-page="ranks"] .tier-track{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:560px){
+  body[data-page="ranks"] .ranks-toolbar{grid-template-columns:1fr}
+  body[data-page="ranks"] .rank-tabs,body[data-page="ranks"] .rank-search,body[data-page="ranks"] .rank-tier-filter{grid-column:auto}
+  body[data-page="ranks"] .rank-row{grid-template-columns:46px minmax(0,1fr) 72px}
+  body[data-page="ranks"] .rank-trend{display:none}
+  body[data-page="ranks"] .rank-player img{width:34px;height:40px}
+  body[data-page="ranks"] .rank-place strong{font-size:15px}
+  body[data-page="ranks"] .rank-gap{font-size:9px;padding-inline:12px}
+  body[data-page="ranks"] .tier-track{grid-template-columns:repeat(2,1fr)}
+}
+
+html[data-theme="light"] body[data-page="ranks"] .rank-tab:not(.active){background:#efe9df;color:#2a2a2a;border-color:rgba(44,48,52,.16)}

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ranks — Fortress</title>
+  <link rel="stylesheet" href="assets/css/styles.css?v=submission4">
+  <link rel="stylesheet" href="assets/css/ranks-v1.css?v=ranks100">
+  <link rel="stylesheet" href="assets/css/light-mode-contrast-v1.css?v=lightfix100">
+</head>
+<body data-page="ranks" data-bg="dark-steel">
+<div class="app-shell">
+  <div data-shell></div>
+  <header class="mobile-topbar" data-mobile-top></header>
+
+  <main class="main">
+    <div class="page ranks-page-v1">
+
+      <section class="card ranks-hero">
+        <div>
+          <div class="eyebrow">Competitive ladder</div>
+          <h1>Leaderboard</h1>
+          <p>See the season leaders, your current position and the next competitive milestone at a glance.</p>
+        </div>
+        <div class="ranks-hero-meta">
+          <span class="pill">Season 04 · 12 days left</span>
+          <div class="your-rank-chip">
+            <span>Current rank</span>
+            <strong>#247 · Gold</strong>
+            <small>1200 rating</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="ranks-toolbar card">
+        <div class="rank-tabs" role="tablist" aria-label="Leaderboard scope">
+          <button class="rank-tab active" type="button" data-rank-scope="overall">Overall</button>
+          <button class="rank-tab" type="button" data-rank-scope="season">This season</button>
+          <button class="rank-tab" type="button" data-rank-scope="friends">Friends</button>
+        </div>
+        <label class="rank-search">
+          <span>Find player</span>
+          <input type="search" placeholder="Search player name" data-rank-search>
+        </label>
+        <label class="rank-tier-filter">
+          <span>Tier</span>
+          <select data-rank-tier>
+            <option value="all">All tiers</option>
+            <option value="grandmaster">Grandmaster</option>
+            <option value="master">Master</option>
+            <option value="diamond">Diamond</option>
+            <option value="gold">Gold</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="card leaderboard-card">
+        <div class="leaderboard-head">
+          <div>
+            <div class="eyebrow">Season standings</div>
+            <h2>Top competitors</h2>
+          </div>
+          <div class="record-help" title="Record = Wins – Losses – Draws">W–L–D <span>?</span></div>
+        </div>
+
+        <div class="rank-list" data-rank-list>
+          <article class="rank-row podium first" data-player="prplbuttrfly30" data-tier="grandmaster">
+            <div class="rank-place"><span class="rank-medal">♛</span><strong>1</strong></div>
+            <div class="rank-player">
+              <img src="assets/img/pieces/black-keep.svg" alt="">
+              <div><strong>Prplbuttrfly30</strong><small>Grandmaster</small></div>
+            </div>
+            <div class="rank-stat"><span>Rating</span><strong>1988</strong></div>
+            <div class="rank-stat secondary"><span>Record</span><strong>48–9–2</strong></div>
+            <div class="rank-stat secondary"><span>Win rate</span><strong>81%</strong></div>
+            <div class="rank-trend up"><span>Trend</span><strong>↑ 2</strong></div>
+          </article>
+
+          <article class="rank-row podium second" data-player="wiggins" data-tier="grandmaster">
+            <div class="rank-place"><span class="rank-medal">◆</span><strong>2</strong></div>
+            <div class="rank-player">
+              <img src="assets/img/pieces/white-tower.svg" alt="">
+              <div><strong>Wiggins</strong><small>Grandmaster</small></div>
+            </div>
+            <div class="rank-stat"><span>Rating</span><strong>1956</strong></div>
+            <div class="rank-stat secondary"><span>Record</span><strong>44–11–3</strong></div>
+            <div class="rank-stat secondary"><span>Win rate</span><strong>76%</strong></div>
+            <div class="rank-trend neutral"><span>Trend</span><strong>—</strong></div>
+          </article>
+
+          <article class="rank-row podium third" data-player="hexmaster" data-tier="master">
+            <div class="rank-place"><span class="rank-medal">▲</span><strong>3</strong></div>
+            <div class="rank-player">
+              <img src="assets/img/pieces/black-bastion.svg" alt="">
+              <div><strong>HexMaster</strong><small>Master</small></div>
+            </div>
+            <div class="rank-stat"><span>Rating</span><strong>1884</strong></div>
+            <div class="rank-stat secondary"><span>Record</span><strong>39–13–1</strong></div>
+            <div class="rank-stat secondary"><span>Win rate</span><strong>74%</strong></div>
+            <div class="rank-trend up"><span>Trend</span><strong>↑ 1</strong></div>
+          </article>
+
+          <article class="rank-row" data-player="citadelone" data-tier="master">
+            <div class="rank-place"><strong>4</strong></div>
+            <div class="rank-player">
+              <img src="assets/img/pieces/white-bastion.svg" alt="">
+              <div><strong>CitadelOne</strong><small>Master</small></div>
+            </div>
+            <div class="rank-stat"><span>Rating</span><strong>1832</strong></div>
+            <div class="rank-stat secondary"><span>Record</span><strong>41–16–4</strong></div>
+            <div class="rank-stat secondary"><span>Win rate</span><strong>67%</strong></div>
+            <div class="rank-trend down"><span>Trend</span><strong>↓ 1</strong></div>
+          </article>
+
+          <article class="rank-row" data-player="northwall" data-tier="diamond">
+            <div class="rank-place"><strong>5</strong></div>
+            <div class="rank-player">
+              <img src="assets/img/pieces/black-wall.svg" alt="">
+              <div><strong>NorthWall</strong><small>Diamond</small></div>
+            </div>
+            <div class="rank-stat"><span>Rating</span><strong>1760</strong></div>
+            <div class="rank-stat secondary"><span>Record</span><strong>33–17–4</strong></div>
+            <div class="rank-stat secondary"><span>Win rate</span><strong>66%</strong></div>
+            <div class="rank-trend up"><span>Trend</span><strong>↑ 3</strong></div>
+          </article>
+
+          <div class="rank-gap" data-rank-gap>
+            <span>242 players between you and NorthWall</span>
+          </div>
+
+          <article class="rank-row rank-me" data-player="you" data-tier="gold">
+            <div class="rank-place"><strong>247</strong></div>
+            <div class="rank-player">
+              <div class="rank-you-avatar">Y</div>
+              <div><strong>You</strong><small>Gold</small></div>
+            </div>
+            <div class="rank-stat"><span>Rating</span><strong>1200</strong></div>
+            <div class="rank-stat secondary"><span>Record</span><strong>9–6–2</strong></div>
+            <div class="rank-stat secondary"><span>Win rate</span><strong>60%</strong></div>
+            <div class="rank-trend up"><span>Trend</span><strong>↑ 18</strong></div>
+          </article>
+        </div>
+
+        <div class="rank-no-results" data-rank-empty hidden>
+          <strong>No players found</strong>
+          <span>Try another name, tier or leaderboard scope.</span>
+        </div>
+      </section>
+
+      <section class="rank-progress-grid">
+        <article class="card rank-progress-card">
+          <div class="eyebrow">Your progress</div>
+          <h3>+72 rating this week</h3>
+          <p>Five wins across seven ranked games.</p>
+          <div class="mini-bars" aria-hidden="true"><i style="--h:42%"></i><i style="--h:58%"></i><i style="--h:51%"></i><i style="--h:72%"></i><i style="--h:88%"></i><i style="--h:79%"></i><i style="--h:96%"></i></div>
+        </article>
+        <article class="card rank-progress-card">
+          <div class="eyebrow">Best streak</div>
+          <h3>4 wins</h3>
+          <p>Your longest current-season winning streak.</p>
+          <div class="streak-dots" aria-label="Four-win streak"><i></i><i></i><i></i><i></i><span></span><span></span></div>
+        </article>
+        <article class="card rank-progress-card">
+          <div class="eyebrow">Next milestone</div>
+          <h3>1250 rating</h3>
+          <p>50 points to the next competitive threshold.</p>
+          <div class="rank-meter"><span style="width:80%"></span></div>
+          <small>1200 / 1250</small>
+        </article>
+      </section>
+
+      <section class="card tier-ladder">
+        <div class="tier-copy">
+          <div class="eyebrow">Rank progression</div>
+          <h2>Know what comes next.</h2>
+          <p>Your current Gold tier stays visible while the next competitive thresholds remain easy to scan.</p>
+        </div>
+        <div class="tier-track">
+          <div class="tier-step"><span class="tier-icon bronze">B</span><strong>Bronze</strong><small>800</small></div>
+          <div class="tier-step"><span class="tier-icon silver">S</span><strong>Silver</strong><small>1000</small></div>
+          <div class="tier-step active"><span class="tier-icon gold">G</span><strong>Gold</strong><small>1200</small></div>
+          <div class="tier-step next"><span class="tier-icon diamond">D</span><strong>Diamond</strong><small>1500</small></div>
+          <div class="tier-step"><span class="tier-icon master">M</span><strong>Master</strong><small>1800</small></div>
+          <div class="tier-step"><span class="tier-icon gm">GM</span><strong>Grandmaster</strong><small>1950+</small></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <aside class="right-rail" data-right-rail></aside>
+  <nav class="mobile-bottom-nav" data-mobile-bottom></nav>
+</div>
+
+<script src="assets/js/app.js?v=submission4"></script>
+<script src="assets/js/pages.js?v=submission4"></script>
+<script src="assets/js/ranks-v1.js?v=ranks100"></script>
+</body>
+</html>

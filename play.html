@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0e12">
+  <title>Play — Fortress</title>
+  <link rel="stylesheet" href="assets/css/styles.css?v=play24final">
+  <link rel="stylesheet" href="assets/css/play-v24.css?v=play24final">
+  <link rel="stylesheet" href="assets/css/play-v25.css?v=play25spacing">
+  <link rel="stylesheet" href="assets/css/play-v26.css?v=play26fit">
+  <link rel="stylesheet" href="assets/css/play-v27.css?v=play27geometry">
+  <link rel="stylesheet" href="assets/css/play-v28-final.css?v=play28final">
+  <link rel="stylesheet" href="assets/css/play-v30-final.css?v=play30final">
+  <link rel="stylesheet" href="assets/css/play-v31-final.css?v=play31final">
+  <link rel="stylesheet" href="assets/css/play-v32-final.css?v=play32final">
+  <link rel="stylesheet" href="assets/css/play-v33-final-lock.css?v=play33final">
+  <link rel="stylesheet" href="assets/css/play-v34-gameplay.css?v=play34gameplay">
+  <link rel="stylesheet" href="assets/css/light-mode-contrast-v1.css?v=lightfix100">
+</head>
+<body data-page="play" data-bg="gunmetal">
+  <div class="app-shell">
+    <div data-shell></div>
+    <header class="mobile-topbar" data-mobile-top></header>
+
+    <main class="main full">
+      <section class="play-mode-strip card active-match-strip" aria-label="Current match context">
+        <div class="play-mode-copy">
+          <span class="mode-question tactical-mark">◆</span>
+          <div>
+            <div class="eyebrow">Practice match</div>
+            <strong>Quick Play vs <span data-bot-name>Nova</span></strong>
+            <span class="mode-subcopy">15 min · Casual · <span data-board-material-label>Honed Slate</span></span>
+          </div>
+        </div>
+        <details class="match-options">
+          <summary class="btn btn-sm">Match</summary>
+          <div class="match-options-menu card">
+            <button class="btn btn-sm" type="button" data-open-modal="botModal">Change bot</button>
+            <button class="btn btn-sm" type="button" data-open-modal="roomModal">Private room</button>
+            <button class="btn btn-sm" type="button" data-offer-draw>Offer draw</button>
+            <button class="btn btn-sm danger-soft" type="button" data-resign-match>Resign</button>
+          </div>
+        </details>
+      </section>
+      <div class="page game-page">
+        <!-- Match HUD stays compact so the board remains the primary object. -->
+        <section class="card match-hud" aria-label="Current match status">
+          <div class="player-block">
+            <div class="player-badge player-white">Y</div>
+            <div><div class="player-name">You</div><div class="player-meta">1200 · White</div><div class="clock-bar"><i data-you-clock-bar></i></div></div>
+            <strong class="match-clock" data-you-clock>15:00</strong>
+          </div>
+          <div class="turn-chip"><strong data-turn-title>Your turn</strong><span data-turn-subtitle>Choose up to two moves, then confirm</span></div>
+          <div class="player-block right">
+            <strong class="match-clock" data-enemy-clock>15:00</strong>
+            <div><div class="player-name" data-bot-name>Nova</div><div class="player-meta">1400 · Black</div><div class="clock-bar enemy"><i data-enemy-clock-bar></i></div></div>
+            <div class="player-badge player-black">N</div>
+          </div>
+        </section>
+
+        <section class="game-layout">
+          <!-- The local SVG scenery is deliberately subdued behind gameplay. -->
+          <div class="card board-shell board-arena">
+            <div class="arena-scene" aria-hidden="true"></div>
+            <div class="board-chassis" aria-hidden="true"></div>
+            <div class="hex-board board-theme-slate" data-hex-board aria-label="Interactive 85 hex Fortress board"></div>
+            <div class="board-legend" aria-hidden="true"><span><i class="legend-dot legal"></i> Legal</span><span><i class="legend-dot attack"></i> Attack</span><span><i class="legend-dot support"></i> Ally support</span></div>
+          </div>
+
+          <aside class="tactical-panel" aria-label="Tactical information">
+            <div class="card panel-section selection-card">
+              <div class="panel-kicker"><div><div class="eyebrow">Selection</div><h3 data-selected-unit>No unit selected</h3></div></div>
+              <div class="selected-piece-preview" data-piece-preview><span>Select a white piece</span></div>
+              <div class="stat-grid">
+                <div class="stat"><b data-effective-str>—</b><span>Effective STR</span></div>
+                <div class="stat"><b data-support-count>+0</b><span>Ally support</span></div>
+              </div>
+              <div class="tactical-summary compact-summary" aria-label="Selected unit tactical state">
+                <span><b data-legal-count>0</b><small>Legal moves</small></span>
+                <span><b data-contact-count>0</b><small>Enemy contact</small></span>
+              </div>
+              <p class="muted small" data-combat-copy>Select one of your pieces to see legal moves.</p>
+            </div>
+
+            <div class="card panel-section">
+              <div class="panel-kicker"><div><div class="eyebrow">Turn state</div><h3>Move <span data-move-count>0 / 2</span></h3></div><span class="pill" data-turn-number>Turn 1</span></div>
+              <div class="piece-counts-inline">
+                <span><b data-you-pieces>16</b> Your pieces</span>
+                <span><b data-enemy-pieces>16</b> Enemy pieces</span>
+              </div>
+            </div>
+
+            <div class="card panel-section appearance-quick-card" aria-label="Board appearance controls">
+              <div class="panel-kicker">
+                <div><div class="eyebrow">Appearance</div><h3>Board & surface</h3></div>
+                <a class="appearance-manage-link" href="themes.html">Materials</a>
+              </div>
+              <label class="appearance-field"><span>Board theme</span>
+                <select class="appearance-select" data-board-theme aria-label="Board theme">
+                  <option value="slate">Honed Slate</option>
+                  <option value="iron">Forged Iron</option>
+                  <option value="charcoal">Charcoal</option>
+                  <option value="concrete">Cast Concrete</option>
+                  <option value="alloy">Machined Alloy</option>
+                  <option value="carbon">Carbon Fiber</option>
+                  <option value="obsidian">Obsidian Glass</option>
+                  <option value="bronze">Aged Bronze</option>
+                  <option value="copper">Oxidised Copper</option>
+                  <option value="granite">Granite</option>
+                  <option value="limestone">Limestone</option>
+                  <option value="grass">Forest Moss</option>
+                  <option value="wood">Dark Oak</option>
+                  <option value="sandstone">Sandstone</option>
+                  <option value="basalt">Basalt</option>
+                  <option value="ice">Frosted Stone</option>
+                  <option value="quartz">Quartz</option>
+                  <option value="marble">Marble</option>
+                  <option value="clay">Red Clay</option>
+                  <option value="moss">Moss Stone</option>
+                </select>
+              </label>
+              <label class="appearance-field"><span>Website surface</span>
+                <select class="appearance-select" data-bg-theme aria-label="Website background material">
+                  <option value="gunmetal">Brushed Gunmetal</option>
+                  <option value="slate">Layered Slate</option>
+                  <option value="concrete">Cast Concrete</option>
+                  <option value="iron">Forged Iron</option>
+                  <option value="carbon">Carbon Fiber</option>
+                  <option value="obsidian">Obsidian Glass</option>
+                  <option value="bronze">Aged Bronze</option>
+                  <option value="alloy">Machined Alloy</option>
+                  <option value="etched">Etched Plate</option>
+                  <option value="dark-steel">Blackened Steel</option>
+                  <option value="walnut">Black Walnut</option>
+                  <option value="oak">Smoked Oak</option>
+                  <option value="basalt">Basalt Rock</option>
+                  <option value="sandstone">Sandstone</option>
+                  <option value="earth">Packed Earth</option>
+                  <option value="river-rock">River Rock</option>
+                  <option value="granite">Granite</option>
+                  <option value="forest">Forest Slate</option>
+                  <option value="clay">Fired Clay</option>
+                  <option value="limestone">Limestone</option>
+                </select>
+              </label>
+              <button class="btn appearance-mode-btn" data-theme-toggle type="button">Toggle light / dark</button>
+            </div>
+
+            <details class="card panel-section match-log-card" open>
+              <summary class="panel-kicker"><div><div class="eyebrow">Match log</div><h3>Recent events</h3></div><span class="log-chevron" aria-hidden="true">⌄</span></summary>
+              <div class="log" data-game-log>
+                <div class="log-item"><time>15:00</time><span>Match started · Practice vs Nova · 15 min.</span></div>
+                <div class="log-item"><time>15:00</time><span>Your turn. You may make up to two moves.</span></div>
+              </div>
+            </details>
+          </aside>
+        </section>
+
+        <section class="card action-bar" aria-label="Turn controls">
+          <div class="action-info"><strong data-action-title>Move 1 of 2</strong><span data-action-status>Choose a highlighted hex.</span></div>
+          <div class="action-buttons">
+            <button class="btn" type="button" data-undo-move>Undo</button>
+            <button class="btn" type="button" data-toggle-overlays>Tactical overlays</button>
+            <button class="btn btn-primary" type="button" data-confirm-turn>Confirm turn</button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <nav class="mobile-bottom-nav" data-mobile-bottom aria-label="Mobile navigation"></nav>
+  </div>
+
+  <div class="modal-backdrop" id="gameOverModal" role="dialog" aria-modal="true" aria-label="Game result">
+    <div class="modal card game-result-modal"><div class="eyebrow">Match complete</div><h2 data-result-title>Victory</h2><p class="muted" data-result-copy>The opposing keep has fallen.</p><div class="hero-actions"><button class="btn btn-primary" type="button" data-restart-game>Play again</button><a class="btn" href="index.html">Back home</a></div></div>
+  </div>
+
+  <div class="modal-backdrop" id="promotionModal" role="dialog" aria-modal="true" aria-label="Promotion available">
+    <div class="modal card promotion-modal">
+      <div class="eyebrow">Promotion available</div>
+      <h2>Advance this unit</h2>
+      <p class="muted">This piece reached the far rank. Choose its promoted role before play continues.</p>
+      <div class="promotion-options" data-promotion-options></div>
+      <button class="btn" type="button" data-skip-promotion>Keep current role</button>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js?v=play24final"></script>
+  <script src="assets/js/board.js?v=play24final"></script>
+  <script src="assets/js/pages.js?v=play24final"></script>
+</body>
+</html>

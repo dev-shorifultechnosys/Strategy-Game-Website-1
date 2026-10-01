@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Feedback — Fortress</title>
+  <link rel="stylesheet" href="assets/css/styles.css?v=submission4">
+  <link rel="stylesheet" href="assets/css/feedback-v1.css?v=feedback100">
+  <link rel="stylesheet" href="assets/css/light-mode-contrast-v1.css?v=lightfix100">
+</head>
+<body data-page="feedback" data-bg="gunmetal">
+<div class="app-shell">
+  <div data-shell></div>
+  <header class="mobile-topbar" data-mobile-top></header>
+
+  <main class="main">
+    <div class="page feedback-v1">
+
+      <section class="page-head feedback-head">
+        <div>
+          <div class="eyebrow">Product feedback</div>
+          <h1 class="h2">Send feedback</h1>
+          <p class="muted">Found a bug or have an idea? Choose a category, describe what happened and tell us what you expected instead.</p>
+          <div class="feedback-head-meta">
+            <span><i class="meta-dot"></i> Context attached automatically</span>
+            <span>Guest-friendly</span>
+            <span>About 2 minutes</span>
+          </div>
+        </div>
+        <div class="context-badge">
+          <span>Context aware</span>
+          <strong>Page + theme + board</strong>
+          <small>Helpful details are included with your report.</small>
+        </div>
+      </section>
+
+      <form class="card card-pad feedback-form-v1" data-feedback-form-v1 novalidate>
+        <section class="feedback-section">
+          <div class="feedback-section-head">
+            <div>
+              <span class="section-kicker">01 · Category</span>
+              <h2>What’s this about?</h2>
+              <p>Pick the closest match so the team can route the feedback correctly.</p>
+            </div>
+            <span class="required-pill">Required</span>
+          </div>
+
+          <fieldset class="feedback-type-grid">
+            <legend class="sr-only">Feedback category</legend>
+
+            <label class="feedback-type">
+              <input type="radio" name="type" value="bug" required>
+              <span class="type-icon bug" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M8 7V5m8 2V5M5 10H3m18 0h-2M5 14H3m18 0h-2M8 19v2m8-2v2"/><rect x="6" y="7" width="12" height="12" rx="5"/><path d="M9 11h6M9 15h6"/></svg>
+              </span>
+              <span class="type-copy"><strong>Bug</strong><small>Something is broken or behaving unexpectedly.</small></span>
+              <span class="type-check">✓</span>
+            </label>
+
+            <label class="feedback-type">
+              <input type="radio" name="type" value="idea">
+              <span class="type-icon idea" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 18h6m-5 3h4"/><path d="M8.3 15.5A7 7 0 1 1 15.7 15.5C14.6 16.3 14 17 14 18h-4c0-1-.6-1.7-1.7-2.5Z"/></svg>
+              </span>
+              <span class="type-copy"><strong>Idea</strong><small>A feature, improvement or quality-of-life suggestion.</small></span>
+              <span class="type-check">✓</span>
+            </label>
+
+            <label class="feedback-type">
+              <input type="radio" name="type" value="praise">
+              <span class="type-icon praise" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.3-7-9.2A4.1 4.1 0 0 1 12 8a4.1 4.1 0 0 1 7 2.8C19 15.7 12 20 12 20Z"/></svg>
+              </span>
+              <span class="type-copy"><strong>Praise</strong><small>Something that feels strong and should be preserved.</small></span>
+              <span class="type-check">✓</span>
+            </label>
+
+            <label class="feedback-type">
+              <input type="radio" name="type" value="other">
+              <span class="type-icon other" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+              </span>
+              <span class="type-copy"><strong>Other</strong><small>Anything that does not fit the categories above.</small></span>
+              <span class="type-check">✓</span>
+            </label>
+          </fieldset>
+          <div class="feedback-error" data-type-error hidden>Please choose a feedback category.</div>
+        </section>
+
+        <section class="feedback-section">
+          <div class="feedback-section-head">
+            <div>
+              <span class="section-kicker">02 · Details</span>
+              <h2>Tell us what happened.</h2>
+              <p>A clear report helps us reproduce the issue or understand the idea quickly.</p>
+            </div>
+            <span class="required-pill">Required</span>
+          </div>
+
+          <div class="feedback-prompts">
+            <span><b>What happened?</b> Describe the moment or behavior.</span>
+            <span><b>What did you expect?</b> Tell us what should have happened instead.</span>
+            <span><b>Steps to reproduce</b> Add them if the issue can happen again.</span>
+          </div>
+
+          <div class="textarea-shell">
+            <textarea id="feedbackText" name="feedback" rows="10" maxlength="4000" required
+              placeholder="Example: On the Play page I selected a Tower, then chose a legal move. After confirming, the support value did not update. I expected the adjacent ally bonus to be recalculated immediately."></textarea>
+            <span class="textarea-count" data-feedback-count>0 / 4000</span>
+          </div>
+          <div class="feedback-error" data-text-error hidden>Please add a short description before sending.</div>
+        </section>
+
+        <section class="feedback-section feedback-context-section">
+          <div class="feedback-section-head">
+            <div>
+              <span class="section-kicker">03 · Context</span>
+              <h2>Helpful details are attached automatically.</h2>
+              <p>You can also add a screenshot if it helps explain the issue.</p>
+            </div>
+            <span class="optional-pill">Optional screenshot</span>
+          </div>
+
+          <div class="context-grid">
+            <div class="context-card">
+              <span>Current page</span>
+              <strong data-context-page>Feedback</strong>
+            </div>
+            <div class="context-card">
+              <span>Appearance</span>
+              <strong data-context-theme>Dark</strong>
+            </div>
+            <div class="context-card">
+              <span>Website surface</span>
+              <strong data-context-surface>Brushed Gunmetal</strong>
+            </div>
+            <div class="context-card">
+              <span>Board theme</span>
+              <strong data-context-board>Honed Slate</strong>
+            </div>
+          </div>
+
+          <label class="upload-card">
+            <input type="file" name="screenshot" accept="image/png,image/jpeg,image/webp">
+            <span class="upload-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 16V5m0 0-4 4m4-4 4 4"/><path d="M5 15v4h14v-4"/></svg>
+            </span>
+            <span class="upload-copy">
+              <strong>Add a screenshot</strong>
+              <small>PNG, JPG or WebP · optional</small>
+            </span>
+            <span class="upload-action" data-upload-label>Choose file</span>
+          </label>
+        </section>
+
+        <div class="feedback-footer">
+          <div class="feedback-identity">
+            <span>Sending as <strong data-feedback-user>Guest</strong></span>
+            <small>Only the information shown above is included in this prototype.</small>
+          </div>
+          <button class="btn btn-primary feedback-submit" type="submit">
+            <span>Send feedback</span><b aria-hidden="true">→</b>
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <aside class="right-rail" data-right-rail></aside>
+  <nav class="mobile-bottom-nav" data-mobile-bottom></nav>
+</div>
+
+<script src="assets/js/app.js?v=submission4"></script>
+<script src="assets/js/pages.js?v=submission4"></script>
+<script src="assets/js/feedback-v1.js?v=feedback100"></script>
+</body>
+</html>

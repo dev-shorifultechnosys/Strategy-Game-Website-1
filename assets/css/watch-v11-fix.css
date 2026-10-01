@@ -1,0 +1,82 @@
+
+/* Fortress Watch V1.1 — clipping + long-name final fixes */
+
+/* Strength badges must stay fully inside every hex.
+   Centering at the lower edge avoids clipping on the sloped right/left corners. */
+body[data-page="watch"] .watch-strength{
+  left:50%!important;
+  right:auto!important;
+  bottom:3px!important;
+  transform:translateX(-50%)!important;
+  min-width:16px!important;
+  height:16px!important;
+  padding:0 4px!important;
+  line-height:16px!important;
+  z-index:6!important;
+}
+
+/* Lift the piece slightly so the strength badge has its own clean space. */
+body[data-page="watch"] .watch-piece{
+  width:58%!important;
+  height:68%!important;
+  transform:translate(-50%,-58%)!important;
+}
+
+/* Featured-player cards: long usernames must never escape their border. */
+body[data-page="watch"] .watch-players{
+  grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)!important;
+}
+body[data-page="watch"] .watch-player{
+  min-width:0!important;
+  overflow:hidden!important;
+}
+body[data-page="watch"] .watch-player > span{
+  min-width:0!important;
+  flex:1 1 auto!important;
+}
+body[data-page="watch"] .watch-player strong{
+  max-width:100%!important;
+  font-size:clamp(12px,1.05vw,16px)!important;
+  line-height:1.12!important;
+  overflow-wrap:anywhere!important;
+  word-break:break-word!important;
+}
+body[data-page="watch"] .watch-player small{
+  white-space:normal!important;
+}
+
+/* Keep the VS column compact so both player cards receive equal room. */
+body[data-page="watch"] .watch-versus{
+  width:24px!important;
+  text-align:center!important;
+}
+
+/* Compact board cards: slightly more internal breathing room for badges. */
+body[data-page="watch"] .watch-board.small .watch-strength{
+  bottom:2px!important;
+  min-width:14px!important;
+  height:14px!important;
+  line-height:14px!important;
+  font-size:7px!important;
+  padding:0 3px!important;
+}
+body[data-page="watch"] .watch-board.small .watch-piece{
+  width:56%!important;
+  height:65%!important;
+  transform:translate(-50%,-59%)!important;
+}
+
+/* Tablet/mobile: preserve the same safe geometry. */
+@media (max-width:900px){
+  body[data-page="watch"] .watch-player strong{
+    font-size:14px!important;
+  }
+}
+@media (max-width:560px){
+  body[data-page="watch"] .watch-players{
+    grid-template-columns:1fr!important;
+  }
+  body[data-page="watch"] .watch-player strong{
+    font-size:15px!important;
+  }
+}

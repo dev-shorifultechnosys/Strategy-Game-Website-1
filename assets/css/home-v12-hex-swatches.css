@@ -1,0 +1,55 @@
+/* Fortress Home V12 — material swatches use the same tactical hex language as the board.
+   IMPORTANT: shape-only override. Existing material colours/textures are intentionally preserved. */
+
+/* Six named material samples above the catalog. */
+body[data-page="home"] .material-swatches a{
+  overflow:visible!important;
+  padding:11px 10px 10px!important;
+}
+body[data-page="home"] .material-swatches i{
+  width:min(100%,132px)!important;
+  height:72px!important;
+  margin:0 auto 10px!important;
+  border-radius:0!important;
+  clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)!important;
+  -webkit-clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)!important;
+  filter:drop-shadow(0 3px 0 rgba(87,100,110,.34)) drop-shadow(0 8px 10px rgba(0,0,0,.20))!important;
+  transform:translateZ(0)!important;
+}
+
+/* 40-direction summary chips: same hex silhouette, compact enough to keep all 10 per row. */
+body[data-page="home"] .catalog-chip-row{
+  align-items:center!important;
+  gap:9px!important;
+}
+body[data-page="home"] .catalog-chip-row i{
+  width:100%!important;
+  aspect-ratio:1.16 / 1!important;
+  height:auto!important;
+  min-height:0!important;
+  border:0!important;
+  border-radius:0!important;
+  clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)!important;
+  -webkit-clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)!important;
+  box-shadow:none!important;
+  filter:drop-shadow(0 2px 0 rgba(89,102,111,.38)) drop-shadow(0 5px 7px rgba(0,0,0,.18))!important;
+}
+
+/* Slight vertical breathing room so the new angled silhouette never feels cramped. */
+body[data-page="home"] .catalog-card{padding-bottom:18px!important}
+body[data-page="home"] .catalog-chip-row{padding:2px 3px 4px!important}
+
+/* Light mode only adjusts the edge shadow, never the actual swatch colour/texture. */
+html[data-theme="light"] body[data-page="home"] .material-swatches i,
+html[data-theme="light"] body[data-page="home"] .catalog-chip-row i{
+  filter:drop-shadow(0 2px 0 rgba(69,78,84,.32)) drop-shadow(0 6px 8px rgba(31,35,38,.13))!important;
+}
+
+@media(max-width:900px){
+  body[data-page="home"] .material-swatches i{height:66px!important}
+  body[data-page="home"] .catalog-chip-row{gap:10px!important}
+}
+@media(max-width:620px){
+  body[data-page="home"] .material-swatches i{height:62px!important;width:min(100%,116px)!important}
+  body[data-page="home"] .catalog-chip-row i{aspect-ratio:1.1 / 1!important}
+}

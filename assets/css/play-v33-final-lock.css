@@ -1,0 +1,18 @@
+
+/* Fortress Play V3.3 — final submission micro-polish */
+body[data-page="play"] .tactical-panel,
+body[data-page="play"] .match-log-card .log{scrollbar-width:thin;scrollbar-color:rgba(122,143,154,.34) transparent}
+body[data-page="play"] .tactical-panel::-webkit-scrollbar,
+body[data-page="play"] .match-log-card .log::-webkit-scrollbar{width:7px}
+body[data-page="play"] .tactical-panel::-webkit-scrollbar-track,
+body[data-page="play"] .match-log-card .log::-webkit-scrollbar-track{background:transparent}
+body[data-page="play"] .tactical-panel::-webkit-scrollbar-thumb,
+body[data-page="play"] .match-log-card .log::-webkit-scrollbar-thumb{background:rgba(122,143,154,.28);border-radius:999px;border:2px solid transparent;background-clip:padding-box}
+body[data-page="play"] .tactical-panel::-webkit-scrollbar-thumb:hover,
+body[data-page="play"] .match-log-card .log::-webkit-scrollbar-thumb:hover{background:rgba(122,143,154,.48);background-clip:padding-box}
+body[data-page="play"] [data-confirm-turn]{transition:background .18s ease,border-color .18s ease,color .18s ease,box-shadow .18s ease,opacity .18s ease!important}
+body[data-page="play"] [data-confirm-turn][disabled]{background:linear-gradient(180deg,#6e644f,#564d3e)!important;border-color:rgba(219,185,122,.13)!important;color:rgba(19,22,24,.72)!important;opacity:.62!important;box-shadow:none!important}
+body[data-page="play"] [data-confirm-turn]:not([disabled]){background:linear-gradient(180deg,#f3ba50,#dc982e)!important;border-color:#f5c467!important;color:#17120a!important;opacity:1!important;filter:none!important;box-shadow:0 10px 22px rgba(223,158,44,.24),inset 0 1px 0 rgba(255,255,255,.30)!important}
+body[data-page="play"] [data-confirm-turn]:not([disabled]):hover{background:linear-gradient(180deg,#f8c45d,#e3a039)!important;box-shadow:0 12px 26px rgba(223,158,44,.30),inset 0 1px 0 rgba(255,255,255,.34)!important}
+body[data-page="play"] .match-log-card .log-item time{min-width:42px;font-size:10.5px!important;letter-spacing:.01em}
+@media (max-width:900px){body[data-page="play"] [data-confirm-turn]{min-height:48px!important}}

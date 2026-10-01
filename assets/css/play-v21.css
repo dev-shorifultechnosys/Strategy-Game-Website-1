@@ -1,0 +1,313 @@
+/* ================================================================
+   Fortress Play V2.1 — clean production polish
+   Keeps V2's flat tactical direction. No 3D/isometric treatment.
+   ================================================================ */
+
+body[data-page="play"]{
+  --play-surface:#10151a;
+  --play-surface-2:#151b21;
+  --play-border:rgba(184,201,211,.14);
+  --play-muted:#a6adb3;
+  --play-gold:#dea13d;
+  --play-cyan:#5eddea;
+  --play-red:#ff6d77;
+  --play-green:#68d79e;
+  background:#090c10!important;
+}
+body[data-page="play"]::before{
+  content:""!important;
+  position:fixed!important;
+  inset:0!important;
+  pointer-events:none!important;
+  opacity:1!important;
+  background:
+    repeating-linear-gradient(90deg,rgba(255,255,255,.012) 0 1px,transparent 1px 4px),
+    linear-gradient(180deg,rgba(255,255,255,.018),transparent 22%),
+    radial-gradient(circle at 58% 18%,rgba(75,218,233,.035),transparent 25%),
+    linear-gradient(180deg,#0b0f13,#080b0f 60%,#07090d)!important;
+}
+
+/* Current match context: compact and secondary to the board. */
+body[data-page="play"] .play-mode-strip{
+  min-height:62px!important;
+  padding:10px 14px!important;
+  border-radius:15px!important;
+  background:linear-gradient(180deg,rgba(16,22,27,.98),rgba(10,14,18,.99))!important;
+  border:1px solid var(--play-border)!important;
+  box-shadow:none!important;
+}
+body[data-page="play"] .play-mode-copy{gap:10px!important}
+body[data-page="play"] .play-mode-copy strong{font-size:15px!important}
+body[data-page="play"] .mode-subcopy{display:block!important;margin-top:2px!important;font-size:10px!important;color:var(--play-muted)!important}
+body[data-page="play"] .mode-question{width:30px!important;height:30px!important;display:grid!important;place-items:center!important;border-radius:50%!important;background:rgba(94,221,234,.08)!important;border:1px solid rgba(94,221,234,.18)!important;color:var(--play-cyan)!important}
+body[data-page="play"] .match-options{position:relative!important;margin-left:auto!important}
+body[data-page="play"] .match-options summary{list-style:none!important;cursor:pointer!important}
+body[data-page="play"] .match-options summary::-webkit-details-marker{display:none!important}
+body[data-page="play"] .match-options-menu{position:absolute!important;right:0!important;top:calc(100% + 8px)!important;z-index:40!important;min-width:180px!important;padding:8px!important;display:grid!important;gap:7px!important;background:#11171c!important;border:1px solid var(--play-border)!important;box-shadow:0 18px 42px rgba(0,0,0,.34)!important}
+body[data-page="play"] .match-options:not([open]) .match-options-menu{display:none!important}
+body[data-page="play"] .match-options-menu .btn{width:100%!important;justify-content:flex-start!important}
+
+/* Match HUD: preserve the V2 architecture, reduce chrome. */
+body[data-page="play"] .match-hud{
+  min-height:68px!important;
+  padding:10px 12px!important;
+  border-radius:15px!important;
+  background:linear-gradient(180deg,rgba(16,22,27,.985),rgba(10,14,18,.99))!important;
+  border:1px solid var(--play-border)!important;
+  box-shadow:none!important;
+}
+body[data-page="play"] .turn-chip{
+  padding:7px 14px!important;
+  background:rgba(222,161,61,.045)!important;
+  border-color:rgba(222,161,61,.18)!important;
+}
+body[data-page="play"] .turn-chip strong{font-size:12px!important;color:#f0b64f!important}
+body[data-page="play"] .turn-chip span{font-size:9px!important;color:#adb3b9!important}
+
+/* Layout: more board, slightly narrower tactical rail. */
+body[data-page="play"] .game-layout{
+  grid-template-columns:minmax(0,1fr) 264px!important;
+  gap:12px!important;
+  align-items:start!important;
+}
+body[data-page="play"] .board-arena{
+  min-height:690px!important;
+  padding:20px 8px 46px!important;
+  border-radius:20px!important;
+  overflow:hidden!important;
+  background:
+    repeating-linear-gradient(90deg,rgba(255,255,255,.008) 0 1px,transparent 1px 5px),
+    linear-gradient(180deg,#0d1115,#07090c)!important;
+  border:1px solid rgba(222,161,61,.16)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.02),0 22px 55px rgba(0,0,0,.28)!important;
+}
+body[data-page="play"] .arena-scene{display:none!important}
+body[data-page="play"] .board-chassis{
+  left:4.2%!important;
+  right:4.2%!important;
+  top:7%!important;
+  bottom:7.2%!important;
+  background:linear-gradient(145deg,#3c464e 0%,#1d242a 12%,#0c1014 52%,#1a2026 88%,#424d55 100%)!important;
+  box-shadow:inset 0 0 0 1px rgba(177,196,207,.16),inset 0 0 0 5px rgba(0,0,0,.46),0 16px 30px rgba(0,0,0,.35)!important;
+}
+body[data-page="play"] .board-chassis::before{
+  inset:10px!important;
+  background:#070a0d!important;
+  box-shadow:inset 0 0 26px rgba(0,0,0,.7),inset 0 0 0 1px rgba(225,169,74,.06)!important;
+}
+body[data-page="play"] .hex-board{
+  --hex:clamp(42px,5.05vw,66px)!important;
+  transform:none!important;
+  filter:drop-shadow(0 16px 18px rgba(0,0,0,.42))!important;
+  z-index:4!important;
+}
+body[data-page="play"] .hex-row{gap:4px!important;height:calc(var(--hex)*.84)!important}
+body[data-page="play"] .hex{
+  filter:drop-shadow(0 5px 2px rgba(0,0,0,.58))!important;
+  transition:filter .16s ease,transform .16s ease!important;
+}
+body[data-page="play"] .hex:hover{transform:translateY(-2px)!important;filter:brightness(1.06) drop-shadow(0 7px 2px rgba(0,0,0,.62))!important}
+body[data-page="play"] .hex::before{
+  inset:3px 3px 5px!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.055),inset 0 -7px 12px rgba(0,0,0,.24),inset 0 0 0 1px rgba(255,255,255,.025)!important;
+}
+body[data-page="play"] .board-theme-slate .hex.tone-a::before,
+body[data-page="play"] .hex.tone-a::before{
+  background:
+    repeating-linear-gradient(14deg,rgba(255,255,255,.018) 0 1px,transparent 1px 7px),
+    linear-gradient(160deg,#394149 0%,#20262c 45%,#0d1115 100%)!important;
+}
+body[data-page="play"] .board-theme-slate .hex.tone-b::before,
+body[data-page="play"] .hex.tone-b::before{
+  background:
+    repeating-linear-gradient(14deg,rgba(255,255,255,.014) 0 1px,transparent 1px 8px),
+    linear-gradient(160deg,#4d4841 0%,#332f2a 45%,#141210 100%)!important;
+}
+
+/* State hierarchy: color + distinct shapes, not color alone. */
+body[data-page="play"] .hex.selected::before{
+  background:linear-gradient(160deg,#6b572f,#3f2d17 55%,#181109)!important;
+  box-shadow:inset 0 0 0 2px rgba(248,206,118,.88),inset 0 0 18px rgba(235,170,66,.18)!important;
+}
+body[data-page="play"] .hex.selected{filter:drop-shadow(0 0 10px rgba(234,174,72,.28)) drop-shadow(0 6px 2px rgba(0,0,0,.6))!important}
+body[data-page="play"] .hex.legal::before{
+  background:linear-gradient(160deg,#236d7d,#134958 56%,#081c23)!important;
+  box-shadow:inset 0 0 0 2px rgba(110,235,247,.84),inset 0 0 17px rgba(94,221,234,.14)!important;
+}
+body[data-page="play"] .hex.legal::after{
+  content:""!important;
+  width:10px!important;height:10px!important;border-radius:50%!important;
+  background:#eaffff!important;
+  box-shadow:0 0 0 5px rgba(94,221,234,.13),0 0 12px rgba(94,221,234,.42)!important;
+}
+body[data-page="play"] .hex.attack::before{
+  background:linear-gradient(160deg,#66242b,#371116 56%,#16080a)!important;
+  box-shadow:inset 0 0 0 2px rgba(255,115,126,.84),inset 0 0 16px rgba(255,109,119,.12)!important;
+}
+body[data-page="play"] .hex.attack::after{
+  content:"×"!important;
+  inset:0!important;
+  display:grid!important;
+  place-items:center!important;
+  border:0!important;
+  color:#ffd8dc!important;
+  background:transparent!important;
+  font-size:22px!important;
+  font-weight:900!important;
+  text-shadow:0 0 8px rgba(255,109,119,.42)!important;
+  box-shadow:none!important;
+}
+body[data-page="play"] .hex.support::after{
+  content:"+"!important;
+  width:14px!important;height:14px!important;right:4px!important;top:4px!important;
+  display:grid!important;place-items:center!important;
+  border-radius:50%!important;
+  background:#68d79e!important;color:#07110b!important;
+  font-size:11px!important;font-weight:900!important;line-height:1!important;
+  box-shadow:0 0 0 3px rgba(104,215,158,.10)!important;
+}
+
+/* Supplied pieces: crisp, grounded, no 3D fakery or glow halo. */
+body[data-page="play"] .piece-v2{
+  width:calc(var(--hex)*.76)!important;
+  height:calc(var(--hex)*.94)!important;
+  position:relative!important;
+}
+body[data-page="play"] .piece-v2::after{
+  content:"";position:absolute;left:19%;right:19%;bottom:1px;height:7px;border-radius:50%;
+  background:rgba(0,0,0,.42);filter:blur(3px);z-index:-1;
+}
+body[data-page="play"] .piece-v2 img{transform:translateY(1%) scale(1.04)!important;filter:drop-shadow(0 6px 4px rgba(0,0,0,.48))!important}
+body[data-page="play"] .piece-v2.you img{filter:brightness(.98) saturate(.84) contrast(1.08) drop-shadow(0 6px 4px rgba(0,0,0,.46))!important}
+body[data-page="play"] .piece-v2.enemy img{filter:brightness(.96) saturate(.82) contrast(1.18) drop-shadow(0 6px 4px rgba(0,0,0,.58))!important}
+body[data-page="play"] .hex.selected .piece-v2 img{filter:brightness(1.02) saturate(.86) contrast(1.10) drop-shadow(0 6px 4px rgba(0,0,0,.5))!important}
+body[data-page="play"] .hex-strength{
+  min-width:20px!important;height:20px!important;padding:0 4px!important;
+  right:1px!important;bottom:1px!important;border-radius:6px!important;
+  font-size:10px!important;font-weight:900!important;
+  box-shadow:0 3px 8px rgba(0,0,0,.42)!important;
+}
+body[data-page="play"] .hex-strength.you{background:#f2eee2!important;color:#171a1c!important;border:1px solid #677177!important}
+body[data-page="play"] .hex-strength.enemy{background:#12171b!important;color:#f5e8ca!important;border:1px solid rgba(220,166,75,.58)!important}
+
+/* Tactical rail: selection > turn > optional log. */
+body[data-page="play"] .tactical-panel{gap:10px!important}
+body[data-page="play"] .tactical-panel .card{
+  border-radius:16px!important;
+  background:linear-gradient(155deg,rgba(19,25,30,.985),rgba(10,14,18,.99))!important;
+  border:1px solid rgba(178,197,208,.12)!important;
+  box-shadow:none!important;
+}
+body[data-page="play"] .selection-card{border-color:rgba(94,221,234,.20)!important}
+body[data-page="play"] .panel-section{padding:14px!important}
+body[data-page="play"] .selected-piece-preview{
+  min-height:72px!important;padding:10px 12px!important;
+  background:rgba(255,255,255,.018)!important;border:1px solid rgba(255,255,255,.045)!important;
+}
+body[data-page="play"] .selected-piece-preview img{width:50px!important;height:64px!important;object-fit:contain!important;filter:drop-shadow(0 6px 5px rgba(0,0,0,.4))!important}
+body[data-page="play"] .tactical-summary{gap:6px!important;margin:9px 0!important}
+body[data-page="play"] .tactical-summary span{padding:7px 4px!important;background:rgba(255,255,255,.014)!important}
+body[data-page="play"] .tactical-summary b{font-size:14px!important}
+body[data-page="play"] .tactical-summary small{font-size:8px!important}
+body[data-page="play"] .match-log-card{opacity:.9!important}
+body[data-page="play"] .match-log-card summary{list-style:none!important;cursor:pointer!important}
+body[data-page="play"] .match-log-card summary::-webkit-details-marker{display:none!important}
+body[data-page="play"] .match-log-card .log{max-height:130px!important;overflow:auto!important;margin-top:8px!important}
+body[data-page="play"] .log-chevron{transition:transform .18s ease!important}
+body[data-page="play"] .match-log-card[open] .log-chevron{transform:rotate(180deg)!important}
+
+/* Action availability must be instantly obvious. */
+body[data-page="play"] .action-bar{
+  bottom:12px!important;padding:10px 12px!important;border-radius:14px!important;
+  background:rgba(10,15,19,.98)!important;border:1px solid rgba(94,221,234,.14)!important;
+  box-shadow:0 16px 36px rgba(0,0,0,.28)!important;
+}
+body[data-page="play"] .action-info{display:flex!important;align-items:baseline!important;gap:10px!important;min-width:0!important}
+body[data-page="play"] .action-info strong{white-space:nowrap!important}
+body[data-page="play"] .action-info span{font-size:11px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+body[data-page="play"] .action-buttons{gap:8px!important}
+body[data-page="play"] .action-buttons .btn{min-height:42px!important}
+body[data-page="play"] [data-toggle-overlays].active{border-color:rgba(94,221,234,.32)!important;background:rgba(94,221,234,.07)!important;color:#b9f4f8!important}
+body[data-page="play"] .btn[disabled]{opacity:.38!important;cursor:not-allowed!important;filter:saturate(.4)!important;box-shadow:none!important}
+body[data-page="play"] [data-confirm-turn]:not([disabled]){box-shadow:0 8px 18px rgba(222,161,61,.16)!important}
+
+/* Light theme is deliberately rebalanced, not simply inverted. */
+html[data-theme="light"] body[data-page="play"]{background:#ece8df!important;color:#20262a!important}
+html[data-theme="light"] body[data-page="play"]::before{
+  background:
+    repeating-linear-gradient(90deg,rgba(39,46,49,.018) 0 1px,transparent 1px 5px),
+    radial-gradient(circle at 58% 18%,rgba(22,132,151,.04),transparent 26%),
+    linear-gradient(180deg,#f4f1e9,#e6e1d7)!important;
+}
+html[data-theme="light"] body[data-page="play"] .play-mode-strip,
+html[data-theme="light"] body[data-page="play"] .match-hud,
+html[data-theme="light"] body[data-page="play"] .action-bar,
+html[data-theme="light"] body[data-page="play"] .tactical-panel .card{
+  background:linear-gradient(180deg,#fbf9f4,#ece8df)!important;
+  border-color:rgba(48,57,61,.14)!important;
+  color:#252a2e!important;
+}
+html[data-theme="light"] body[data-page="play"] .mode-subcopy,
+html[data-theme="light"] body[data-page="play"] .turn-chip span,
+html[data-theme="light"] body[data-page="play"] .muted,
+html[data-theme="light"] body[data-page="play"] .log-item{color:#636b70!important}
+html[data-theme="light"] body[data-page="play"] .board-arena{background:linear-gradient(180deg,#f0ede6,#d8d3c8)!important;border-color:rgba(48,57,61,.15)!important}
+html[data-theme="light"] body[data-page="play"] .board-chassis{background:linear-gradient(145deg,#d7d5cd,#9ca2a3 14%,#697073 50%,#a6aaa8 86%,#dedbd3)!important;box-shadow:inset 0 0 0 1px rgba(34,42,46,.16),inset 0 0 0 5px rgba(255,255,255,.32),0 14px 28px rgba(65,59,49,.14)!important}
+html[data-theme="light"] body[data-page="play"] .board-chassis::before{background:#c8c4bb!important;box-shadow:inset 0 0 22px rgba(65,59,49,.14)!important}
+html[data-theme="light"] body[data-page="play"] .hex{background:#838a8d!important;filter:drop-shadow(0 4px 2px rgba(55,50,42,.18))!important}
+html[data-theme="light"] body[data-page="play"] .hex.tone-a::before{background:repeating-linear-gradient(14deg,rgba(20,25,27,.025) 0 1px,transparent 1px 7px),linear-gradient(160deg,#cacac4,#aaa9a2 48%,#84847f)!important}
+html[data-theme="light"] body[data-page="play"] .hex.tone-b::before{background:repeating-linear-gradient(14deg,rgba(20,25,27,.02) 0 1px,transparent 1px 8px),linear-gradient(160deg,#b7b0a5,#969087 48%,#736e67)!important}
+html[data-theme="light"] body[data-page="play"] .piece-v2.enemy img{filter:brightness(.76) saturate(.70) contrast(1.22) drop-shadow(0 5px 3px rgba(50,44,36,.28))!important}
+html[data-theme="light"] body[data-page="play"] .piece-v2.you img{filter:brightness(.93) saturate(.76) contrast(1.15) drop-shadow(0 5px 3px rgba(50,44,36,.24))!important}
+html[data-theme="light"] body[data-page="play"] .board-legend{background:rgba(251,249,244,.9)!important;color:#31383c!important;border-color:rgba(48,57,61,.12)!important}
+html[data-theme="light"] body[data-page="play"] .match-options-menu{background:#f5f1e8!important;border-color:rgba(48,57,61,.14)!important}
+
+/* Tablet: board first, tactical cards become two columns below. */
+@media (max-width:1180px){
+  body[data-page="play"] .game-layout{grid-template-columns:1fr!important}
+  body[data-page="play"] .board-arena{min-height:610px!important}
+  body[data-page="play"] .hex-board{--hex:clamp(37px,5.7vw,58px)!important}
+  body[data-page="play"] .tactical-panel{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  body[data-page="play"] .selection-card{grid-row:span 2!important}
+  body[data-page="play"] .match-log-card{grid-column:auto!important}
+}
+
+/* Mobile: intentionally recomposed, not a squeezed desktop. */
+@media (max-width:900px){
+  body[data-page="play"] .main{padding:66px 8px 96px!important}
+  body[data-page="play"] .play-mode-strip{min-height:54px!important;padding:7px 9px!important}
+  body[data-page="play"] .mode-question{display:none!important}
+  body[data-page="play"] .play-mode-copy strong{font-size:13px!important}
+  body[data-page="play"] .mode-subcopy{font-size:9px!important}
+  body[data-page="play"] .match-options summary{min-height:38px!important;padding:8px 10px!important;font-size:10px!important}
+  body[data-page="play"] .match-hud{min-height:58px!important;padding:7px 8px!important;gap:4px!important}
+  body[data-page="play"] .turn-chip{min-width:0!important;padding:5px 7px!important}
+  body[data-page="play"] .board-arena{min-height:auto!important;padding:15px 0 40px!important;border-radius:15px!important}
+  body[data-page="play"] .board-chassis{left:1.4%!important;right:1.4%!important;top:4.5%!important;bottom:6.5%!important}
+  body[data-page="play"] .hex-board{--hex:clamp(27px,8.1vw,36px)!important;width:max-content!important;max-width:none!important;margin-inline:auto!important;gap:calc(var(--hex)*-.18)!important}
+  body[data-page="play"] .hex-row{gap:2px!important}
+  body[data-page="play"] .piece-v2{width:calc(var(--hex)*.74)!important;height:calc(var(--hex)*.92)!important}
+  body[data-page="play"] .hex-strength{min-width:17px!important;height:17px!important;font-size:9px!important;right:0!important;bottom:0!important;border-radius:5px!important}
+  body[data-page="play"] .board-legend{bottom:5px!important;left:7px!important;padding:5px 7px!important;font-size:8px!important}
+  body[data-page="play"] .tactical-panel{grid-template-columns:1fr!important;margin-top:8px!important}
+  body[data-page="play"] .selection-card{grid-row:auto!important}
+  body[data-page="play"] .match-log-card{display:none!important}
+  body[data-page="play"] .action-bar{left:7px!important;right:7px!important;bottom:78px!important;padding:8px!important;display:block!important}
+  body[data-page="play"] .action-info{margin-bottom:7px!important}
+  body[data-page="play"] .action-info span{font-size:10px!important}
+  body[data-page="play"] .action-buttons{display:grid!important;grid-template-columns:1fr 1.15fr 1.35fr!important;gap:7px!important}
+  body[data-page="play"] .action-buttons .btn{min-height:46px!important;min-width:0!important;padding:8px 7px!important;font-size:10px!important;white-space:normal!important}
+}
+
+@media (max-width:520px){
+  body[data-page="play"] .main{padding-left:5px!important;padding-right:5px!important}
+  body[data-page="play"] .hex-board{--hex:clamp(26px,7.95vw,32px)!important}
+  body[data-page="play"] .match-hud .player-meta,body[data-page="play"] .match-hud .clock-bar{display:none!important}
+  body[data-page="play"] .match-hud .player-badge{display:grid!important;width:27px!important;height:27px!important;font-size:10px!important}
+  body[data-page="play"] .match-hud .player-name{font-size:11px!important}
+  body[data-page="play"] .match-hud .match-clock{font-size:10px!important}
+  body[data-page="play"] .turn-chip strong{font-size:10px!important}
+  body[data-page="play"] .turn-chip span{font-size:8px!important}
+  body[data-page="play"] .board-chassis{left:.4%!important;right:.4%!important;top:3.5%!important;bottom:5.5%!important}
+  body[data-page="play"] .action-buttons .btn{font-size:9px!important}
+}

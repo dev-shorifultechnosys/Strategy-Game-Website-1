@@ -1,0 +1,13 @@
+/* Fortress Play V3.4 — gameplay completion layer. Scoped to Play only. */
+body[data-page="play"] .danger-soft{border-color:rgba(255,92,105,.35);color:#ff9ca6;background:rgba(255,92,105,.06)}
+body[data-page="play"] .danger-soft:hover{background:rgba(255,92,105,.12)}
+body[data-page="play"] .promotion-modal{width:min(560px,92vw);text-align:left}
+body[data-page="play"] .promotion-modal h2{margin:6px 0 8px;font-size:32px}
+body[data-page="play"] .promotion-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0 12px}
+body[data-page="play"] .promotion-choice{display:grid;gap:4px;min-height:92px;align-content:center;text-align:left}
+body[data-page="play"] .promotion-choice strong{font-size:15px}
+body[data-page="play"] .promotion-choice small{color:var(--muted)}
+body[data-page="play"] .promotion-choice .promo-str{color:var(--gold);font-weight:900}
+body[data-page="play"] .match-options-menu{min-width:168px}
+body[data-page="play"] .match-options-menu .btn{width:100%;justify-content:flex-start}
+@media(max-width:680px){body[data-page="play"] .promotion-options{grid-template-columns:1fr}}

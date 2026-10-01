@@ -1,0 +1,164 @@
+/* Fortress Light Mode Contrast Fix V1
+   Light-theme-only overrides. Dark mode intentionally untouched. */
+
+html[data-theme="light"] body{
+  --text:#172027!important;
+  --muted:#59656c!important;
+  --muted-2:#727c82!important;
+  --border:rgba(31,45,54,.16)!important;
+  background:#efede7!important;
+  color:var(--text)!important;
+}
+html[data-theme="light"] body::before{
+  background:linear-gradient(180deg,#f3f1eb,#e6e4de)!important;
+  opacity:1!important;
+}
+html[data-theme="light"] .sidebar,
+html[data-theme="light"] .right-rail{
+  background:#f8f6f0!important;
+  color:#1b2429!important;
+  border-color:rgba(31,45,54,.14)!important;
+}
+html[data-theme="light"] .brand,
+html[data-theme="light"] .nav-link,
+html[data-theme="light"] .sidebar strong,
+html[data-theme="light"] .right-rail strong{color:#1c252a!important}
+html[data-theme="light"] .nav-link{color:#66737a!important}
+html[data-theme="light"] .nav-link.active{
+  color:#1c252a!important;
+  background:linear-gradient(90deg,rgba(89,227,239,.13),rgba(89,227,239,.035))!important;
+  border-color:rgba(29,150,165,.32)!important;
+  box-shadow:inset 3px 0 0 #43dce8!important;
+}
+html[data-theme="light"] .card,
+html[data-theme="light"] .panel,
+html[data-theme="light"] .page-head,
+html[data-theme="light"] .hud-bar,
+html[data-theme="light"] .action-bar,
+html[data-theme="light"] .play-mode-strip{
+  background:#fbfaf6!important;
+  border-color:rgba(31,45,54,.16)!important;
+  color:#182126!important;
+}
+html[data-theme="light"] .card h1,
+html[data-theme="light"] .card h2,
+html[data-theme="light"] .card h3,
+html[data-theme="light"] .panel h1,
+html[data-theme="light"] .panel h2,
+html[data-theme="light"] .panel h3,
+html[data-theme="light"] .page-head h1,
+html[data-theme="light"] .page-head h2{color:#172027!important}
+html[data-theme="light"] .muted,
+html[data-theme="light"] .card p,
+html[data-theme="light"] .panel p{color:#5e686e!important}
+html[data-theme="light"] .btn:not(.btn-primary){background:#f3f0e9!important;color:#1c252a!important;border-color:rgba(31,45,54,.16)!important}
+html[data-theme="light"] input,
+html[data-theme="light"] select,
+html[data-theme="light"] textarea,
+html[data-theme="light"] .input{background:#fffdf8!important;color:#182126!important;border-color:rgba(31,45,54,.18)!important}
+html[data-theme="light"] input::placeholder,
+html[data-theme="light"] textarea::placeholder{color:#7b858b!important}
+
+/* HOME: keep the intentionally dark showcase islands readable in light mode. */
+html[data-theme="light"] body[data-page="home"] .home30-hero,
+html[data-theme="light"] body[data-page="home"] .home30-mobile-section,
+html[data-theme="light"] body[data-page="home"] .home30-final-cta{
+  color:#f5f6f4!important;
+}
+html[data-theme="light"] body[data-page="home"] .home30-hero-copy .hero-line-light{color:#f7f7f4!important}
+html[data-theme="light"] body[data-page="home"] .home30-hero-copy .hero-line-gold{color:#efad3f!important}
+html[data-theme="light"] body[data-page="home"] .home30-hero-copy p,
+html[data-theme="light"] body[data-page="home"] .home30-hero-copy .home30-hero-meta,
+html[data-theme="light"] body[data-page="home"] .home30-mobile-copy p,
+html[data-theme="light"] body[data-page="home"] .home30-mobile-copy li,
+html[data-theme="light"] body[data-page="home"] .home30-final-cta p{color:#c9d0d3!important}
+html[data-theme="light"] body[data-page="home"] .home30-mobile-copy h2,
+html[data-theme="light"] body[data-page="home"] .home30-final-cta h2{color:#f7f7f4!important}
+html[data-theme="light"] body[data-page="home"] .home30-final-cta .btn:not(.btn-primary),
+html[data-theme="light"] body[data-page="home"] .home30-mobile-section .btn:not(.btn-primary){background:#182126!important;color:#f4f5f3!important;border-color:rgba(255,255,255,.18)!important}
+
+/* MATERIALS: light shell + readable typography; board previews stay dark for contrast. */
+html[data-theme="light"] body[data-page="themes"]{background:#efede7!important;color:#182126!important}
+html[data-theme="light"] body[data-page="themes"] .materials-main{color:#182126!important}
+html[data-theme="light"] body[data-page="themes"] .materials-philosophy h2,
+html[data-theme="light"] body[data-page="themes"] .category-head h2,
+html[data-theme="light"] body[data-page="themes"] .pairing-section h2{color:#172027!important}
+html[data-theme="light"] body[data-page="themes"] .materials-philosophy p,
+html[data-theme="light"] body[data-page="themes"] .category-head p,
+html[data-theme="light"] body[data-page="themes"] .pairing-section p,
+html[data-theme="light"] body[data-page="themes"] .materials-consistency-note{color:#58636a!important}
+html[data-theme="light"] body[data-page="themes"] .material-card,
+html[data-theme="light"] body[data-page="themes"] .principle-grid article,
+html[data-theme="light"] body[data-page="themes"] .materials-jumpbar a{background:#fbfaf6!important;color:#182126!important;border-color:rgba(31,45,54,.15)!important}
+html[data-theme="light"] body[data-page="themes"] .material-card-copy strong{color:#182126!important}
+html[data-theme="light"] body[data-page="themes"] .material-card-copy small{color:#68737a!important}
+html[data-theme="light"] body[data-page="themes"] .pairing-section{background:#fbfaf6!important;color:#182126!important}
+html[data-theme="light"] body[data-page="themes"] .materials-footer{color:#5f6a70!important}
+
+/* WATCH: page background must be light, not dark with dark text. */
+html[data-theme="light"] body[data-page="watch"] .watch-page-v1{color:#182126!important}
+html[data-theme="light"] body[data-page="watch"] .watch-head,
+html[data-theme="light"] body[data-page="watch"] .watch-featured,
+html[data-theme="light"] body[data-page="watch"] .watch-game-card,
+html[data-theme="light"] body[data-page="watch"] .watch-benefit-card,
+html[data-theme="light"] body[data-page="watch"] .watch-mobile-note,
+html[data-theme="light"] body[data-page="watch"] .watch-rail-card,
+html[data-theme="light"] body[data-page="watch"] .watch-rail-tabs{background:#fbfaf6!important;color:#182126!important}
+html[data-theme="light"] body[data-page="watch"] .watch-section-head h2,
+html[data-theme="light"] body[data-page="watch"] .watch-feature-copy h2,
+html[data-theme="light"] body[data-page="watch"] .watch-benefit-card h3{color:#182126!important}
+html[data-theme="light"] body[data-page="watch"] .watch-section-head p,
+html[data-theme="light"] body[data-page="watch"] .watch-feature-copy>p,
+html[data-theme="light"] body[data-page="watch"] .watch-benefit-card p{color:#5c676d!important}
+html[data-theme="light"] body[data-page="watch"] .watch-board-shell,
+html[data-theme="light"] body[data-page="watch"] .watch-game-board-wrap,
+html[data-theme="light"] body[data-page="watch"] .watch-benefit-visual{background:linear-gradient(145deg,#eee9df,#d8d1c5)!important}
+html[data-theme="light"] body[data-page="watch"] .watch-game-copy{background:#fbfaf6!important;color:#182126!important}
+html[data-theme="light"] body[data-page="watch"] .watch-player{background:#f5f1e9!important;color:#182126!important}
+html[data-theme="light"] body[data-page="watch"] .watch-board-legend{color:#4f5b61!important}
+
+/* AUTH: right form remains intentionally dark in both themes; keep all copy high-contrast. */
+html[data-theme="light"] body[data-page="login"] .auth-shell-v3,
+html[data-theme="light"] body[data-page="signup"] .auth-shell-v3{background:#10171b!important}
+html[data-theme="light"] body[data-page="login"] .auth-form-wrap,
+html[data-theme="light"] body[data-page="signup"] .auth-form-wrap{background:#10171b!important;color:#f5f6f3!important}
+html[data-theme="light"] body[data-page="login"] .auth-form-wrap h1,
+html[data-theme="light"] body[data-page="signup"] .auth-form-wrap h1{color:#f7f7f4!important}
+html[data-theme="light"] body[data-page="login"] .auth-form-wrap p,
+html[data-theme="light"] body[data-page="signup"] .auth-form-wrap p{color:#aeb9bf!important}
+html[data-theme="light"] body[data-page="login"] .auth-field label,
+html[data-theme="light"] body[data-page="signup"] .auth-field label{color:#d4dadd!important}
+html[data-theme="light"] body[data-page="login"] .auth-field .input,
+html[data-theme="light"] body[data-page="signup"] .auth-field .input{background:#fffdf9!important;color:#182126!important;border-color:rgba(255,255,255,.16)!important}
+html[data-theme="light"] body[data-page="login"] .auth-value-note,
+html[data-theme="light"] body[data-page="signup"] .auth-value-note{background:#f4eee4!important;color:#455057!important}
+html[data-theme="light"] body[data-page="login"] .auth-alt,
+html[data-theme="light"] body[data-page="signup"] .auth-alt{color:#aeb9bf!important}
+html[data-theme="light"] body[data-page="login"] .auth-alt a,
+html[data-theme="light"] body[data-page="signup"] .auth-alt a{background:#f1ece3!important;color:#172027!important}
+html[data-theme="light"] body[data-page="login"] .auth-scene-copy h2,
+html[data-theme="light"] body[data-page="signup"] .auth-scene-copy h2{color:#f2f3f0!important}
+html[data-theme="light"] body[data-page="login"] .auth-scene-copy p,
+html[data-theme="light"] body[data-page="signup"] .auth-scene-copy p{color:#b8c1c6!important}
+html[data-theme="light"] body[data-page="login"] .auth-benefits span,
+html[data-theme="light"] body[data-page="signup"] .auth-benefits span{background:rgba(255,255,255,.12)!important;color:#d4dadd!important;border-color:rgba(255,255,255,.12)!important}
+
+/* Utility pages: explicit light text hierarchy. */
+html[data-theme="light"] body[data-page="ranks"] .rank-page-v1,
+html[data-theme="light"] body[data-page="rules"] .learn-page-v1,
+html[data-theme="light"] body[data-page="survey"] .playtest-page-v1,
+html[data-theme="light"] body[data-page="feedback"] .feedback-page-v1,
+html[data-theme="light"] body[data-page="notifications"] .notifications-page-v1{color:#182126!important}
+html[data-theme="light"] body[data-page="feedback"] .feedback-head h1,
+html[data-theme="light"] body[data-page="notifications"] .notifications-head h1,
+html[data-theme="light"] body[data-page="survey"] .playtest-hero h1,
+html[data-theme="light"] body[data-page="rules"] .learn-hero h1{color:#182126!important}
+html[data-theme="light"] body[data-page="feedback"] .feedback-head p,
+html[data-theme="light"] body[data-page="notifications"] .notifications-head p,
+html[data-theme="light"] body[data-page="survey"] .playtest-hero p,
+html[data-theme="light"] body[data-page="rules"] .learn-hero p{color:#5b666c!important}
+
+/* Generic pages not covered by a dedicated redesign. */
+html[data-theme="light"] body[data-page="games"] .page,
+html[data-theme="light"] body[data-page="players"] .page,
+html[data-theme="light"] body[data-page="profile"] .page{color:#182126!important}

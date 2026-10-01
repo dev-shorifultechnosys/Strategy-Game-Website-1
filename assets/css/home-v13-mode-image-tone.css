@@ -1,0 +1,48 @@
+/* HOME V13 — match-mode image tone only
+   Keeps the approved card layout and artwork unchanged; reduces image dominance
+   so labels, copy and actions remain the visual priority. */
+body[data-page="home"] .home30-mode-card img{
+  filter:saturate(.78) contrast(1.02) brightness(.72)!important;
+  transition:transform .35s ease, filter .35s ease!important;
+}
+body[data-page="home"] .home30-mode-card:nth-child(2) img{
+  filter:saturate(.76) contrast(1.05) brightness(.71)!important;
+}
+body[data-page="home"] .home30-mode-card:nth-child(3) img{
+  filter:saturate(.80) contrast(1.04) brightness(.70)!important;
+}
+body[data-page="home"] .home30-mode-card .mode-card-overlay{
+  background:linear-gradient(
+    180deg,
+    rgba(4,7,10,.12) 0%,
+    rgba(4,7,10,.22) 28%,
+    rgba(4,7,10,.48) 58%,
+    rgba(4,7,10,.94) 84%,
+    rgba(4,7,10,.985) 100%
+  )!important;
+}
+body[data-page="home"] .home30-mode-card:hover img{
+  transform:scale(1.025)!important;
+  filter:saturate(.82) contrast(1.03) brightness(.76)!important;
+}
+body[data-page="home"] .home30-mode-card:nth-child(2):hover img{
+  filter:saturate(.80) contrast(1.06) brightness(.75)!important;
+}
+body[data-page="home"] .home30-mode-card:nth-child(3):hover img{
+  filter:saturate(.84) contrast(1.05) brightness(.74)!important;
+}
+
+/* Light mode keeps the same hierarchy: image remains atmospheric rather than dominant. */
+html[data-theme="light"] body[data-page="home"] .home30-mode-card img{
+  filter:saturate(.72) contrast(1.00) brightness(.76)!important;
+}
+html[data-theme="light"] body[data-page="home"] .home30-mode-card .mode-card-overlay{
+  background:linear-gradient(
+    180deg,
+    rgba(5,8,11,.08) 0%,
+    rgba(5,8,11,.18) 30%,
+    rgba(5,8,11,.44) 58%,
+    rgba(5,8,11,.91) 84%,
+    rgba(5,8,11,.98) 100%
+  )!important;
+}

@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Playtest — Fortress</title>
+  <link rel="stylesheet" href="assets/css/styles.css?v=submission4">
+  <link rel="stylesheet" href="assets/css/survey-v1.css?v=playtest100">
+  <link rel="stylesheet" href="assets/css/light-mode-contrast-v1.css?v=lightfix100">
+</head>
+<body data-page="survey" data-bg="forest">
+<div class="app-shell">
+  <div data-shell></div>
+  <header class="mobile-topbar" data-mobile-top></header>
+
+  <main class="main">
+    <div class="page playtest-v1">
+
+      <section class="card playtest-hero">
+        <div class="playtest-hero-copy">
+          <div class="eyebrow">Playtest feedback</div>
+          <h1>Help us make every move clearer.</h1>
+          <p>Share your experience in a quick four-step playtest. Your answers help us improve tactical clarity, pacing and the moments that matter most.</p>
+          <div class="playtest-meta">
+            <span><b>4</b> focused steps</span>
+            <span><b>~3 min</b> to complete</span>
+            <span><i></i> saved locally in this prototype</span>
+          </div>
+        </div>
+        <div class="playtest-time-card">
+          <div class="time-card-icon" aria-hidden="true">✓</div>
+          <span>Estimated time</span>
+          <strong>~3 min</strong>
+          <small>Clear, compact, no account required</small>
+          <div class="time-card-points">
+            <b>4 focused steps</b>
+            <b>Auto-saved locally</b>
+          </div>
+        </div>
+      </section>
+
+      <section class="playtest-flow" aria-label="Playtest progress">
+        <div class="survey-progress" data-survey-progress>
+          <button class="active" type="button" data-survey-jump="0"><span>01</span><b>Player</b><small>Background</small></button>
+          <button type="button" data-survey-jump="1"><span>02</span><b>Clarity</b><small>Game state</small></button>
+          <button type="button" data-survey-jump="2"><span>03</span><b>Enjoyment</b><small>Pacing</small></button>
+          <button type="button" data-survey-jump="3"><span>04</span><b>Final</b><small>Feedback</small></button>
+        </div>
+        <div class="playtest-progress-line"><span data-playtest-line style="width:25%"></span></div>
+      </section>
+
+      <form class="card form-card survey-wizard playtest-form" data-survey-wizard>
+        <div class="playtest-form-top">
+          <div>
+            <div class="eyebrow">Playtest session</div>
+            <strong data-playtest-heading>Player background</strong>
+          </div>
+          <span class="playtest-step-badge" data-playtest-badge>Step 1 / 4</span>
+        </div>
+
+        <section class="survey-step active" data-survey-step="0">
+          <div class="survey-section-label survey-section-label-compact">
+            <span>01</span>
+            <div>
+              <strong>About you</strong>
+              <small>Tell us what you played before Fortress.</small>
+            </div>
+          </div>
+
+          <fieldset class="question-card">
+            <legend>What best describes your background with chess or strategy games?<em>Required</em></legend>
+            <div class="radio-row choice-grid">
+              <label class="choice"><input type="radio" name="background" value="regular" required><span class="choice-mark"></span><span><b>Regular chess player</b><small>I regularly play chess online or in person.</small></span></label>
+              <label class="choice"><input type="radio" name="background" value="know"><span class="choice-mark"></span><span><b>Know chess well</b><small>I know chess well, but don’t play it regularly.</small></span></label>
+              <label class="choice"><input type="radio" name="background" value="strategy"><span class="choice-mark"></span><span><b>Strategy-game player</b><small>I play other strategy games, but not much chess.</small></span></label>
+              <label class="choice"><input type="radio" name="background" value="casual"><span class="choice-mark"></span><span><b>Casual player</b><small>I play games casually, but not many strategy games.</small></span></label>
+              <label class="choice"><input type="radio" name="background" value="little"><span class="choice-mark"></span><span><b>New to this style</b><small>I have little experience with chess or strategy games.</small></span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="question-card">
+            <legend>Which AI opponent(s) or game modes did you try?<em>Select any</em></legend>
+            <div class="check-row mode-grid">
+              <label class="choice mode-choice"><input type="checkbox" name="modes" value="easy"><span class="choice-mark square"></span><span><b>Easy bot</b><small>Aria · Maya</small></span><span class="mode-pill">Practice</span></label>
+              <label class="choice mode-choice"><input type="checkbox" name="modes" value="medium"><span class="choice-mark square"></span><span><b>Medium bot</b><small>Nova · Kai</small></span><span class="mode-pill">Practice</span></label>
+              <label class="choice mode-choice"><input type="checkbox" name="modes" value="hard"><span class="choice-mark square"></span><span><b>Hard bot</b><small>Zen · Vex</small></span><span class="mode-pill">Practice</span></label>
+              <label class="choice mode-choice"><input type="checkbox" name="modes" value="quick"><span class="choice-mark square"></span><span><b>Quick play</b><small>Ranked or casual matchmaking</small></span><span class="mode-pill cyan">Online</span></label>
+              <label class="choice mode-choice"><input type="checkbox" name="modes" value="private"><span class="choice-mark square"></span><span><b>Private room</b><small>Friend match / join code</small></span><span class="mode-pill cyan">Online</span></label>
+              <label class="choice mode-choice"><input type="checkbox" name="modes" value="unsure"><span class="choice-mark square"></span><span><b>I’m not sure</b><small>I don’t remember the mode.</small></span><span class="mode-pill subtle">Optional</span></label>
+            </div>
+          </fieldset>
+        </section>
+
+        <section class="survey-step" data-survey-step="1">
+          <div class="survey-section-label">
+            <span>02</span>
+            <div>
+              <strong>Gameplay clarity</strong>
+              <small>Movement, combat and information comprehension.</small>
+            </div>
+          </div>
+
+          <div class="tactical-key">
+            <span><i class="legal"></i>Legal move</span>
+            <span><i class="selected"></i>Selected</span>
+            <span><i class="attack"></i>Attack</span>
+            <span><i class="support"></i>Support</span>
+          </div>
+
+          <fieldset class="question-card scale-question">
+            <legend>After your first game, how clearly did you understand the rules?<em>Required</em></legend>
+            <div class="scale scale-js" data-scale="rules"></div>
+            <div class="scale-caption"><span>Very unclear</span><span>Very clear</span></div>
+          </fieldset>
+
+          <fieldset class="question-card scale-question">
+            <legend>During play, how often did your moves feel like meaningful strategic decisions?<em>Required</em></legend>
+            <div class="scale scale-js" data-scale="meaningful"></div>
+            <div class="scale-caption"><span>Never</span><span>Always</span></div>
+          </fieldset>
+
+          <fieldset class="question-card scale-question">
+            <legend>Before confirming, how often could you predict how combat would resolve?<em>Required</em></legend>
+            <div class="scale scale-js" data-scale="predict"></div>
+            <div class="scale-caption"><span>Never</span><span>Always</span></div>
+          </fieldset>
+
+          <fieldset class="question-card">
+            <legend>Which parts of the game were confusing, if any?<em>Select any</em></legend>
+            <div class="check-row compact-check-grid">
+              <label class="choice"><input type="checkbox" name="confusing" value="none"><span class="choice-mark square"></span><span><b>Nothing</b><small>The game made sense.</small></span></label>
+              <label class="choice"><input type="checkbox" name="confusing" value="move"><span class="choice-mark square"></span><span><b>Movement</b><small>How pieces moved.</small></span></label>
+              <label class="choice"><input type="checkbox" name="confusing" value="support"><span class="choice-mark square"></span><span><b>Support</b><small>How nearby allies changed strength.</small></span></label>
+              <label class="choice"><input type="checkbox" name="confusing" value="combat"><span class="choice-mark square"></span><span><b>Combat</b><small>How combat resolved.</small></span></label>
+              <label class="choice"><input type="checkbox" name="confusing" value="accept"><span class="choice-mark square"></span><span><b>Confirming</b><small>When or why to confirm.</small></span></label>
+              <label class="choice"><input type="checkbox" name="confusing" value="turn"><span class="choice-mark square"></span><span><b>Turn state</b><small>When it was my turn.</small></span></label>
+              <label class="choice"><input type="checkbox" name="confusing" value="colors"><span class="choice-mark square"></span><span><b>Highlights</b><small>What the colors meant.</small></span></label>
+              <label class="choice"><input type="checkbox" name="confusing" value="legal"><span class="choice-mark square"></span><span><b>Legal moves</b><small>Which moves were available.</small></span></label>
+              <label class="choice"><input type="checkbox" name="confusing" value="win"><span class="choice-mark square"></span><span><b>Winning</b><small>How to finish the match.</small></span></label>
+              <label class="choice"><input type="checkbox" name="confusing" value="other"><span class="choice-mark square"></span><span><b>Other</b><small>Something else felt unclear.</small></span></label>
+            </div>
+          </fieldset>
+        </section>
+
+        <section class="survey-step" data-survey-step="2">
+          <div class="survey-section-label">
+            <span>03</span>
+            <div>
+              <strong>Enjoyment & replay</strong>
+              <small>How the match felt, how fast it moved and whether you would return.</small>
+            </div>
+          </div>
+
+          <fieldset class="question-card scale-question">
+            <legend>How enjoyable was the game overall?<em>Required</em></legend>
+            <div class="scale scale-js" data-scale="enjoyable"></div>
+            <div class="scale-caption"><span>Not enjoyable</span><span>Very enjoyable</span></div>
+          </fieldset>
+
+          <fieldset class="question-card scale-question">
+            <legend>If you had the opportunity, would you play Fortress again?<em>Required</em></legend>
+            <div class="scale scale-js" data-scale="play_again"></div>
+            <div class="scale-caption"><span>Definitely would not</span><span>Definitely would</span></div>
+          </fieldset>
+
+          <fieldset class="question-card">
+            <legend>How did the match pace feel?<em>Select one</em></legend>
+            <div class="radio-row pace-grid">
+              <label class="choice"><input type="radio" name="pace" value="slow"><span class="choice-mark"></span><span><b>Too slow</b><small>I wanted decisions to resolve faster.</small></span></label>
+              <label class="choice"><input type="radio" name="pace" value="balanced"><span class="choice-mark"></span><span><b>Balanced</b><small>The pace gave me enough time to think.</small></span></label>
+              <label class="choice"><input type="radio" name="pace" value="fast"><span class="choice-mark"></span><span><b>Too fast</b><small>I needed more time to read the position.</small></span></label>
+            </div>
+          </fieldset>
+        </section>
+
+        <section class="survey-step" data-survey-step="3">
+          <div class="survey-section-label">
+            <span>04</span>
+            <div>
+              <strong>Final feedback</strong>
+              <small>Connection quality, one improvement and one thing worth keeping.</small>
+            </div>
+          </div>
+
+          <fieldset class="question-card">
+            <legend>If you used Quick Play or a Private Room, how smoothly did it connect you to a game?</legend>
+            <div class="radio-row connection-grid">
+              <label class="choice"><input type="radio" name="connection" value="smooth"><span class="choice-mark"></span><span><b>Very smooth</b><small>No issues.</small></span></label>
+              <label class="choice"><input type="radio" name="connection" value="mostly"><span class="choice-mark"></span><span><b>Mostly smooth</b><small>Minor delay or confusion.</small></span></label>
+              <label class="choice"><input type="radio" name="connection" value="confusing"><span class="choice-mark"></span><span><b>Worked, but confusing</b><small>I got in, but the flow was unclear.</small></span></label>
+              <label class="choice"><input type="radio" name="connection" value="problems"><span class="choice-mark"></span><span><b>Connection problems</b><small>I experienced errors or delay.</small></span></label>
+              <label class="choice"><input type="radio" name="connection" value="failed"><span class="choice-mark"></span><span><b>Could not connect</b><small>I could not get into a game.</small></span></label>
+              <label class="choice"><input type="radio" name="connection" value="not-used"><span class="choice-mark"></span><span><b>Not used</b><small>I did not try online play.</small></span></label>
+            </div>
+          </fieldset>
+
+          <div class="field-row feedback-fields">
+            <div class="feedback-field">
+              <label for="improve"><span>Most important improvement</span><small>What is one thing you would most want changed?</small></label>
+              <textarea id="improve" name="improve" rows="5" maxlength="600" placeholder="What would make Fortress clearer or more enjoyable?"></textarea>
+              <span class="char-count" data-count-for="improve">0 / 600</span>
+            </div>
+            <div class="feedback-field">
+              <label for="keep"><span>Definitely keep</span><small>What already feels strong?</small></label>
+              <textarea id="keep" name="keep" rows="5" maxlength="600" placeholder="What should stay exactly as it is?"></textarea>
+              <span class="char-count" data-count-for="keep">0 / 600</span>
+            </div>
+          </div>
+
+          <fieldset class="question-card followup-card">
+            <legend>Would you be open to answering follow-up questions or testing again later?<em>Required</em></legend>
+            <div class="radio-row followup-grid">
+              <label class="choice"><input type="radio" name="followup" value="yes" required><span class="choice-mark"></span><span><b>Yes</b><small>I’m open to another playtest.</small></span></label>
+              <label class="choice"><input type="radio" name="followup" value="no"><span class="choice-mark"></span><span><b>No</b><small>Not right now.</small></span></label>
+            </div>
+          </fieldset>
+
+          <div class="review-note">
+            <span class="review-icon">✓</span>
+            <div><b>Ready when you are.</b><small>Your feedback is saved locally in this prototype and can be wired to the production endpoint later.</small></div>
+          </div>
+        </section>
+
+        <div class="survey-actions">
+          <button class="btn" type="button" data-survey-back disabled>← Back</button>
+          <div class="survey-action-status">
+            <strong data-survey-status>Step 1 of 4</strong>
+            <span data-playtest-hint>Choose the required answer to continue</span>
+          </div>
+          <button class="btn btn-primary" type="button" data-survey-next>Next →</button>
+          <button class="btn btn-primary" type="submit" data-survey-submit hidden>Submit feedback</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <aside class="right-rail" data-right-rail></aside>
+  <nav class="mobile-bottom-nav" data-mobile-bottom></nav>
+</div>
+
+<script src="assets/js/app.js?v=submission4"></script>
+<script src="assets/js/pages.js?v=submission4"></script>
+<script src="assets/js/survey-v1.js?v=playtest100"></script>
+</body>
+</html>

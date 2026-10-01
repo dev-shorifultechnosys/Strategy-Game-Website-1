@@ -1,0 +1,47 @@
+/* Fortress Home V11 — final submission lock
+   Small, isolated overrides only. Keeps the approved V10 structure intact. */
+
+/* Hero headline: requested split treatment.
+   Dark mode = white first statement, Fortress gold second statement. */
+.home30-hero-copy h1 .hero-line-light{
+  color:#f7f5f0!important;
+}
+.home30-hero-copy h1 .hero-line-gold{
+  color:#efb050!important;
+}
+
+/* Maintain accessible contrast when the full site is switched to light mode. */
+html[data-theme="light"] .home30-hero-copy h1 .hero-line-light{
+  color:#171b1e!important;
+}
+html[data-theme="light"] .home30-hero-copy h1 .hero-line-gold{
+  color:#b66b10!important;
+}
+
+/* Preserve the deliberate two-line hierarchy without the lines visually colliding. */
+.home30-hero-copy h1{
+  line-height:1!important;
+}
+.home30-hero-copy h1 .hero-line-gold{
+  margin-top:.105em!important;
+}
+
+/* Legal-state markers remain mathematically centered in every home-board preview. */
+.home30-board-wrap .home-board-preview .hex.legal::after,
+.live-board-mini .mini-game-cell.legal::after{
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  right:auto!important;
+  bottom:auto!important;
+  transform:translate(-50%,-50%)!important;
+  margin:0!important;
+}
+
+/* Small responsive type safeguard for the large hero headline. */
+@media(max-width:900px){
+  .home30-hero-copy h1 .hero-line-gold{margin-top:.09em!important}
+}
+@media(max-width:620px){
+  .home30-hero-copy h1 .hero-line-gold{margin-top:.085em!important}
+}

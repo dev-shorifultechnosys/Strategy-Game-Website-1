@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Login — Fortress</title>
+  <link rel="stylesheet" href="assets/css/styles.css?v=submission4">
+  <link rel="stylesheet" href="assets/css/auth-v1.css?v=auth100">
+  <link rel="stylesheet" href="assets/css/light-mode-contrast-v1.css?v=lightfix100">
+</head>
+<body data-page="login" data-bg="gunmetal">
+<div class="app-shell">
+  <div data-shell></div>
+  <header class="mobile-topbar" data-mobile-top></header>
+
+  <main class="main full">
+    <div class="auth-shell-v3">
+      <section class="auth-scene auth-scene-login" aria-label="Fortress account benefits">
+        <div class="auth-scene-pattern" aria-hidden="true"></div>
+        <div class="auth-scene-copy">
+          <div class="eyebrow">Return to the ladder</div>
+          <h2>Every move<br>should be<br>readable.</h2>
+          <p>Pick up your matches, board preferences and competitive progress from one focused account.</p>
+          <div class="auth-benefits" aria-label="Account benefits">
+            <span>Resume matches</span>
+            <span>Keep ratings</span>
+            <span>Sync board preferences</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="auth-form-wrap">
+        <form class="auth-card-v3 form-grid" data-auth-form="login" novalidate>
+          <div class="auth-title">
+            <div class="eyebrow">Welcome back</div>
+            <h1>Login</h1>
+            <p class="muted">Sign in to continue your games, rankings and preferences.</p>
+          </div>
+
+          <div class="auth-value-note">
+            <span class="auth-value-dot"></span>
+            Resume matches, ratings and board preferences.
+          </div>
+
+          <div class="auth-field">
+            <label for="email">Email</label>
+            <input class="input" id="email" name="email" type="email" autocomplete="email"
+              placeholder="you@example.com" required>
+            <small class="field-error" data-error-for="email"></small>
+          </div>
+
+          <div class="auth-field">
+            <div class="field-label-row">
+              <label for="password">Password</label>
+              <a href="#" class="field-link" data-demo-action="Password reset demo requested">Forgot password?</a>
+            </div>
+            <div class="password-wrap">
+              <input class="input" id="password" name="password" type="password"
+                autocomplete="current-password" placeholder="Enter your password" minlength="8" required>
+              <button class="password-toggle" type="button" aria-label="Show password" data-password-toggle="password">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.4-5 9.5-5 9.5 5 9.5 5-3.4 5-9.5 5-9.5-5-9.5-5Z"/><circle cx="12" cy="12" r="2.5"/></svg>
+              </button>
+            </div>
+            <small class="field-error" data-error-for="password"></small>
+          </div>
+
+          <button class="btn btn-primary auth-submit" type="submit">
+            <span>Login</span><b aria-hidden="true">→</b>
+          </button>
+
+          <div class="auth-alt">
+            <span>New to Fortress?</span>
+            <a href="signup.html">Create account</a>
+          </div>
+
+          <div class="auth-form-status" data-auth-status aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <nav class="mobile-bottom-nav" data-mobile-bottom></nav>
+</div>
+
+<script src="assets/js/app.js?v=submission4"></script>
+<script src="assets/js/pages.js?v=submission4"></script>
+<script src="assets/js/auth-v1.js?v=auth100"></script>
+</body>
+</html>

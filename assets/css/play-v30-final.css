@@ -1,0 +1,99 @@
+/* Fortress Play V3.0 — Home/Materials-aligned final gameplay pass. */
+
+body[data-page="play"] .appearance-quick-card{
+  display:grid!important;
+  gap:10px!important;
+}
+body[data-page="play"] .appearance-manage-link{
+  color:#efb24c!important;
+  font-size:11px!important;
+  font-weight:800!important;
+  text-decoration:none!important;
+  letter-spacing:.02em!important;
+}
+body[data-page="play"] .appearance-manage-link:hover{text-decoration:underline!important}
+body[data-page="play"] .appearance-field{display:grid!important;gap:5px!important}
+body[data-page="play"] .appearance-field>span{
+  color:rgba(231,235,238,.64)!important;
+  font-size:10px!important;
+  font-weight:700!important;
+  text-transform:uppercase!important;
+  letter-spacing:.08em!important;
+}
+body[data-page="play"] .appearance-select{
+  width:100%!important;
+  min-height:42px!important;
+  border-radius:11px!important;
+  border:1px solid rgba(255,255,255,.09)!important;
+  background:#151b20!important;
+  color:#eef1f2!important;
+  padding:0 34px 0 11px!important;
+  font:inherit!important;
+  font-size:12px!important;
+  font-weight:700!important;
+  outline:none!important;
+}
+body[data-page="play"] .appearance-select:focus{
+  border-color:#58dce9!important;
+  box-shadow:0 0 0 3px rgba(88,220,233,.09)!important;
+}
+body[data-page="play"] .appearance-mode-btn{
+  min-height:42px!important;
+  width:100%!important;
+  justify-content:center!important;
+}
+
+/* Keep the board primary and reduce secondary rail density. */
+body[data-page="play"] .tactical-panel{gap:12px!important}
+body[data-page="play"] .panel-section{padding:15px!important}
+body[data-page="play"] .match-log-card .log{max-height:128px!important}
+
+/* Stronger semantic tactical states, matching Materials page. */
+body[data-page="play"] .board-arena .hex.legal::before{
+  box-shadow:inset 0 0 0 2px rgba(84,224,237,.92), inset 0 0 18px rgba(84,224,237,.10)!important;
+}
+body[data-page="play"] .board-arena .hex.selected::before{
+  box-shadow:inset 0 0 0 2px rgba(241,180,72,.96), inset 0 0 16px rgba(241,180,72,.11)!important;
+}
+body[data-page="play"] .board-arena .hex.attack::before{
+  box-shadow:inset 0 0 0 2px rgba(241,96,108,.94), inset 0 0 16px rgba(241,96,108,.12)!important;
+}
+body[data-page="play"] .board-arena .hex.support::after{
+  background:#68d7a4!important;
+  box-shadow:0 0 0 3px rgba(104,215,164,.10)!important;
+}
+
+/* Accessibility: color is never the only interaction cue. */
+body[data-page="play"] .board-arena .hex.attack::after{
+  content:"×"!important;
+  display:grid!important;
+  place-items:center!important;
+  color:#ffe8eb!important;
+  font-size:11px!important;
+  font-weight:900!important;
+}
+
+/* Light mode — deliberate controls and panel contrast. */
+html[data-theme="light"] body[data-page="play"] .appearance-field>span{color:#626b70!important}
+html[data-theme="light"] body[data-page="play"] .appearance-select{
+  background:#f4f1ea!important;
+  color:#20272b!important;
+  border-color:rgba(25,31,35,.16)!important;
+}
+
+@media (max-width:1180px){
+  body[data-page="play"] .game-layout{grid-template-columns:minmax(0,1fr) 276px!important}
+}
+@media (max-width:900px){
+  body[data-page="play"] .tactical-panel{grid-template-columns:1fr 1fr!important}
+  body[data-page="play"] .appearance-quick-card{grid-column:1/-1!important;grid-template-columns:1fr 1fr!important}
+  body[data-page="play"] .appearance-quick-card .panel-kicker{grid-column:1/-1!important}
+  body[data-page="play"] .appearance-mode-btn{grid-column:1/-1!important;min-height:46px!important}
+}
+@media (max-width:560px){
+  body[data-page="play"] .tactical-panel{grid-template-columns:1fr!important}
+  body[data-page="play"] .appearance-quick-card{grid-template-columns:1fr!important}
+  body[data-page="play"] .appearance-select,
+  body[data-page="play"] .appearance-mode-btn{min-height:48px!important;font-size:13px!important}
+  body[data-page="play"] .appearance-field>span{font-size:10px!important}
+}
